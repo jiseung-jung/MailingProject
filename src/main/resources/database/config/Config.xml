@@ -6,5 +6,6 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="java.lang.Long" alias="Long"/>
+		<typeAlias type="com.newneek.j1.member.MemberVO" alias="MemberVO"/>
 	</typeAliases>  
 </configuration>

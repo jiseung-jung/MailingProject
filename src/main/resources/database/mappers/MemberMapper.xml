@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+    
+    <mapper namespace="com.newneek.j1.member.MemberMapper">
+    
+    	<insert id="setMemberJoin" parameterType="MemberVO">
+    		insert into member (email, pw, name, mailCheck)
+    		values (#{email}, #{pw}, #{name}, 0)
+    	</insert>
+    	
+    	<insert id="setMemberSub" parameterType="MemberVO">
+    		insert into member(email, name, mailCheck)
+    		values (#{email}, #{name}, 1)
+    	</insert>
+    	
+    	<update id="setMemberUpdate" parameterType="MemberVO">
+    		update member set pw=#{pw}, name=#{name}, mailCheck=#{mailCheck} 
+    		where email=#{email}
+    	</update>
+    
+    </mapper>
