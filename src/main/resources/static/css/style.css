@@ -1,0 +1,269 @@
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+/* reset css */
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+button,
+input,
+textarea {
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+}
+
+button:focus,
+button:active,
+input:focus,
+input:actice,
+textarea:focus,
+textarea:active {
+	outline: none;
+	box-shadow: none;
+}
+
+ul,
+ol,
+li {
+	list-style-type: none;
+	padding-left: 0;
+	margin-left: 0;
+}
+
+section {
+	background: #ebebeb;
+}
+
+p {
+	font-size: 16px;
+	line-height: 1.5;
+	letter-spacing: -0.01em;
+}
+
+/* header */
+.header-top {
+	margin-top: 10px;
+	height: 16px;
+	background: linear-gradient(-45deg,#ebebeb 11px,transparent 0),linear-gradient(45deg,#ebebeb 11px,transparent 0);
+	background-size: 16px 16px;
+    background-repeat: repeat-x;
+}
+
+header {
+	background: #ebebeb;
+	height: 125px;
+	display: flex;
+	align-content: center;
+	align-items: center;
+	border-bottom: 1px #000 solid;
+}
+
+.header-contents {
+	width: 80%;
+	height: 45px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	align-content: center;
+}
+
+.header-nav {
+	display: flex;
+}
+
+.header-nav li {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 48px;
+	height: 48px;
+	border: 1px #000 solid;
+}
+
+.dropdown-item {
+	font-size: 14px;
+	font-weight: 600;
+	letter-spacing: -0.01em;
+	margin: 5px 0;
+	color: #000;
+	text-align: right;
+}
+
+.icon {
+	font-size: 20px;
+	padding: 0;
+}
+
+.logo {
+	width: 180px;
+}
+
+/* mail service */
+.head-title {
+	font-size: 34px;
+	font-weight: 700;
+    letter-spacing: -0.04em;
+    text-align: center;
+    padding: 14px 0px;
+    margin: 0;
+    border-bottom: 1px #000 solid;
+    background: #ebebeb;
+}
+
+.subscribe {
+	display: flex;
+	flex-direction: column;	
+	flex-wrap: wrap;
+}
+
+.subscribe-items {
+	width: 400px;
+	padding: 11px 40px 12px 1.5rem;
+	margin-bottom: 10px;
+}
+
+.subscribe-chk {
+	margin: 5px 0 10px 0;
+}
+
+.subscribe-chk a {
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.service {
+	background: #fb7800;
+	height: 390px;
+	overflow: hidden;
+}
+
+.mail-service {
+	margin-top: 25px;
+} 
+
+.mail-service p {
+	font-size: 15px;
+	font-weight: 600;
+	line-height: 2;
+	letter-spacing: -0.02em;
+}
+
+.subscribe-chk a{
+	text-decoration: none;
+}
+
+.subscribe-btn {
+	width: 190px;
+	height: 50px;
+	background: #161616;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 500;
+	letter-spacing: -0.02em;
+}
+
+.intro {
+	display: flex;
+	justify-content: space-between;
+}
+
+.intro-gosum img {
+	width: 480px;
+}
+
+/*news nav*/
+.news-item {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50px;
+	margin: 0;
+}
+
+.news-link {
+	text-decoration: none;
+	font-size: 15px;
+	font-weight: 700;
+	padding: 17.5px 0px;
+	margin: 0px 14px
+}
+/* main news */
+.posts {
+	display: flex;
+	flex-wrap: wrap;
+	height: 345px;
+}
+
+.card {
+	display: block;
+	width: 33.3333%;
+	height: auto !important;
+	border: 1px #000 solid;
+}
+
+/* footer */
+footer {
+	display: flex;
+	justify-content: space-evenly;
+	background: #ebebeb;
+	border-top: 1px #000 solid;
+	padding: 30px 0;
+}
+
+#ft_util p{
+	float: left;
+	padding-right: 8px;
+    margin-right: 7px;
+    letter-spacing: -0.4px;
+    font-size: 0.8rem;
+    
+}
+
+.footer-left h2{
+	margin-top: 15px;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 2;
+}
+
+/* >=768px Desktop */
+@media screen and (min-width : 768px){
+p {
+	font-size: 12px;
+}
+
+.icon {
+	font-size: 30px;
+}
+
+.logo {
+	width: 220px;
+}
+
+.card {
+	width: 25%;
+	height: auto !important;
+	border: 1px #000 solid;
+}
+
+}
+/**/
+@media screen and (min-width: 1200px) {
+.container {
+	max-width: 1100px !important;
+}
+
+.news-container{
+	max-width: 1360px !important;
+}
+}
