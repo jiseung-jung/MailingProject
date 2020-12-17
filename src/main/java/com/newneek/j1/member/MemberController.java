@@ -60,5 +60,24 @@ public class MemberController {
 		return mv;
 	}
 	
+	
+	@GetMapping("emailCheck")
+	public ModelAndView emailCheck(MemberVO memberVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		memberVO = memberService.emailCheck(memberVO);
+		
+		int result = 0;
+		
+		if(memberVO != null) {
+			result = 1;
+		}
+		
+		mv.addObject("msg", result);
+		mv.setViewName("common/ajaxResult");
+		
+		return mv;
+	}
+	
 
 }

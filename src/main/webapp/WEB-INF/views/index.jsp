@@ -17,14 +17,14 @@
 	<div class="row">
 		<div class="col-12 intro">
 			<div class="mail-service col-md-7">
-				<p>✨지금 <strong>264,368</strong>명이 뉴닉을 읽고 있어요.</p>
+				<p>✨지금 <strong>${count}</strong>명이 뉴닉을 읽고 있어요.</p>
 				<p>세상 돌아가는 소식, 알고는 싶지만 신문 볼 새 없이 바쁜 게 우리 탓은 아니잖아요! <br>
 				월/수/금 아침마다 세상 돌아가는 소식을 메일로 받아보세요.</p>
-				<form class="subscribe">
-					<input type="text" name="email" placeholder="이메일 주소" class="subscribe-items">
-					<input type="text" name="nickname" placeholder="닉네임" class="subscribe-items">
+				<form action="./member/memberSub" class="subscribe" method="post">
+					<input type="text" name="email" id="email" placeholder="이메일 주소" class="subscribe-items">
+					<input type="text" name="name" id="name" placeholder="닉네임" class="subscribe-items">
 					<div class="subscribe-chk">
-						<input type="checkbox"/><a href="#"> 개인정보수집 및 이용약관에 동의합니다</a>
+						<input type="checkbox" id="check"/><a href="#"> 개인정보수집 및 이용약관에 동의합니다</a>
 					</div>
 					<button class="subscribe-btn">뉴스레터 무료로 구독하기</button>
 				</form>
@@ -68,5 +68,68 @@
 </div>		
 </section>
 <c:import url="./template/footer.jsp"></c:import>	
+
+
+<!-- **************************** Script **************************** -->
+
+<script type="text/javascript">
+
+
+/********* email check  ********/
+$("#email").blur(function(){
+	idCheck=false;
+	var id = $(this).val();
+	if(id!=''){
+		
+		$.ajax({
+			url : "./memberIdCheck",
+			type : "GET",
+			data : {id:id},
+			success : function(data){
+				data=data.trim();
+				var str = "중복된 ID 입니다";
+				
+				$("#idResult").removeClass("idCheck0").addClass("idCheck1");
+				if(id==''){
+					str= "ID를 입력하세요";
+				}else if(data==0){
+					str="사용 가능한 ID 입니다"
+					$("#idResult").removeClass("idCheck1").addClass("idCheck0");
+					idCheck=true;
+				}
+				
+				$("#idResult").html(str);
+				
+			}
+		});
+		
+		
+	}});
+
+
+
+	var email = $("#email").val();
+	var name = $("#name").val();
+
+	$(".subscribe-btn").click(function(){
+		
+		   if($("#check").is(":checked") == false){
+			   alert("개인정보수집 및 이용약관 동의는 필수입니다.");
+			   return false;
+		   }else if(email == ''){
+				alert("이메일은 필수항목 입니다.")	
+				return false;
+		   }else if(name == ''){
+				alert("닉네임은 필수항목 입니다.")
+				return false;
+		   }else if(email == '' && name == ''){
+				alert("이메일과 닉네임을 입력해 주세요.")
+				return false;
+		   }
+
+			});
+	
+</script>
+
 </body>
 </html>

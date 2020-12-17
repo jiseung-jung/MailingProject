@@ -10,4 +10,8 @@ public interface MemberMapper {
 	public int setMemberSub(MemberVO memberVO) throws Exception;
 	
 	public int setMemberUpdate(MemberVO memberVO) throws Exception;
+	
+	public MemberVO emailCheck(MemberVO memberVO) throws Exception;
+	
+	public long getMemberCount(MemberVO memberVO) throws Exception;
 }

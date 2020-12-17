@@ -16,9 +16,17 @@
     		values (#{email}, #{name}, 1)
     	</insert>
     	
+    	<select id="emailCheck" parameterType="MemberVO" resultType="MemberVO">
+    		select id from member where email=#{email}
+    	</select>
+    	
     	<update id="setMemberUpdate" parameterType="MemberVO">
     		update member set pw=#{pw}, name=#{name}, mailCheck=#{mailCheck} 
     		where email=#{email}
     	</update>
+    	
+    	<select id="getMemberCount" parameterType="MemberVO" resultType="Long">
+    		select count(email) from member
+    	</select>
     
     </mapper>

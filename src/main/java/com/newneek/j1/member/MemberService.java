@@ -21,5 +21,13 @@ public class MemberService {
 	public int setMemberUpdate(MemberVO memberVO) throws Exception{
 		return memberMapper.setMemberUpdate(memberVO);
 	}
+	
+	public MemberVO emailCheck(MemberVO memberVO) throws Exception{
+		return memberMapper.emailCheck(memberVO);
+	}
+	
+	public long getMemberCount(MemberVO memberVO) throws Exception{
+		return memberMapper.getMemberCount(memberVO);
+	}
 
 }
