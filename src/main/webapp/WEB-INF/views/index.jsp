@@ -76,6 +76,8 @@
 
 
 /********* email check  ********/
+ 
+/* 
 $("#email").blur(function(){
 	idCheck=false;
 	var id = $(this).val();
@@ -106,28 +108,22 @@ $("#email").blur(function(){
 		
 	}});
 
-
+*/
 
 	var email = $("#email").val();
 	var name = $("#name").val();
 
 	$(".subscribe-btn").click(function(){
 		
-		   if($("#check").is(":checked") == false){
+		if(email == '' || name == ''){
+			alert("이메일과 닉네임은 필수항목 입니다.")
+			return false;
+	    }else if($("#check").is(":checked") == false){
 			   alert("개인정보수집 및 이용약관 동의는 필수입니다.");
 			   return false;
-		   }else if(email == ''){
-				alert("이메일은 필수항목 입니다.")	
-				return false;
-		   }else if(name == ''){
-				alert("닉네임은 필수항목 입니다.")
-				return false;
-		   }else if(email == '' && name == ''){
-				alert("이메일과 닉네임을 입력해 주세요.")
-				return false;
-		   }
-
-			});
+		}
+		   
+	 });
 	
 </script>
 

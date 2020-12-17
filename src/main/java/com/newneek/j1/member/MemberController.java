@@ -19,7 +19,13 @@ public class MemberController {
 	
 	
 	@GetMapping("memberJoin")
-	public void setMemberJoin() throws Exception{}
+	public ModelAndView setMemberJoin() throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("member/memberJoin");
+		
+		return mv;
+	}
 	
 	@PostMapping("memberJoin")
 	public ModelAndView setMemberJoin(MemberVO memberVO) throws Exception{
