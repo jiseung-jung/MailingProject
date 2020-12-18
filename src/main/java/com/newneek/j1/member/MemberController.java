@@ -1,12 +1,15 @@
 package com.newneek.j1.member;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
 
 @Controller
 @RequestMapping("/member/**")
@@ -19,7 +22,7 @@ public class MemberController {
 	
 	
 	@GetMapping("memberJoin")
-	public ModelAndView setMemberJoin() throws Exception{
+	public ModelAndView setMemberJoin(MemberVO memberVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
 		mv.setViewName("member/memberJoin");
@@ -28,8 +31,14 @@ public class MemberController {
 	}
 	
 	@PostMapping("memberJoin")
-	public ModelAndView setMemberJoin(MemberVO memberVO) throws Exception{
+	public ModelAndView setMemberJoin(@Valid MemberVO memberVO, BindingResult bindingResult) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		
+		if(memberService.getMemberError(memberVO, bindingResult)) {
+			mv.setViewName("member/memberJoin");
+			return mv;
+		}
+		
 		
 		int result = memberService.setMemberJoin(memberVO);
 		

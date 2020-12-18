@@ -17,7 +17,7 @@
     	</insert>
     	
     	<select id="emailCheck" parameterType="MemberVO" resultType="MemberVO">
-    		select id from member where email=#{email}
+    		select email from member where email=#{email}
     	</select>
     	
     	<update id="setMemberUpdate" parameterType="MemberVO">
