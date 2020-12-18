@@ -47,13 +47,19 @@
 	#checkbox{
 		width: 100%;
 		margin-top: 20px;
-		font-weight: bold;
+		font-weight: 600;
 		float: left;
 	}
 	
 	#checkbox input{
 		transform : scale(1.5);
-		margin: 0 10px 20px 5px;;
+		margin: 0 10px 20px 3px;
+	}
+	
+	#checkbox span{
+		float: right;
+		text-decoration: underline;
+		cursor: pointer;
 	}
 	
 	#JoinBtn{
@@ -72,7 +78,7 @@
 
 <div id="JoinContainer">
 
-<form action="" id="JoinForm">
+<form action="./memberJoin" id="JoinForm" method="post">
 	<div id="join">
 		<img src="/image/logo.png" alt="뉴닉" class="logo" id="logo">
 		<br>
@@ -86,15 +92,19 @@
 	</div>
 	
 	<div id="checkbox">
-		<input type="checkbox"> <span>약관 전체동의</span>
+		<input type="checkbox"> <label>약관 전체동의</label>
 		<br>
-		<input type="checkbox"> <span>만 14세 이상 가입 동의 (필수)</span>
+		<input type="checkbox"> <label>만 14세 이상 가입 동의 (필수)</label>
 		<br>
-		<input type="checkbox"> <span>뉴닉 이용약관 동의 (필수)</span>
+		<input type="checkbox"> <label>뉴닉 이용약관 동의 (필수)</label> 
+		<span><a onclick="window.open('./memberJoin_clause1',
+		                 'insert','width = 500, height = 530, top = 100, left = 200, location = no');">약관보기</a></span>
 		<br>
-		<input type="checkbox"> <span>개인정보 수집/이용 동의 (필수)</span>
+		<input type="checkbox"> <label>개인정보 수집/이용 동의 (필수)</label> 
+		<span><a onclick="window.open('./memberJoin_clause2',
+		                 'insert','width = 500, height = 530, top = 100, left = 200, location = no');">약관보기</a></span>
 		<br>
-		<input type="checkbox"> <span>뉴스레터 및 이벤트 정보 수신 동의 (선택)</span>
+		<input type="checkbox"> <label>뉴스레터 및 이벤트 정보 수신 동의 (선택)</label>
 		<br>
 	</div>
 	

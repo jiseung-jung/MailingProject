@@ -46,6 +46,22 @@ public class MemberController {
 		return mv;
 	}
 	
+	@GetMapping("memberJoin_clause1")
+	public ModelAndView memberJoin_clause1() throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("member/memberJoin_clause1");
+		return mv;
+	}
+	
+	@GetMapping("memberJoin_clause2")
+	public ModelAndView memberJoin_clause2() throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("member/memberJoin_clause2");
+		return mv;
+	}
+	
 	
 	@PostMapping("memberSub")
 	public ModelAndView setMemberSub(MemberVO memberVO) throws Exception{
