@@ -1,11 +1,10 @@
-
 * {
 	box-sizing: border-box;
 	margin: 0;
 }
 
 body {
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Spoqa Han Sans', sans-serif; 
 }
 
 /* reset css */
@@ -17,7 +16,7 @@ a {
 button,
 input,
 textarea {
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Spoqa Han Sans', sans-serif; 
 	font-size: 16px;
 }
 
@@ -235,6 +234,154 @@ footer {
 	font-weight: 600;
 	line-height: 2;
 }
+
+/* member profile */
+
+.member-profile {
+	padding: 50px 0;
+}
+
+.profile-title {
+	margin-bottom: 30px;
+}
+
+.profile-title h1 {
+	font-size: 30px;
+	font-weight: 500;
+	line-height: 1.2;
+}
+
+
+.profile-info h2 {
+	font-size: 17px;
+	font-weight: 700;
+	padding-bottom: 18px;
+	border-bottom: 1px #000 solid;
+}
+
+.setting-row, 
+.profile-row {
+	display: flex;
+	align-items: center;
+	padding: 15px 0;
+	
+} 
+
+.address-head {
+	display: flex;
+	align-items:center;
+	padding: 15px 0;
+}
+
+.address-head p{
+	font-size: 14px;
+	margin: 0 10px 0 0;
+}
+
+.setting-row label,
+.profile-row h3,
+.mail-form h3,
+.mail-form label,
+.address-row h3{
+	font-size: 14px;
+  	font-weight: 700;
+	width: 100px;
+	margin: 0;
+}
+
+
+.profile-info {
+	border-bottom: 1px #000 solid;
+	margin-bottom: 40px;
+}
+
+.profile-form input,
+.profile-form select,
+.password-form input
+ {
+  display: block;
+  width: 350px;
+  height: 30px;
+  padding: 0 12px;
+  border-radius: 7px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid #d3dce6;
+  background: #ebebeb;
+  transition: border-color 200ms ease-in-out;
+}
+
+.text{
+	margin-top: 5px;
+}
+
+.mail-form {
+	display: flex;
+	align-items: center;
+	align-content: center;
+}
+
+.info-btn,
+.pw-btn,
+.email-btn {
+	text-align:right;
+	font-size: 14px;
+	background: #000;
+	color: #fff;
+	border-radius: 5px;
+	margin-bottom: 5px;
+}
+
+.setting-foot {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.setting-foot p{
+	font-size: 14px;
+	text-decoration: underline;
+	font-weight: 700;
+}
+
+.setting-foot button {
+	width: 350px;
+	height: 40px;
+	background: #fff;
+	font-size: 14px;
+	letter-spacing: -0.02em;
+}
+
+.setting-foot button:hover {
+	background: #fb7800;
+}
+
+/* password */
+.show {
+	display: block;
+}
+
+.hide {
+	display: none;
+}
+
+.profile-row p{
+	margin: 0;
+	font-size: 14px;
+}
+
+
+.fa-pen-alt{
+	font-size: 20px;
+	float: right;
+}
+
+.password-form input {
+	margin-bottom: 5px;
+}
+
+
+
 
 /* >=768px Desktop */
 @media screen and (min-width : 768px){

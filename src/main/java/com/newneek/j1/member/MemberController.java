@@ -16,6 +16,14 @@ public class MemberController {
 	private MemberService memberService;
 	
 	
+	@GetMapping("memberProfile")
+	public ModelAndView getMemberProfile() throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("member/memberProfile");
+		
+		return mv;
+	}
 	
 	
 	@GetMapping("memberJoin")
