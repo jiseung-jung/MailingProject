@@ -63,5 +63,9 @@ public class MemberService {
 	public long getMemberCount(MemberVO memberVO) throws Exception{
 		return memberMapper.getMemberCount(memberVO);
 	}
+	
+	public int setMemberInfo(MemberVO memberVO) throws Exception {
+		return memberMapper.setMemberInfo(memberVO);
+	}
 
 }

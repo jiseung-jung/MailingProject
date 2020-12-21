@@ -267,13 +267,14 @@ footer {
 	
 } 
 
-.address-head {
+.info-head {
 	display: flex;
 	align-items:center;
 	padding: 15px 0;
 }
 
-.address-head p{
+.info-head p
+{
 	font-size: 14px;
 	margin: 0 10px 0 0;
 }
@@ -282,7 +283,7 @@ footer {
 .profile-row h3,
 .mail-form h3,
 .mail-form label,
-.address-row h3{
+.info-row h3{
 	font-size: 14px;
   	font-weight: 700;
 	width: 100px;
@@ -382,85 +383,54 @@ footer {
 
 
 /* Login Page*/
-#JoinForm{
+#JoinForm {
 	padding: 0 6%;
    	max-width: 670px;
    	min-height: 100vh;
    	margin: 0 auto;
 }
 
-#logo{
-	width: 300px;
-	margin-bottom: 60px;
+#LoginForm {
+	  width: 100%;
+	  height: 100vh;
+	  display: flex;
+	  flex-direction: column;
+	  justify-content: center;
+	  align-items: center;
+	  align-content: center;
 }
 
-#join{
-	margin-top: 100px; 
+#login_logo {
+	display: block;
+	width: 300px;
+	margin: 20px auto;
+}
+
+#login p {
+	padding: 10px 0;
+	font-size: 14px;
+	font-weight: 500;
 	text-align: center;
 }
 
-#join input{
-	width: 100%;
-	height: 60px;
-	margin-bottom: 15px;
-	padding-left: 20px;
+#LoginForm input {
+  display: block;
+  width: 500px;
+  height: 55px;
+  padding: 0 12px;
+  border-radius: 7px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  border: 1px solid #d3dce6;
+  transition: border-color 200ms ease-in-out;
 }
 
-#checkbox{
-	width: 100%;
-	margin-top: 20px;
-	font-weight: 600;
-	float: left;
-}
-
-#checkbox input{
-	transform : scale(1.5);
-	margin: 0 10px 20px 3px;
-}
-
-#checkbox span{
-	float: right;
-	text-decoration: underline;
-	cursor: pointer;
-}
-
-#JoinBtn{
+#LoginBtn {
 	width: 100%;
 	height: 60px;
 	background-color: black;
 	color: white;
 	font-weight: 600;
 	font-size: 1.05em;
-	margin: 60px 0 200px 0; 
-}
-/* >=768px Desktop */
-@media screen and (min-width : 768px){
-p {
-	font-size: 12px;
 }
 
-.icon {
-	font-size: 30px;
-}
-
-.logo {
-	width: 220px;
-}
-
-.card {
-	width: 25%;
-	height: auto !important;
-	border: 1px #000 solid;
-}
-
-}
-/**/
-@media screen and (min-width: 1200px) {
-.container {
-	max-width: 1100px !important;
-}
-
-.news-container{
-	max-width: 1360px !important;
-}
-}

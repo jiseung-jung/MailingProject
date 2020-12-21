@@ -19,6 +19,17 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+	@GetMapping("memberProfile")
+	public ModelAndView getMemberProfile(HttpSession session) throws Exception{
+	   ModelAndView mv = new ModelAndView();
+	   MemberVO memberVO = (MemberVO) session.getAttribute("member");
+	   System.out.println(memberVO.getAddress());
+	   mv.addObject("member", memberVO);
+	   mv.setViewName("member/memberProfile");
+	      
+	   return mv;
+	}
+	
 	
 	@GetMapping("memberLogin")
 	public void getMemberLogin(MemberVO memberVO) throws Exception{
@@ -137,16 +148,27 @@ public class MemberController {
 		return mv;
 	}
 	
-	
-	
-	@GetMapping("memberProfile")
-	public ModelAndView getMemberProfile() throws Exception{
-	   ModelAndView mv = new ModelAndView();
-	      
-	   mv.setViewName("member/memberProfile");
-	      
-	   return mv;
+	@PostMapping("memberInfo")
+	public ModelAndView setMemberInfo(MemberVO memberVO, HttpSession session) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		int result = memberService.setMemberInfo(memberVO);
+		
+		if(result>0) {
+			mv.addObject("msg", "NEWNEEK 정보수정 완료");
+			mv.addObject("path", "/member/memberProfile");
+			//session set안해주면 DB는 변경되어도 memberProfile에서는 전 값으로 나옴 
+			session.setAttribute("member", memberVO);
+		}else {
+			mv.addObject("msg", "NEWNEEK 정보수정 실패");
+			mv.addObject("path", "./memberProfile");
+		}
+		mv.addObject("member", memberVO);
+		mv.setViewName("common/result");
+		
+		return mv;
 	}
+	
+
 	
 
 }
