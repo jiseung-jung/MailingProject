@@ -7,5 +7,7 @@
 	<typeAliases>
 		<typeAlias type="java.lang.Long" alias="Long"/>
 		<typeAlias type="com.newneek.j1.member.MemberVO" alias="MemberVO"/>
+		
+		<typeAlias type="com.newneek.j1.news.NewsVO" alias="NewsVO"/>
 	</typeAliases>  
 </configuration>
