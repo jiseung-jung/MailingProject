@@ -115,7 +115,7 @@ $("#email").blur(function(){
 
 	$(".subscribe-btn").click(function(){
 		
-		if(email == '' || name == ''){
+		if(email == null || name == null){
 			alert("이메일과 닉네임은 필수항목 입니다.")
 			return false;
 	    }else if($("#check").is(":checked") == false){

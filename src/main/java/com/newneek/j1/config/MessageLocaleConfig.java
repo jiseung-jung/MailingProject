@@ -22,37 +22,44 @@ public class MessageLocaleConfig implements WebMvcConfigurer {
 		//기본값 한국어
 		sessionLocaleResolver.setDefaultLocale(Locale.KOREAN);
 		
-		//cookie
-		CookieLocaleResolver cookieLocaleResolver = new CookieLocaleResolver();
-		
-		cookieLocaleResolver.setDefaultLocale(Locale.ENGLISH);
-		cookieLocaleResolver.setCookieName("lang");
-		
-		return cookieLocaleResolver;
+		return sessionLocaleResolver;
 		
 	}
 		
+//		//cookie
+//		CookieLocaleResolver cookieLocaleResolver = new CookieLocaleResolver();
+//		
+//		cookieLocaleResolver.setDefaultLocale(Locale.ENGLISH);
+//		cookieLocaleResolver.setCookieName("lang");
+//		
+//		return cookieLocaleResolver;
+//		
+//	}
 		
-		//이미 있는 Interceptor class 객체 생성 
-		@Bean
-		public LocaleChangeInterceptor localeChangeInterceptor() {
-			LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
-			//parameter를 받아서 언어를 구분
-			//url주소?lang=ko
-			localeChangeInterceptor.setParamName("lang");
-			
-			return localeChangeInterceptor;
-		}
 		
-		//LocaleChangeInterceptor 등록
-		@Override
-		public void addInterceptors(InterceptorRegistry registry) {
-
-			registry.addInterceptor(localeChangeInterceptor())
-			.addPathPatterns("/**");
-			
-			WebMvcConfigurer.super.addInterceptors(registry);
-		}
-	}
+//		//이미 있는 Interceptor class 객체 생성 
+//		@Bean
+//		public LocaleChangeInterceptor localeChangeInterceptor() {
+//			LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
+//			//parameter를 받아서 언어를 구분
+//			//url주소?lang=ko
+//			localeChangeInterceptor.setParamName("lang");
+//			
+//			return localeChangeInterceptor;
+//		}
+//		
+//		//LocaleChangeInterceptor 등록
+//		@Override
+//		public void addInterceptors(InterceptorRegistry registry) {
+//
+//			registry.addInterceptor(localeChangeInterceptor())
+//			.addPathPatterns("/**");
+//			
+//			WebMvcConfigurer.super.addInterceptors(registry);
+//		}
+//	}
+	
+	
+}
 
 

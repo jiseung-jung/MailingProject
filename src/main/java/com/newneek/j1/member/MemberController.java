@@ -110,5 +110,16 @@ public class MemberController {
 		return mv;
 	}
 	
+	
+	
+	@GetMapping("memberProfile")
+	public ModelAndView getMemberProfile() throws Exception{
+	   ModelAndView mv = new ModelAndView();
+	      
+	   mv.setViewName("member/memberProfile");
+	      
+	   return mv;
+	}
+	
 
 }
