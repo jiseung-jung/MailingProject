@@ -19,8 +19,6 @@ public class MemberController {
 	private MemberService memberService;
 	
 	
-	
-	
 	@GetMapping("memberJoin")
 	public ModelAndView setMemberJoin(MemberVO memberVO) throws Exception{
 		ModelAndView mv = new ModelAndView();

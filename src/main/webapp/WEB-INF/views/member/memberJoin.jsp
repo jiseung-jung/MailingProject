@@ -9,7 +9,6 @@
 <title>Insert title here</title>
 <c:import url="../template/bootStrap.jsp"></c:import>
 <link href="../css/style.css" rel="stylesheet">
-
 <style type="text/css">
 
 	body{
