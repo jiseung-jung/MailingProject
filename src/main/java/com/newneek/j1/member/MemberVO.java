@@ -25,5 +25,8 @@ public class MemberVO {
 	private String name;
 	
 	private Integer mailCheck;
+	private String gender;
+	private Integer birthYear;
+	private String address;
 
 }

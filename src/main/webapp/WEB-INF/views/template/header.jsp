@@ -20,13 +20,23 @@
 	     	<a class="nav-link dropdown icon" data-toggle="dropdown">
 	     	🦔
 	      	</a>
-		    <div class="dropdown-menu dropdown-menu-right">
-			    <a class="dropdown-item" href="e">마이페이지</a>
-			    <a class="dropdown-item" href="#">주문내역</a>
-			    <a class="dropdown-item" href="./member/memberProfile">프로필 설정</a>
-			    <a class="dropdown-item" href="#">고객센터</a>
-			    <a class="dropdown-item" href="#">로그아웃</a>
-		    </div>
+	      	 <c:choose>
+                  <c:when test="${not empty member}">
+				     <div class="dropdown-menu dropdown-menu-right">
+					    <a class="dropdown-item" href="e">마이페이지</a>
+					    <a class="dropdown-item" href="#">주문내역</a>
+					    <a class="dropdown-item" href="/member/memberProfile">프로필 설정</a>
+					    <a class="dropdown-item" href="#">고객센터</a>
+					    <a class="dropdown-item" href="/member/memberLogout">로그아웃</a>
+					 </div>
+				  </c:when>
+				  <c:otherwise>
+					<div class="dropdown-menu dropdown-menu-right">
+						<a class="dropdown-item" href="/member/memberLogin">로그인</a>
+					    <a class="dropdown-item" href="/member/memberJoin">회원가입</a>
+				    </div>
+				  </c:otherwise>
+			</c:choose>
     	</li>
     	</ul>
 	</div>

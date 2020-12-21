@@ -14,4 +14,6 @@ public interface MemberMapper {
 	public MemberVO emailCheck(MemberVO memberVO) throws Exception;
 	
 	public long getMemberCount(MemberVO memberVO) throws Exception;
+	
+	public MemberVO getMemberLogin(MemberVO memberVO) throws Exception;
 }

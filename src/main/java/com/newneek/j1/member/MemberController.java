@@ -1,5 +1,6 @@
 package com.newneek.j1.member;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,34 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+	
+	@GetMapping("memberLogin")
+	public void getMemberLogin(MemberVO memberVO) throws Exception{
+		
+	}
+	
+	@PostMapping("memberLogin")
+	public ModelAndView getMemberLogin(MemberVO memberVO, HttpSession session) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		memberVO = memberService.getMemberLogin(memberVO);
+		
+		if(memberVO != null) {
+			session.setAttribute("member", memberVO);
+			mv.setViewName("redirect:../");
+		} else {
+			String message = "Login Fail";
+			mv.addObject("msg", message);
+			mv.addObject("path", "./memberLogin");
+			mv.setViewName("common/result");
+		}
+		return mv;
+	}
+	
+	@GetMapping("memberLogout")
+	public String getmemberLogout(HttpSession session) throws Exception{
+		session.invalidate();
+		return "redirect:../";
+	}
 	
 	@GetMapping("memberJoin")
 	public ModelAndView setMemberJoin(MemberVO memberVO) throws Exception{
