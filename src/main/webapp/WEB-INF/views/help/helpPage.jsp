@@ -28,6 +28,11 @@
 		border: 1px solid black;
 		margin-bottom: 30px;
 	}
+	
+	#help-box p{
+		font-size: 1.5em;
+		margin: 0 0 0 15px;
+	}
 
 </style>
 </head>
