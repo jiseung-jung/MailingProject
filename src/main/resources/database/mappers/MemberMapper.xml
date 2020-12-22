@@ -52,6 +52,6 @@
     	<select id="admin_getMemberList" parameterType="Pager" resultType="MemberVO">
     		select * from member where not email='admin@newneek.com' 
     		order by name asc
-			limit #{startRow}, #{perPage}    		
+			limit #{startRow}, #{perPage}	
     	</select>
     </mapper>

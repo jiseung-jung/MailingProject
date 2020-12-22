@@ -1,5 +1,7 @@
 package com.newneek.j1.admin;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,6 +35,20 @@ public class AdminController {
 		
 		mv.addObject("mCount", mCount);
 		mv.addObject("nCount", nCount);
+		
+		return mv;
+	}
+	
+	
+	@GetMapping("admin_MemberList")
+	public ModelAndView admin_getMemberList(Pager pager) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		List<MemberVO> ar = memberService.admin_getMemberList(pager);
+		
+		mv.addObject("list", ar);
+		mv.addObject("pager", pager);
+		mv.setViewName("admin/admin_MemberList");
 		
 		return mv;
 	}

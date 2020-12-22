@@ -52,7 +52,7 @@
 	<div class="row">
 		<div class="col-12">
 		
-			<div class="help-title">
+			<div class="board-title">
 				<h1>고객센터를 통해<br>
 				궁금증을 해결하세요.</h1>
 			</div>
