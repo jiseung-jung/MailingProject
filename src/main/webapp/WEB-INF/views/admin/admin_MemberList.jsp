@@ -48,11 +48,11 @@
 					<td>
 					<c:choose>
 						<c:when test="${vo.mailCheck eq 1}">
-							<div style="color: #0066ff">yes</div>
+							<div style="color: #0000ff">O</div>
 						</c:when>
 					
 						<c:otherwise>
-							<div style="color: #ff3300">no</div>
+							<div style="color: #ff0000">X</div>
 						</c:otherwise>
 					</c:choose>
 					</td>
