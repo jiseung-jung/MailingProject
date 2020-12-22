@@ -33,34 +33,47 @@
 					</div>
 					<div class="info-row">	
 						<div class="info-head">
-								<h3>출생년도</h3>
+							<h3>출생년도</h3>
+							<c:if test="${member.birthYear eq null || member.birthYear eq '' }">
+								<p>뉴니커는 몇 살이슴</p>
+							</c:if>
+							<c:if test="${member.birthYear ne null}">
 								<p>${member.birthYear}</p>
+							</c:if>
 						</div>
 						<div class="info-items">
 							<select name="birthYear" id="birthYear">
-								<option value="null">년도</option>
+								<option value="">년도</option>
 							</select>
 						</div>
 					</div>
 					<div class="info-row">
 						<div class="info-head">
-								<h3>성별</h3>
+							<h3>성별</h3>
+							<c:if test="${member.gender eq null || member.gender eq ''}">
+								<p>고슴이는 성별을 밝히고 싶지 않슴!</p>
+							</c:if>
+							<c:if test="${member.gender ne null}">
 								<p>${member.gender}</p>
+							</c:if>
 						</div>
 						<div class="info-items">
 						<select name="gender" id="gender">							
-							<option value="null">기타</option>
+							<option value="">기타</option>
 							<option value="남성">남성</option>
 							<option value="여성">여성</option>
 						</select>
 						</div>
 					</div>	
 					<div class="info-row">
-						
 						<div class="info-head">
 							<h3>배송지</h3>
-							<p>${member.zipCode} ${member.address} ${member.detailAddress} ${member.extraAddress}</p>
-							
+							<c:if test="${member.address eq null || member.address eq ''}">
+								<p>고슴이는 주소를 밝히고 싶지 않슴!</p>
+							</c:if>
+							<c:if test="${member.address ne null}">
+								<p>${member.zipCode} ${member.address} ${member.detailAddress} ${member.extraAddress}</p>
+							</c:if>
 						</div>
 						<div class="info-items">
 				            <input type="text" id="sample6_postcode" placeholder="우편번호" name="zipCode">
@@ -99,7 +112,13 @@
 				
 				<form action="" method="get" class="mail-form">
 					<h3>구독여부</h3>
-					<p>${member.mailCheck}</p>
+					<c:if test="${member.mailCheck eq 1}">
+						<p>구독중</p>
+					</c:if>
+					<c:if test="${member.mailCheck eq 0}">
+						<p>미구독</p>
+					</c:if>
+					
 					<button type="submit" class="email-btn">변경</button>
 				</form>
 			</div>
@@ -141,16 +160,6 @@ $(".fas-info").click(function(){
 });
 
 
-
-
-$(".info-btn").click(function() {
-	var sample6_detailAddress = $("#sample6_detailAddress").val();
-	
-	if(sample6_detailAddress==''){
-		alert("상세주소는 필수항목 입니다.")
-		return false;
-	}
-});
 
 $("#del-btn").click(function() {
 	if (confirm("정말 탈퇴하시겠습니까?") == true){    
