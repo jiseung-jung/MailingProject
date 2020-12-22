@@ -37,5 +37,9 @@
     		update member set name=#{name}, birthYear=#{birthYear}, gender=#{gender}, zipCode=#{zipCode},
     		address=#{address}, detailAddress=#{detailAddress}, extraAddress=#{extraAddress} where email=#{email}
     	</update>
+    	
+    	<update id="setMemberPw" parameterType="MemberVO">
+    		update member set pw=#{pw} where email=#{email}
+    	</update>
     
     </mapper>

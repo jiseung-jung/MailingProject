@@ -20,7 +20,11 @@
 	</properties>
 
 	<dependencies>
-	
+	<!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+	<dependency>
+	    <groupId>javax.validation</groupId>
+	    <artifactId>validation-api</artifactId>
+	</dependency>
 		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-validation -->
 	<dependency>
     	<groupId>org.springframework.boot</groupId>

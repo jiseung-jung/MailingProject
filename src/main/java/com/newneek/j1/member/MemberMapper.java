@@ -18,4 +18,6 @@ public interface MemberMapper {
 	public MemberVO getMemberLogin(MemberVO memberVO) throws Exception;
 	
 	public int setMemberInfo(MemberVO memberVO) throws Exception;
+	
+	public int setMemberPw(MemberVO memberVO) throws Exception;
 }

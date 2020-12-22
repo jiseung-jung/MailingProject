@@ -48,6 +48,11 @@ p {
 	letter-spacing: -0.01em;
 }
 
+.error {
+	font-size: 12px;
+	color: red;
+}
+
 /* header */
 .header-top {
 	margin-top: 10px;

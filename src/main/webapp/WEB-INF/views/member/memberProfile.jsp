@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -75,20 +76,18 @@
 			</div>
 			
 			<div class="profile-info">
-				<i class="fas fa-pen-alt fas-pw"></i>
+
 				<h2>비밀번호 변경</h2>
-				
-				<div class="profile-row">
-					<h3>비밀번호</h3>
-					<p>********</p>
-				</div>	
-				<form action="" method="post" class="password-form">
-					<input type="hidden" name="id" id="id">
-					<input type="password" name="pw" id="pw" placeholder="비밀번호">
-					<input type="password" name="pwChk" id="pwChk" placeholder="비밀번호 확인">
+
+				<form:form modelAttribute="memberVO" class="password-form">
+					<form:hidden path="email" value="${member.email}" />
+					<form:password path="pw" placeholder="비밀번호 (8자 이상)"/>
+			        <form:errors path="pw" cssClass="error"></form:errors>
+					
+					<form:password path="pw2" placeholder="비밀번호 확인 (8자 이상)"/>
+			        <form:errors path="pw2" cssClass="error"></form:errors>
 					<button type="submit" class="pw-btn">변경</button>
-				</form>
-			
+				</form:form>
 			</div>
 			<div class="profile-info">
 				<h2>이메일 수신여부</h2>
@@ -96,12 +95,12 @@
 					<h3>이메일</h3>
 					<p>${member.email}</p>
 				</div>
+				
 				<form action="" method="get" class="mail-form">
 					<h3>구독여부</h3>
-					<input type="radio" name="mailCheck" id="subscribed" value="1">
-					<label for="subscribed">구독중</label>
-					<input type="radio" name="mailCheck" id="unsubscribed" value="0">
-					<label for="unsubscribed">미구독</label>
+					
+					<c:if test="${member.mailCheck eq 1}"><p>구독중</p></c:if>
+					<c:if test="${member.mailCheck eq 0}"><p>미구독</p></c:if>
 					<button type="submit" class="email-btn">변경</button>
 				</form>
 				<p>NEWNEEK에서 제공하는 유익한 뉴스레터를 이메일로 받으실 수 있습니다.</p>
@@ -122,7 +121,6 @@
 $(document).ready(function(){
     setDate();
     $(".info-items").addClass('hide');
-    $(".password-form").addClass('hide');
     $(".info-btn").addClass('hide');
 });    
 
@@ -146,13 +144,6 @@ $(".fas-info").click(function(){
 });
 
 
-$(".fas-pw").click(function(){
-	$(".password-form").toggle(
-      function(){$(".password-form").addClass('show')}, //클릭하면 show클래스 적용되서 보이기
-      function(){$(".password-form").removeClass('show').addClass('hide')}) //한 번 더 클릭하면 hide클래스가 숨기기
-	
-
-});
 
 
 $(".info-btn").click(function() {

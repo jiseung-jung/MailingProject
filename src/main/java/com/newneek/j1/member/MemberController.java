@@ -19,18 +19,7 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
-	@GetMapping("memberProfile")
-	public ModelAndView getMemberProfile(HttpSession session) throws Exception{
-	   ModelAndView mv = new ModelAndView();
-	   MemberVO memberVO = (MemberVO) session.getAttribute("member");
-	   System.out.println(memberVO.getAddress());
-	   mv.addObject("member", memberVO);
-	   mv.setViewName("member/memberProfile");
-	      
-	   return mv;
-	}
-	
-	
+
 	@GetMapping("memberLogin")
 	public void getMemberLogin(MemberVO memberVO) throws Exception{
 		
@@ -43,13 +32,13 @@ public class MemberController {
 		
 		if(memberVO != null) {
 			session.setAttribute("member", memberVO);
-			mv.setViewName("redirect:../");
+			mv.addObject("msg", "로그인 성공!");
+			mv.addObject("path", "../");
 		} else {
-			String message = "Login Fail";
-			mv.addObject("msg", message);
+			mv.addObject("msg", "로그인 실패");
 			mv.addObject("path", "./memberLogin");
-			mv.setViewName("common/result");
 		}
+		mv.setViewName("common/result");
 		return mv;
 	}
 	
@@ -76,7 +65,6 @@ public class MemberController {
 			mv.setViewName("member/memberJoin");
 			return mv;
 		}
-		
 		
 		int result = memberService.setMemberJoin(memberVO);
 		
@@ -148,6 +136,19 @@ public class MemberController {
 		return mv;
 	}
 	
+	@GetMapping("memberProfile")
+	public ModelAndView getMemberProfile(@Valid MemberVO memberVO, BindingResult bindingResult, HttpSession session) throws Exception{
+	   ModelAndView mv = new ModelAndView();
+	   memberVO = (MemberVO) session.getAttribute("member");
+	   System.out.println(memberVO.getAddress());
+	   mv.addObject("member", memberVO);
+	   mv.setViewName("member/memberProfile");
+	      
+	   return mv;
+	}
+	
+	
+	
 	@PostMapping("memberInfo")
 	public ModelAndView setMemberInfo(MemberVO memberVO, HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
@@ -168,7 +169,31 @@ public class MemberController {
 		return mv;
 	}
 	
-
-	
+	@PostMapping("memberProfile")
+	public ModelAndView setMemberPw(@Valid MemberVO memberVO, BindingResult bindingResult, HttpSession session) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		
+		 if(memberService.getMemberPwError(memberVO, bindingResult)) {
+			 mv.setViewName("member/memberProfile"); 
+			 return mv; 
+		 }
+		 
+		 
+		
+		int result = memberService.setMemberPw(memberVO);
+			
+		if(result>0) {
+			mv.addObject("msg", "NEWNEEK 패스워드 수정 완료! 다시 로그인 해주세요");
+			session.invalidate();
+			mv.addObject("path", "../");
+		}else {
+			mv.addObject("msg", "NEWNEEK 정보수정 실패");
+			mv.addObject("path", "./memberProfile");
+		}
+		mv.setViewName("common/result");
+		
+		return mv;
+}
 
 }
