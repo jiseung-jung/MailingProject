@@ -91,6 +91,7 @@
 			</div>
 			<div class="profile-info">
 				<h2>이메일 수신여부</h2>
+				<p>NEWNEEK에서 제공하는 유익한 뉴스레터를 이메일로 받으실 수 있습니다.</p>
 				<div class="profile-row">
 					<h3>이메일</h3>
 					<p>${member.email}</p>
@@ -98,18 +99,14 @@
 				
 				<form action="" method="get" class="mail-form">
 					<h3>구독여부</h3>
-					
-					<c:if test="${member.mailCheck eq 1}"><p>구독중</p></c:if>
-					<c:if test="${member.mailCheck eq 0}"><p>미구독</p></c:if>
+					<p>${member.mailCheck}</p>
 					<button type="submit" class="email-btn">변경</button>
 				</form>
-				<p>NEWNEEK에서 제공하는 유익한 뉴스레터를 이메일로 받으실 수 있습니다.</p>
-				
 			</div>
 			
 			<div class="setting-foot">
-				<p><a href="./memberDelete">계정 탈퇴하기</a></p>
-				<button type="button" >로그아웃</button>
+				<button type="button" id="del-btn">계정 탈퇴하기</button>
+				<button type="button" id="logout-btn">로그아웃</button>
 			</div>
 		</div>
 	</div>	
@@ -153,6 +150,26 @@ $(".info-btn").click(function() {
 		alert("상세주소는 필수항목 입니다.")
 		return false;
 	}
+});
+
+$("#del-btn").click(function() {
+	if (confirm("정말 탈퇴하시겠습니까?") == true){    
+		location.href="./memberDelete?email=${member.email}";
+
+	}else{   
+		return false;
+	}
+});
+
+
+
+$("#logout-btn").click(function() {
+		if (confirm("로그아웃 하시겠습니까?") == true){    
+ 		location.href="./memberLogout";
+
+		}else{   
+ 		return false;
+		}
 });
 
 

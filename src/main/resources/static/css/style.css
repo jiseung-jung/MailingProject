@@ -264,6 +264,11 @@ footer {
 	border-bottom: 1px #000 solid;
 }
 
+.profile-info p {
+	font-size: 12px;
+	margin-bottom: 5px;
+}
+
 .setting-row, 
 .profile-row {
 	display: flex;
@@ -344,13 +349,14 @@ footer {
 	align-items: center;
 }
 
-.setting-foot p{
+.setting-foot #del-btn{
 	font-size: 14px;
 	text-decoration: underline;
-	font-weight: 700;
+	font-weight: 500;
+	border: none;
 }
 
-.setting-foot button {
+#logout-btn {
 	width: 350px;
 	height: 40px;
 	background: #fff;
@@ -358,7 +364,7 @@ footer {
 	letter-spacing: -0.02em;
 }
 
-.setting-foot button:hover {
+#logout-btn:hover {
 	background: #fb7800;
 }
 

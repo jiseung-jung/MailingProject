@@ -174,7 +174,7 @@ public class MemberController {
 		ModelAndView mv = new ModelAndView();
 		
 		
-		 if(memberService.getMemberPwError(memberVO, bindingResult)) {
+		 if(memberService.getMemberError(memberVO, bindingResult)) {
 			 mv.setViewName("member/memberProfile"); 
 			 return mv; 
 		 }
@@ -194,6 +194,25 @@ public class MemberController {
 		mv.setViewName("common/result");
 		
 		return mv;
-}
+	}
+	
+	@GetMapping("memberDelete")
+	public ModelAndView setMemberDelete(HttpSession session) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		
+		int result = memberService.setMemberDelete(memberVO);
+		
+		if(result>0) {
+			session.invalidate();
+			mv.addObject("msg", "그동안 뉴닉을 이용해주셔서 감사합니다.");
+			mv.addObject("path", "../");
+		}else {
+			mv.addObject("msg", "회원 탈퇴에 실패했습니다.");
+			mv.addObject("path", "../");
+		}
+		mv.setViewName("common/result");
+		return mv;
+	}
 
 }

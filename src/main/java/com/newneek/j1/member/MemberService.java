@@ -72,26 +72,8 @@ public class MemberService {
 		return memberMapper.setMemberPw(memberVO);
 	}
 	
-	public boolean getMemberPwError(MemberVO memberVO, BindingResult bindingResult) throws Exception{
-		//result : true -> 검증 위반(실패)
-		//result : false -> 검증 성공
-		boolean result = false;
-		
-		//기본 Annotation 검증 결과
-		if(bindingResult.hasErrors()) {
-			result = true;
-		}
-		
-		//Password가 일치하는지 검증
-		if(!memberVO.getPw().equals(memberVO.getPw2())) {
-			//bindingResult.rejectValue("멤버변수명", "propertie 파일의 코드(키)", "코드가 없으면 기본메세지");
-			bindingResult.rejectValue("pw2", "memberVO.password.notEqual");
-			result = true;
-		}
-		
-	
-		
-		return result;
+	public int setMemberDelete(MemberVO memberVO) throws Exception {
+		return memberMapper.setMemberDelete(memberVO);
 	}
 
 }
