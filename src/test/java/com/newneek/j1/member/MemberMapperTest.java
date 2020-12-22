@@ -11,6 +11,16 @@ class MemberMapperTest {
 	
 	@Autowired
 	private MemberMapper memberMapper;
+	
+	@Test
+	void getMemberLoginTest() throws Exception {
+		MemberVO memberVO = new MemberVO();
+		memberVO.setEmail("aa@naver.com");
+		memberVO.setPw("aa");
+		
+		memberVO = memberMapper.getMemberLogin(memberVO);
+		assertNotNull(memberVO);
+	}
 
 	//@Test
 	void setMemberJoinTest() throws Exception{
@@ -27,7 +37,7 @@ class MemberMapperTest {
 	}
 	
 	
-	@Test
+	//@Test
 	void setMemberSub() throws Exception{
 		MemberVO memberVO = new MemberVO();
 		

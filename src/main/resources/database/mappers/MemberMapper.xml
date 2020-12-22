@@ -28,5 +28,21 @@
     	<select id="getMemberCount" parameterType="MemberVO" resultType="Long">
     		select count(email) from member
     	</select>
+    	
+    	<select id="getMemberLogin" parameterType="MemberVO" resultType="MemberVO">
+    		select * from member where email=#{email} and pw=#{pw}
+    	</select>
+    	
+    	<update id="setMemberInfo" parameterType="MemberVO">
+    		update member set name=#{name}, birthYear=#{birthYear}, gender=#{gender}, zipCode=#{zipCode},
+    		address=#{address}, detailAddress=#{detailAddress}, extraAddress=#{extraAddress} where email=#{email}
+    	</update>
+    	
+    	<update id="setMemberPw" parameterType="MemberVO">
+    		update member set pw=#{pw} where email=#{email}
+    	</update>
     
+    	<delete id="setMemberDelete" parameterType="MemberVO">
+    		delete from member where email = #{email}
+    	</delete>
     </mapper>

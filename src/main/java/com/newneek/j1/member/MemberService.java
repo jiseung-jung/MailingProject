@@ -12,6 +12,10 @@ public class MemberService {
 	private MemberMapper memberMapper;
 	
 	
+	public MemberVO getMemberLogin(MemberVO memberVO) throws Exception {
+		return memberMapper.getMemberLogin(memberVO);
+	}
+	
 	public int setMemberJoin(MemberVO memberVO) throws Exception{
 		return memberMapper.setMemberJoin(memberVO);
 	}
@@ -58,6 +62,18 @@ public class MemberService {
 	
 	public long getMemberCount(MemberVO memberVO) throws Exception{
 		return memberMapper.getMemberCount(memberVO);
+	}
+	
+	public int setMemberInfo(MemberVO memberVO) throws Exception {
+		return memberMapper.setMemberInfo(memberVO);
+	}
+	
+	public int setMemberPw(MemberVO memberVO) throws Exception {
+		return memberMapper.setMemberPw(memberVO);
+	}
+	
+	public int setMemberDelete(MemberVO memberVO) throws Exception {
+		return memberMapper.setMemberDelete(memberVO);
 	}
 
 }

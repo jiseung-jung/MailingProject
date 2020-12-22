@@ -15,7 +15,7 @@ public class MemberVO {
 	private String email;
 	
 	@NotEmpty
-	@Length(min=2, max=12)
+	@Length(min=8, max=12)
 	private String pw;
 	
 	private String pw2;
@@ -25,5 +25,10 @@ public class MemberVO {
 	private String name;
 	
 	private Integer mailCheck;
-
+	private String gender;
+	private Integer birthYear;
+	private String zipCode;
+	private String address;
+	private String detailAddress;
+	private String extraAddress;
 }
