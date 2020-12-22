@@ -26,12 +26,18 @@
 	
 	#help-box{
 		border: 1px solid black;
-		margin-bottom: 30px;
+		border-bottom: none;
+		margin-bottom: 50px;
 	}
 	
 	#help-box p{
 		font-size: 1.5em;
-		margin: 0 0 0 15px;
+		margin: 0 0 0 20px;
+	}
+	
+	.box-div{
+		padding: 20px 0;
+		border-bottom: 1px solid black;
 	}
 
 </style>
@@ -54,31 +60,31 @@
 			<h2>자주 묻는 질문</h2>
 			
 			<div id="help-box">
-				<div>
+				<div class="box-div">
 					<p>✔ 구독했는데 뉴스레터가 안 와요.</p>
 				</div>
 				
-				<div>
+				<div class="box-div">
 					<p>✔ 지난 뉴스레터는 어디서 볼 수 있나요?</p>
 				</div>
 
-				<div>
+				<div class="box-div">
 					<p>✔ 이미 뉴스레터를 구독 중인데요, 웹사이트도 가입해야 하나요?</p>
 				</div>	
 				
-				<div>
+				<div class="box-div">
 					<p>✔ 수신거부하고 싶어요.</p>
 				</div>	
 				
-				<div>
+				<div class="box-div">
 					<p>✔ 구독하는 이메일/닉네임 바꾸고 싶어요.</p>
 				</div>
 
-				<div>
+				<div class="box-div">
 					<p>✔ 결제한 콘텐츠, 환불하고 싶어요.</p>
 				</div>	
 				
-				<div>
+				<div class="box-div">
 					<p>✔ 제 피드백에 답장이 잘 안 와요.</p>
 				</div>																
 			</div>

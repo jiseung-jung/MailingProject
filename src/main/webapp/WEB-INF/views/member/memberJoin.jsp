@@ -30,6 +30,7 @@
 	#logo{
 		width: 300px;
 		margin-bottom: 60px;
+		cursor: pointer;
 	}
 	
 	#join{
@@ -125,6 +126,12 @@
 <!-- **************************** Script **************************** -->
 
 <script type="text/javascript">
+
+
+$("#logo").click(function(){
+	location.href = "${pageContext.request.contextPath}/";
+});
+
 
 var btn = document.getElementById("JoinBtn");
 var cb = document.getElementsByClassName("cb");
