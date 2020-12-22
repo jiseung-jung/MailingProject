@@ -23,7 +23,7 @@
 	}
 	
 	.admin-con{
-		padding-bottom: 155px;
+		padding-bottom: 145px;
 	}
 	
 	.admin-con p{

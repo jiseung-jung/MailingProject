@@ -10,6 +10,7 @@ import com.newneek.j1.member.MemberService;
 import com.newneek.j1.member.MemberVO;
 import com.newneek.j1.news.NewsService;
 import com.newneek.j1.news.NewsVO;
+import com.newneek.j1.util.Pager;
 
 @Controller
 @RequestMapping("/admin/**")
@@ -23,11 +24,11 @@ public class AdminController {
 	
 	
 	@GetMapping("adminPage")
-	public ModelAndView adminPage(MemberVO memberVO, NewsVO newsVO) throws Exception{
+	public ModelAndView adminPage(Pager pager, NewsVO newsVO) throws Exception{
 		
 		ModelAndView mv = new ModelAndView();
 		
-		long mCount = memberService.getMemberCount(memberVO);
+		long mCount = memberService.getMemberCount(pager);
 		long nCount = newsService.newsCount(newsVO);
 		
 		mv.addObject("mCount", mCount);

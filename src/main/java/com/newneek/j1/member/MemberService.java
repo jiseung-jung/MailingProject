@@ -1,8 +1,12 @@
 package com.newneek.j1.member;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
+
+import com.newneek.j1.util.Pager;
 
 
 @Service
@@ -60,8 +64,8 @@ public class MemberService {
 		return memberMapper.emailCheck(memberVO);
 	}
 	
-	public long getMemberCount(MemberVO memberVO) throws Exception{
-		return memberMapper.getMemberCount(memberVO);
+	public long getMemberCount(Pager pager) throws Exception{
+		return memberMapper.getMemberCount(pager);
 	}
 	
 	public int setMemberInfo(MemberVO memberVO) throws Exception {
@@ -74,6 +78,18 @@ public class MemberService {
 	
 	public int setMemberDelete(MemberVO memberVO) throws Exception {
 		return memberMapper.setMemberDelete(memberVO);
+	}
+	
+	
+	
+	//-------------------------------------- Admin
+	
+	public List<MemberVO> admin_getMemberList(Pager pager) throws Exception{
+		pager.makeRow();
+		long totalCount = memberMapper.getMemberCount(pager);
+		pager.makePage(totalCount);
+		
+		return memberMapper.admin_getMemberList(pager);
 	}
 
 }

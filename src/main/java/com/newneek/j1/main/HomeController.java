@@ -7,6 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.newneek.j1.member.MemberService;
 import com.newneek.j1.member.MemberVO;
+import com.newneek.j1.util.Pager;
 
 @Controller
 public class HomeController {
@@ -15,10 +16,10 @@ public class HomeController {
 	private MemberService memberService;
 	
 	@GetMapping("/")
-	public ModelAndView home(MemberVO memberVO) throws Exception{
+	public ModelAndView home(Pager pager) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
-		long count = memberService.getMemberCount(memberVO);
+		long count = memberService.getMemberCount(pager);
 		
 		mv.addObject("count", count);
 		mv.setViewName("index");

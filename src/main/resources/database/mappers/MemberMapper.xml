@@ -25,7 +25,7 @@
     		where email=#{email}
     	</update>
     	
-    	<select id="getMemberCount" parameterType="MemberVO" resultType="Long">
+    	<select id="getMemberCount" parameterType="Pager" resultType="Long">
     		select count(email) from member
     	</select>
     	
@@ -45,4 +45,13 @@
     	<delete id="setMemberDelete" parameterType="MemberVO">
     		delete from member where email = #{email}
     	</delete>
+    	
+    	
+    	<!-- **************** Admin **************** -->
+    	
+    	<select id="admin_getMemberList" parameterType="Pager" resultType="MemberVO">
+    		select * from member where not email='admin@newneek.com' 
+    		order by name asc
+			limit #{startRow}, #{perPage}    		
+    	</select>
     </mapper>
