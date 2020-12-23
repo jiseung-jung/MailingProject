@@ -27,7 +27,6 @@ public interface MemberMapper {
 	
 	public int setMemberDelete(MemberVO memberVO) throws Exception;
 	
-
 	//-------------------------------------- Admin
 	
 	public List<MemberVO> admin_getMemberList(Pager pager) throws Exception;
