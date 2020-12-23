@@ -12,7 +12,7 @@ class MemberMapperTest {
 	@Autowired
 	private MemberMapper memberMapper;
 	
-	@Test
+	//@Test
 	void getMemberLoginTest() throws Exception {
 		MemberVO memberVO = new MemberVO();
 		memberVO.setEmail("aa@naver.com");
@@ -22,18 +22,22 @@ class MemberMapperTest {
 		assertNotNull(memberVO);
 	}
 
-	//@Test
+	@Test
 	void setMemberJoinTest() throws Exception{
 		MemberVO memberVO = new MemberVO();
 		
-		memberVO.setEmail("test2@test.com");
-		memberVO.setPw("test2");
-		memberVO.setName("test2");
-		memberVO.setMailCheck(0);
+		for(int i=1;i<20;i++) {
+			memberVO.setEmail("test"+(i+1)+"@test.com");
+			memberVO.setPw("test"+(i+1));
+			memberVO.setName("test"+(i+1));
+			memberVO.setMailCheck(0);
 		
 		int result = memberMapper.setMemberJoin(memberVO);
 		
 		assertEquals(1, result);
+		
+		}
+		
 	}
 	
 	
