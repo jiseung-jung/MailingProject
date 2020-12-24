@@ -80,10 +80,7 @@ public class MemberService {
 		return memberMapper.setMemberDelete(memberVO);
 	}
 	
-	public int emailCheckUpdate(MemberVO memberVO) throws Exception{
-		return memberMapper.emailCheckUpdate(memberVO);
-	}
-	
+
 	
 	//-------------------------------------- Admin
 	
