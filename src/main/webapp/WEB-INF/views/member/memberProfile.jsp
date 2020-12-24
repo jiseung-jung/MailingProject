@@ -124,7 +124,7 @@
 					<button type="submit" class="pw-btn">변경</button>
 				</form:form>
 			</div>
-
+			
 			
 			<div class="setting-foot">
 				<button type="button" id="del-btn">계정 탈퇴하기</button>
@@ -144,7 +144,6 @@ $(document).ready(function(){
     $(".info-btn").addClass('hide');
 });    
 
-
 function setDate(){
 	var year = new Date().getFullYear();
 
@@ -152,11 +151,12 @@ function setDate(){
           $("#birthYear").append("<option value='"+ y +"'>"+ y +"</option>");
 	}}
 
-function setToggle(){
 
-
-	
-	}}
+function setToggle() {
+	$("#birthYear").val("${member.birthYear}").prop("selected", true);
+	$("#gender").val("${member.gender}").prop("selected", true);
+	$("#mailCheck").val("${member.mailCheck}").prop("selected", true);
+}
 
 
 $(".fas-info").click(function(){
@@ -167,7 +167,9 @@ $(".fas-info").click(function(){
      $(".info-btn").toggle(
    	      function(){$(".info-btn").addClass('show')}, //클릭하면 show클래스 적용되서 보이기
    	      function(){$(".info-btn").removeClass('show').addClass('hide')}) //한 번 더 클릭하면 hide클래스가 숨기기
+   	   	      
 });
+
 
 
 $("#del-btn").click(function() {
@@ -178,6 +180,7 @@ $("#del-btn").click(function() {
 		return false;
 	}
 });
+
 
 
 $("#logout-btn").click(function() {
