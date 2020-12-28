@@ -26,18 +26,22 @@ public class AdminController {
 	
 	
 	@GetMapping("adminPage")
-	public ModelAndView adminPage(Pager pager, NewsVO newsVO) throws Exception{
+	public ModelAndView adminPage(Pager pager) throws Exception{
 		
 		ModelAndView mv = new ModelAndView();
 		
 		long mCount = memberService.getMemberCount(pager);
-		long nCount = newsService.newsCount(newsVO);
+		long nCount = newsService.getNewsCount(pager);
 		
 		mv.addObject("mCount", mCount);
 		mv.addObject("nCount", nCount);
 		
 		return mv;
 	}
+	
+	
+	
+//-------------------------------------------------------------------------------
 	
 	
 	@GetMapping("admin_MemberList")
@@ -51,6 +55,26 @@ public class AdminController {
 		mv.addObject("pager", pager);
 		mv.addObject("mCount", mCount);
 		mv.setViewName("admin/admin_MemberList");
+		
+		return mv;
+	}
+	
+	
+	
+//-------------------------------------------------------------------------------
+	
+	
+	@GetMapping("admin_NewsList")
+	public ModelAndView admin_getNewsList(Pager pager) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		List<NewsVO> ar = newsService.admin_getNewsList(pager);
+		long nCount = newsService.getNewsCount(pager);
+		
+		mv.addObject("list", ar);
+		mv.addObject("pager", pager);
+		mv.addObject("nCount", nCount);
+		mv.setViewName("admin/admin_NewsList");
 		
 		return mv;
 	}
