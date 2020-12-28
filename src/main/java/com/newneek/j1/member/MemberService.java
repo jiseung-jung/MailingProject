@@ -80,7 +80,7 @@ public class MemberService {
 		return memberMapper.setMemberDelete(memberVO);
 	}
 	
-	
+
 	
 	//-------------------------------------- Admin
 	

@@ -64,6 +64,27 @@
 							<option value="여성">여성</option>
 						</select>
 						</div>
+					</div>
+					<div class="info-row">
+						<div class="info-head">
+							<h3>이메일</h3>
+							<p>${member.email}</p>
+						</div>
+						<div class="info-head">
+							<h3>구독여부</h3>
+							<c:if test="${member.mailCheck eq 1}">
+								<p>구독중</p>
+							</c:if>
+							<c:if test="${member.mailCheck eq 0}">
+								<p>미구독</p>
+							</c:if>
+						</div>
+						<div class="info-items">
+						<select name="mailCheck" id="mailCheck">							
+							<option value="1">구독</option>
+							<option value="0">미구독</option>
+						</select>
+						</div>
 					</div>	
 					<div class="info-row">
 						<div class="info-head">
@@ -84,6 +105,7 @@
 	         			</div>
 					</div>
 					<input type="hidden" name="email" value="${member.email}">
+					<input type="hidden" name="mailCheck" value="${member.mailCheck}">
 					<button type="submit" class="info-btn">변경</button>
 				</form>
 			</div>
@@ -102,26 +124,7 @@
 					<button type="submit" class="pw-btn">변경</button>
 				</form:form>
 			</div>
-			<div class="profile-info">
-				<h2>이메일 수신여부</h2>
-				<p>NEWNEEK에서 제공하는 유익한 뉴스레터를 이메일로 받으실 수 있습니다.</p>
-				<div class="profile-row">
-					<h3>이메일</h3>
-					<p>${member.email}</p>
-				</div>
-				
-				<form action="" method="get" class="mail-form">
-					<h3>구독여부</h3>
-					<c:if test="${member.mailCheck eq 1}">
-						<p>구독중</p>
-					</c:if>
-					<c:if test="${member.mailCheck eq 0}">
-						<p>미구독</p>
-					</c:if>
-					
-					<button type="submit" class="email-btn">변경</button>
-				</form>
-			</div>
+			
 			
 			<div class="setting-foot">
 				<button type="button" id="del-btn">계정 탈퇴하기</button>
@@ -136,6 +139,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
     setDate();
+    setToggle();
     $(".info-items").addClass('hide');
     $(".info-btn").addClass('hide');
 });    
@@ -146,6 +150,13 @@ function setDate(){
 	for(var y = year; y >= (year-100); y--){
           $("#birthYear").append("<option value='"+ y +"'>"+ y +"</option>");
 	}}
+
+
+function setToggle() {
+	$("#birthYear").val("${member.birthYear}").prop("selected", true);
+	$("#gender").val("${member.gender}").prop("selected", true);
+	$("#mailCheck").val("${member.mailCheck}").prop("selected", true);
+}
 
 
 $(".fas-info").click(function(){

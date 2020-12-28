@@ -34,7 +34,7 @@
     	</select>
     	
     	<update id="setMemberInfo" parameterType="MemberVO">
-    		update member set name=#{name}, birthYear=#{birthYear}, gender=#{gender}, zipCode=#{zipCode},
+    		update member set name=#{name}, birthYear=#{birthYear}, gender=#{gender}, mailCheck=#{mailCheck}, zipCode=#{zipCode},
     		address=#{address}, detailAddress=#{detailAddress}, extraAddress=#{extraAddress} where email=#{email}
     	</update>
     	

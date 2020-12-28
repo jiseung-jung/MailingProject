@@ -148,7 +148,6 @@ public class MemberController {
 	}
 	
 	
-	
 	@PostMapping("memberInfo")
 	public ModelAndView setMemberInfo(MemberVO memberVO, HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
@@ -174,13 +173,12 @@ public class MemberController {
 		ModelAndView mv = new ModelAndView();
 		
 		
-		 if(memberService.getMemberError(memberVO, bindingResult)) {
-			 mv.setViewName("member/memberProfile"); 
-			 return mv; 
-		 }
-		 
-		 
 		
+		 if(memberService.getMemberError(memberVO, bindingResult)) {
+		  mv.setViewName("/member/memberProfile"); return mv; 
+		  }
+		
+		 
 		int result = memberService.setMemberPw(memberVO);
 			
 		if(result>0) {
@@ -214,5 +212,7 @@ public class MemberController {
 		mv.setViewName("common/result");
 		return mv;
 	}
+	
+	
 
 }
