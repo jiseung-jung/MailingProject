@@ -50,8 +50,9 @@
     	<!-- **************** Admin **************** -->
     	
     	<select id="admin_getMemberList" parameterType="Pager" resultType="MemberVO">
-    		select * from member where not email='admin@newneek.com' 
-    		order by name asc
+    		select @ROWNUM:=@ROWNUM+1 as r, M.*
+			FROM (select * from member where not email='admin@newneek.com'
+    		order by name asc) M, (SELECT @ROWNUM:=(#{curPage}-1)*#{perPage}) R
 			limit #{startRow}, #{perPage}	
     	</select>
     </mapper>

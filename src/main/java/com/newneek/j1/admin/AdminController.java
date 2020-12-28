@@ -45,9 +45,11 @@ public class AdminController {
 		ModelAndView mv = new ModelAndView();
 		
 		List<MemberVO> ar = memberService.admin_getMemberList(pager);
+		long mCount = memberService.getMemberCount(pager);
 		
 		mv.addObject("list", ar);
 		mv.addObject("pager", pager);
+		mv.addObject("mCount", mCount);
 		mv.setViewName("admin/admin_MemberList");
 		
 		return mv;

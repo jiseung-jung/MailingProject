@@ -10,6 +10,8 @@ import lombok.Data;
 @Data
 public class MemberVO {
 	
+	private long r;
+	
 	@NotEmpty
 	@Email
 	private String email;
