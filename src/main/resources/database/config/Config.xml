@@ -10,5 +10,6 @@
 		
 		<typeAlias type="com.newneek.j1.member.MemberVO" alias="MemberVO"/>
 		<typeAlias type="com.newneek.j1.news.NewsVO" alias="NewsVO"/>
+		<typeAlias type="com.newneek.j1.help.HelpVO" alias="HelpVO"/>
 	</typeAliases>  
 </configuration>

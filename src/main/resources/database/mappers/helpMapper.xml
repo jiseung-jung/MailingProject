@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+    <mapper namespace="com.newneek.j1.help.HelpMapper">
+    	
+    	<select id="getList" resultType="HelpVO">
+    		select * from help
+    		order by num desc
+    	</select>
+    	
+    	<insert id="setInsert" parameterType="HelpVO" useGeneratedKeys="true" keyProperty="num">
+    		insert into help (num, title, writer, contents, regDate)
+			values (#{num}, #{title}, #{writer}, #{contents}, now())
+    	</insert>
+    	
+    	<update id="setUpdate" parameterType="HelpVO">
+    		update help set title=#{title}, writer=#{writer}, contents=#{contents}
+    		where num=#{num}
+    	</update>
+    	
+    	<delete id="setDelete" parameterType="HelpVO">
+    		delete from help where num=#{num}
+    	</delete>
+    </mapper>
