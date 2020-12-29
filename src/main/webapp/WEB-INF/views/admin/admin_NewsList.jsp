@@ -87,7 +87,7 @@
 <script type="text/javascript">
 
 $("#nWritebtn").click(function(){
-	location.href="./admin_NewsWrite?num=${vo.num}";		
+	location.href="./admin_NewsWrite";		
 });
 
 </script>

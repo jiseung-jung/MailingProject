@@ -40,9 +40,20 @@
 	</resultMap>
 	
 	
-	<insert id="admin_setNewsWrite" parameterType="NewsVO">
-		insert into news (newsId, title, writer, contents, regDate, hit)
-            values (#{newsId}, #{title}, #{writer}, #{contents}, #{regDate}, 0)
+	<insert id="admin_setNewsInsert" parameterType="NewsVO" useGeneratedKeys="true" keyProperty="num">
+		insert into news (num, newsId, title, writer, contents, regDate, hit)
+        values (#{num}, #{newsId}, #{title}, #{writer}, #{contents}, sysdate(), 0)
 	</insert>
-    
+	
+	<update id="admin_setNewsUpdate" parameterType="NewsVO">
+		update news set newsId=#{newsId}, title=#{title}, contents=#{contents}
+		where num=#{num} 
+	</update>
+	
+	<delete id="admin_setNewsDelete" parameterType="NewsVO">
+		delete from news where num=#{num}
+	</delete>
+    	
     </mapper>
+    
+    

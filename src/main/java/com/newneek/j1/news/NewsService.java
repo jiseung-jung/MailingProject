@@ -29,5 +29,17 @@ public class NewsService {
 		pager.makePage(totalCount);
 		return newsMapper.admin_getNewsList(pager);
 	}
+	
+	public int admin_setNewsInsert(NewsVO newsVO) throws Exception{
+		return newsMapper.admin_setNewsInsert(newsVO);
+	}
+	
+	public int admin_setNewsUpdate(NewsVO newsVO) throws Exception{
+		return newsMapper.admin_setNewsUpdate(newsVO);
+	}
+	
+	public int admin_setNewsDelete(NewsVO newsVO) throws Exception{
+		return newsMapper.admin_setNewsDelete(newsVO);
+	}
 
 }
