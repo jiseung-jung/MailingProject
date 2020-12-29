@@ -10,6 +10,11 @@
     		order by num desc
     	</select>
     	
+    	<select id="getOne" resultType="HelpVO">
+    		select * from help
+    		where num=#{num}
+    	</select>
+    	
     	<insert id="setInsert" parameterType="HelpVO" useGeneratedKeys="true" keyProperty="num">
     		insert into help (num, title, writer, contents, regDate)
 			values (#{num}, #{title}, #{writer}, #{contents}, now())

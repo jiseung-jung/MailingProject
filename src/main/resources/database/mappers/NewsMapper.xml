@@ -12,7 +12,7 @@
     	<!-- **************** Admin **************** -->
     	
     	<select id="admin_getNewsList" parameterType="Pager" resultMap="admin_NewsList">
-            select N.*, C.category_emoji, C.category_name 
+            select N.*, C.category_emoji, C.category_names
     		from (select * from news order by num asc) N
     		left join category C
     		on N.newsId = C.category_id

@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.newneek.j1.help.HelpService;
+import com.newneek.j1.help.HelpVO;
 import com.newneek.j1.member.MemberService;
 import com.newneek.j1.member.MemberVO;
 import com.newneek.j1.news.NewsService;
@@ -22,7 +24,8 @@ public class AdminController {
 	MemberService memberService;
 	@Autowired
 	NewsService newsService;
-	
+	@Autowired
+	HelpService helpService;
 	
 	
 	@GetMapping("adminPage")
@@ -75,6 +78,17 @@ public class AdminController {
 		mv.addObject("pager", pager);
 		mv.addObject("nCount", nCount);
 		mv.setViewName("admin/admin_NewsList");
+		
+		return mv;
+	}
+	
+	@GetMapping("admin_HelpList")
+	public ModelAndView admin_getHelpList() throws Exception{
+		ModelAndView mv = new ModelAndView();
+		List<HelpVO> ar = helpService.getList();
+		mv.addObject("list", ar);
+
+		mv.setViewName("admin/admin_HelpList");
 		
 		return mv;
 	}

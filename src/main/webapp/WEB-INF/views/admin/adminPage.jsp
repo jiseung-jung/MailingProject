@@ -74,6 +74,9 @@
 				<p>지금 <span>${nCount}</span>개의 기사가 있습니다.</p> 
 			</div>
 		
+			<div class="admin-count" id="admin-help">
+				<p>지금 <span>${nCount}</span>개의 자주묻는질문이 있습니다.</p> 
+			</div>
 		
 		</div>
 	</div>
@@ -95,6 +98,9 @@
 		location.href="${pageContext.request.contextPath}/admin/admin_NewsList";
 	});
 
+	$("#admin-help").click(function(){
+		location.href="${pageContext.request.contextPath}/admin/admin_HelpList";
+	});
 </script>
 
 </body>

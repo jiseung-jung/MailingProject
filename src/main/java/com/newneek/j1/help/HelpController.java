@@ -24,4 +24,12 @@ public class HelpController {
 		mv.addObject("help", "고객센터");
 		return mv;
 	}
+	
+	@GetMapping("helpSelect")
+	public ModelAndView getOne(HelpVO helpVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		helpVO = helpService.getOne(helpVO);
+		mv.addObject("vo", helpVO);
+		return mv;
+	}
 }

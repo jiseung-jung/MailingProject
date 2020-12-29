@@ -28,7 +28,9 @@ public class HelpService {
 		return helpMapper.setDelete(helpVO);
 	}
 	
-
+	public HelpVO getOne(HelpVO helpVO) throws Exception{
+		return helpMapper.getOne(helpVO);
+	}
 	
 	
 }
