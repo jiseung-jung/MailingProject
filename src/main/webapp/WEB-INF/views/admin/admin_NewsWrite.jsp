@@ -16,7 +16,24 @@
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
-<section class="adminPage">
+<section class="admin_NewsWrite">
+
+<form:form modelAttribute="newsVO" id="NewsInsert">
+	
+	<label>카테고리:</label>
+	<form:select path="newsId">
+		<form:option value="1" label="국내외정치"/>
+		<form:option value="2" label="경제"/>
+		<form:option value="3" label="노동·인권"/>
+		<form:option value="4" label="테크"/>
+		<form:option value="5" label="문화"/>
+		<form:option value="6" label="환경·에너지"/>
+		<form:option value="7" label="코로나19"/>
+	</form:select>
+
+</form:form>
+
+
 
 </section>
 <c:import url="../template/footer.jsp"></c:import>	

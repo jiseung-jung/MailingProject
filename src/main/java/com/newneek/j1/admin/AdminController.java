@@ -2,8 +2,11 @@ package com.newneek.j1.admin;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -75,28 +78,38 @@ public class AdminController {
 		mv.addObject("list", ar);
 		mv.addObject("pager", pager);
 		mv.addObject("nCount", nCount);
-		mv.setViewName("admin/news/admin_NewsList");
+		mv.setViewName("admin/admin_NewsList");
 		
 		return mv;
 	}
 	
 	
 	@GetMapping("admin_NewsWrite")
-	public void admin_setNewsInsert() throws Exception{}
+	public ModelAndView admin_setNewsInsert(NewsVO newsVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+
+		mv.setViewName("/admin/admin_NewsWrite");
+		return mv;
+	}
 	
 	
 	@PostMapping("admin_NewsWrite")
-	public ModelAndView admin_setNewsInsert(NewsVO newsVO) throws Exception{
+	public ModelAndView admin_setNewsInsert(@Valid NewsVO newsVO, BindingResult bindingResult) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		
+		if(newsService.getNewsError(newsVO, bindingResult)) {
+			mv.setViewName("admin/admin_NewsWrite");
+			return mv;
+		}
 		
 		int result = newsService.admin_setNewsInsert(newsVO);
 		
 		if(result>0) {
 			mv.addObject("msg", "기사 작성 완료!");
-			mv.addObject("path", "/admin/news/admin_NewsList");
+			mv.addObject("path", "/admin/admin_NewsList");
 		}else {
 			mv.addObject("msg", "작성 실패");
-			mv.addObject("path", "/admin/news/admin_NewsWrite");
+			mv.addObject("path", "/admin/admin_NewsWrite");
 		}
 		
 		mv.setViewName("common/result");

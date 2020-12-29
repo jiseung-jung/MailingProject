@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.BindingResult;
 
+import com.newneek.j1.member.MemberVO;
 import com.newneek.j1.util.Pager;
 
 @Service
@@ -32,6 +34,19 @@ public class NewsService {
 	
 	public int admin_setNewsInsert(NewsVO newsVO) throws Exception{
 		return newsMapper.admin_setNewsInsert(newsVO);
+	}
+	
+	public boolean getNewsError(NewsVO newsVO, BindingResult bindingResult) throws Exception{
+		//result : true -> 검증 위반(실패)
+		//result : false -> 검증 성공
+		boolean result = false;
+		
+		//기본 Annotation 검증 결과
+		if(bindingResult.hasErrors()) {
+			result = true;
+		}
+		
+		return result;
 	}
 	
 	public int admin_setNewsUpdate(NewsVO newsVO) throws Exception{
