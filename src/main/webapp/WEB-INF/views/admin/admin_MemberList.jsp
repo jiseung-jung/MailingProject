@@ -61,7 +61,7 @@
 				
 				<c:forEach items="${list}" var="vo" varStatus="status">
 				<tr>
-					<td>${status.count}</td>
+					<td>${vo.r}</td>
 					<td>${vo.email}</td>
 					<td>${vo.name}</td>
 					<td>
