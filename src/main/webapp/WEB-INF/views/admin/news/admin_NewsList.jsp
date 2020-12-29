@@ -18,6 +18,12 @@
 	.pager{
 		margin-bottom: 70px;
 	}
+	
+	#nWritebtn{
+		margin-bottom: 30px;
+		border: 1px solid black;
+		font-size: 0.9em;
+	}
 </style>
 </head>
 <body>
@@ -32,12 +38,12 @@
 				<h1>기사 목록</h1>
 			</div>
 			
+			<button class="btn btn-default" id="nWritebtn">글쓰기</button>
 			<table class="table listTable">
 				<tr>
 					<td>no.</td>
 					<td>카테고리</td>
 					<td>제목</td>
-					<td>내용</td>
 					<td>작성자</td>
 					<td>작성일</td>
 					<td>조회수</td>
@@ -47,9 +53,8 @@
 				<c:forEach items="${list}" var="vo" varStatus="status">
 				<tr>
 					<td>${vo.num}</td>
-					<td>${vo.cVO.category_emoji} ${vo.cVO.category_name}</td>
+					<td></td>
 					<td>${vo.title}</td>
-					<td>${vo.contents}</td>
 					<td>${vo.writer}</td>
 					<td>${vo.regDate}</td>
 					<td>${vo.hit}</td>
@@ -81,6 +86,9 @@
 
 <script type="text/javascript">
 
+$("#nWritebtn").click(function(){
+	location.href="./admin_NewsWrite?num=${vo.num}";		
+});
 
 </script>
 

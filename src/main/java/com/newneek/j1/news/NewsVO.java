@@ -1,7 +1,8 @@
 package com.newneek.j1.news;
 
 import java.sql.Date;
-import com.newneek.j1.news.CategoryVO;
+
+import com.newneek.j1.category.CategoryVO;
 
 import lombok.Data;
 

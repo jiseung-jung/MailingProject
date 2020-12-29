@@ -1,4 +1,4 @@
-package com.newneek.j1.news;
+package com.newneek.j1.category;
 
 import lombok.Data;
 

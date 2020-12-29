@@ -88,11 +88,11 @@
 <script type="text/javascript">
 
 	$("#admin-member").click(function(){
-			location.href="${pageContext.request.contextPath}/admin/admin_MemberList";
+			location.href="${pageContext.request.contextPath}/admin/member/admin_MemberList";
 		});
 
 	$("#admin-news").click(function(){
-		location.href="${pageContext.request.contextPath}/admin/admin_NewsList";
+		location.href="${pageContext.request.contextPath}/admin/news/admin_NewsList";
 	});
 
 </script>
