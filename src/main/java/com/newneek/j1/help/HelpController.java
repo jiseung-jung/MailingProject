@@ -18,6 +18,18 @@ public class HelpController {
 	private HelpService helpService;
 	
 	
+	@GetMapping("admin_HelpList")
+	public ModelAndView admin_getHelpList() throws Exception{
+		ModelAndView mv = new ModelAndView();
+		List<HelpVO> ar = helpService.getList();
+		mv.addObject("list", ar);
+
+		mv.setViewName("/help/helpList");
+		
+		return mv;
+	}
+
+	
 	@GetMapping("helpPage")
 	public ModelAndView getList() throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -50,7 +62,7 @@ public class HelpController {
 		if(result>0) {
 			mv.addObject("vo", helpVO);
 			mv.addObject("msg", "글등록 성공");
-			mv.addObject("path", "/admin/admin_HelpList");
+			mv.addObject("path", "./helpList");
 		}else {
 			mv.addObject("msg", "글등록 실패");
 			mv.addObject("path", "./helpWrite");
@@ -76,7 +88,7 @@ public class HelpController {
 		if(result>0) {
 			mv.addObject("vo", helpVO);
 			mv.addObject("msg", "글수정 성공");
-			mv.addObject("path", "/admin/admin_HelpList");
+			mv.addObject("path", "./helpList");
 		}else {
 			mv.addObject("msg", "글수정 실패");
 			mv.addObject("path", "./helpUpdate");
@@ -94,7 +106,7 @@ public class HelpController {
 		}else {
 			mv.addObject("msg", "글삭제 실패");
 		}
-		mv.addObject("path", "/admin/admin_HelpList");
+		mv.addObject("path", "./helpList");
 		mv.setViewName("common/result");
 		return mv;
 	}

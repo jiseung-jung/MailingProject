@@ -82,15 +82,5 @@ public class AdminController {
 		return mv;
 	}
 	
-	@GetMapping("admin_HelpList")
-	public ModelAndView admin_getHelpList() throws Exception{
-		ModelAndView mv = new ModelAndView();
-		List<HelpVO> ar = helpService.getList();
-		mv.addObject("list", ar);
-
-		mv.setViewName("admin/admin_HelpList");
-		
-		return mv;
-	}
 
 }

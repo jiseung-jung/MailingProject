@@ -99,7 +99,7 @@
 	});
 
 	$("#admin-help").click(function(){
-		location.href="${pageContext.request.contextPath}/admin/admin_HelpList";
+		location.href="${pageContext.request.contextPath}/help/admin_HelpList";
 	});
 </script>
 
