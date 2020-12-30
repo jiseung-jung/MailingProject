@@ -42,6 +42,7 @@
 			</c:forEach>
 			</table>
 			
+			<a href="/help/helpWrite">글작성</a>
 
 		</div>
 	</div>

@@ -22,9 +22,9 @@
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
-<section class="adminPage">
+<section>
 
-<div class="container admin-con">
+<div class="container">
 	<div class="row">
 		<div class="col-12">
 		

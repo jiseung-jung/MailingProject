@@ -24,12 +24,14 @@
 			<div class="board-title">
 				<h1>자주묻는질문</h1>
 			</div>
-			<form method="post" action="./helpWrite">
-				<input type="text" class="form-control" name="title" id="title" placeholder="제목">
+			<form method="post" action="./helpUpdate">
+				<input type="hidden" name="num" value="${vo.num}">
+			
+				<input type="text" class="form-control" name="title" id="title" value="${vo.title}">
 				
-				<input type="text" class="form-control" name="writer" id="writer" placeholder="작성자">
+				<input type="text" class="form-control" name="writer" id="writer" value="${vo.writer}">
 				
-				<textarea id="summernote" name="contents"></textarea>
+				<textarea id="summernote" name="contents">${vo.contents}</textarea>
 			
 				<button type="submit">작성</button>
 			</form>
@@ -46,8 +48,7 @@ $(document).ready(function() {
 		  minHeight: null,             // 최소 높이
 		  maxHeight: null,             // 최대 높이
 		  focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
-		  lang: "ko-KR",				// 한글 설정
-      	  placeholder: "내용",				
+		  lang: "ko-KR",				// 한글 설정				
 		  toolbar: [
 	          ['style', ['bold', 'italic', 'underline', 'clear']],
 	          ['font', ['strikethrough', 'superscript', 'subscript']],
