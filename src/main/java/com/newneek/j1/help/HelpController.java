@@ -18,7 +18,7 @@ public class HelpController {
 	private HelpService helpService;
 	
 	
-	@GetMapping("admin_HelpList")
+	@GetMapping("helpList")
 	public ModelAndView admin_getHelpList() throws Exception{
 		ModelAndView mv = new ModelAndView();
 		List<HelpVO> ar = helpService.getList();
