@@ -26,7 +26,7 @@
 		border: 0;
 		background-color: #ebebeb;
 		border-bottom: 1px solid black;
-		width: 70%;
+		width: 77%;
 		margin: 30px 0;
 		font-size: 1.1em;
 		padding-left: 3px;
@@ -86,6 +86,8 @@
 		<form:input path="title" id="NWtitle" placeholder="제목을 입력하세요."/>
 	</div>
 	
+	<input type="hidden" value="${member.name}">
+		
 	<div>
 		<form:textarea path="contents" id="contents"/>
 	</div>

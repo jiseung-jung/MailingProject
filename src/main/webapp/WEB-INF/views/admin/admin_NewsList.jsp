@@ -54,7 +54,7 @@
 				<tr>
 					<td>${vo.num}</td>
 					<td></td>
-					<td>${vo.title}</td>
+					<td><a href="admin_NewsSelect?num=${vo.num}">${vo.title}</a></td>
 					<td>${vo.writer}</td>
 					<td>${vo.regDate}</td>
 					<td>${vo.hit}</td>
