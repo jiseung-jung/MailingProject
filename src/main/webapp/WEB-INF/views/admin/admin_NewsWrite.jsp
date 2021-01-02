@@ -105,10 +105,13 @@
 <c:import url="../template/footer.jsp"></c:import>
 
 
+<!-- **************************** Script **************************** -->
+
 <script type="text/javascript">
 	$('#contents').summernote({
 		 height: 400
 		});
 </script>	
+
 </body>
 </html>
