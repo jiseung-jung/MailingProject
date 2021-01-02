@@ -29,7 +29,7 @@
 		width: 77%;
 		margin: 30px 0;
 		font-size: 1.1em;
-		padding-left: 3px;
+		padding: 5px 3px;
 	}
 	
 	#NWtitle:focus{
