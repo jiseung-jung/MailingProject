@@ -62,6 +62,22 @@
 		margin-right: 3px;
 	}
 	
+	#filebox{
+		margin-top: 30px;
+	}
+	
+	#filebox span{
+		font-size: 0.9em;
+		cursor: pointer;
+	}
+	
+	#f{
+		display: none;
+	}
+	
+
+/*
+	
 </style>
 
 </head>
@@ -97,6 +113,12 @@
 		<form:errors path="contents" cssClass="error"></form:errors>
 	</div>
 	
+	<div id="filebox">
+		<div>
+			<input type="file"> <span id="fileAdd">➕<span> <br>
+		</div>
+	</div>
+	
 	<div id="NWbtn">
 		<button class="btn btn-default nwbtn okbtn">확인</button>
 		<button class="btn btn-default nwbtn nobtn">취소</button>
@@ -104,6 +126,11 @@
 
 </form:form>
 
+	<div id="f">
+		<div>
+			<input type="file"> <span class="del">❌<span> <br>
+		</div>
+	</div>
 
 
 </section>
@@ -116,6 +143,27 @@
 	$('#contents').summernote({
 		 height: 400
 		});
+
+
+//-----------------------------------------------
+	
+	var count =0;
+	
+	$("#fileAdd").click(function(){
+		if(count<2){
+			var f = $("#f").html().trim();
+			$("#filebox").append(f);
+			count++;
+		}else{
+			alert("첨부파일은 3개까지 가능합니다.");
+		}
+	});
+	
+	$("#filebox").on("click", ".del", function() {
+		$(this).parent().remove();
+		count--;
+	});
+
 
 //--------------------버튼 이벤트--------------------
 	
