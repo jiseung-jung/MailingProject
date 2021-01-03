@@ -2,6 +2,7 @@ package com.newneek.j1.news;
 
 import java.sql.Date;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 
 import com.newneek.j1.category.CategoryVO;
@@ -13,7 +14,7 @@ public class NewsVO {
 	
 	
 	private long num;
-	@NotEmpty
+	@Min(1)
 	private long newsId;
 	@NotEmpty
 	private String title;

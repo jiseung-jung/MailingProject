@@ -16,10 +16,13 @@
 
 <style type="text/css">
 
+	.admin_NewsWrite{
+		padding: 100px 0;	
+	}
+
 	#NewsInsert{
     	max-width: 1000px;
-    	min-height: 100vh;
-    	margin: 0 auto;		
+    	margin: 0 auto;
 	}
 	
 	#NWtitle{
@@ -37,7 +40,6 @@
 	}
 	
 	#NWnewsId{
-		margin-top: 100px;
 		border: 0;
 		background-color: #ebebeb;
 		font-size: 0.9em;
@@ -80,16 +82,19 @@
 			<form:option value="6" label="환경·에너지"/>
 			<form:option value="7" label="코로나19"/>
 		</form:select>
+		<form:errors path="newsId" cssClass="error"></form:errors>
 	</div>
 	
 	<div>
 		<form:input path="title" id="NWtitle" placeholder="제목을 입력하세요."/>
+		<form:errors path="title" cssClass="error"></form:errors>
 	</div>
 	
 	<input type="hidden" value="${member.name}">
 		
 	<div>
 		<form:textarea path="contents" id="contents"/>
+		<form:errors path="contents" cssClass="error"></form:errors>
 	</div>
 	
 	<div id="NWbtn">
@@ -111,6 +116,17 @@
 	$('#contents').summernote({
 		 height: 400
 		});
+
+//--------------------버튼 이벤트--------------------
+	
+	$(".nobtn").click(function() {
+	 	if(confirm("이 페이지에서 나가시겠습니까?") == true){    //확인
+	     	location.href="./admin_NewsList";
+
+	 	}else{   //취소
+	     	return false;
+	 	}
+	});
 </script>	
 
 </body>

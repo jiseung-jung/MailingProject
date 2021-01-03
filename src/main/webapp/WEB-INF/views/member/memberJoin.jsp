@@ -72,10 +72,7 @@
 		font-size: 1.05em;
 		margin: 60px 0 200px 0; 
 	}
-	
-	.error{
-		color: red;
-	}
+
 	
 </style>
 </head>
