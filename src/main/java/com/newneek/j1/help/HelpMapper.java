@@ -15,4 +15,6 @@ public interface HelpMapper {
 	public int setUpdate(HelpVO helpVO) throws Exception;
 	
 	public int setDelete(HelpVO helpVO) throws Exception;
+	
+	public HelpVO getOne(HelpVO helpVO) throws Exception;
 }
