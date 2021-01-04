@@ -20,6 +20,16 @@
 	</properties>
 
 	<dependencies>
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-context-support</artifactId>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-mail -->
+	<dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-mail</artifactId>
+	</dependency>
+	
 	<!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
 	<dependency>
 	    <groupId>javax.validation</groupId>
