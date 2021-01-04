@@ -81,6 +81,15 @@
 				</div>
 			</c:forEach>
 			</div>
+			
+			<div class="help-email">
+				<form th:action="@{/mail}" method="post">
+			        <input name="address" placeholder="이메일 주소"> <br>
+			        <input name="title" placeholder="제목"> <br>
+			        <textarea name="contents" placeholder="메일 내용을 입력해주세요." cols="60" rows="20"></textarea>
+			        <button>발송</button>
+    			</form>			
+			</div>
 		</div>
 	</div>
 </div>

@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.newneek.j1.mail.MailService;
+import com.newneek.j1.mail.MailVO;
+
 @Controller
 @RequestMapping("/help/**")
 public class HelpController {
@@ -17,7 +20,7 @@ public class HelpController {
 	@Autowired
 	private HelpService helpService;
 	
-	
+
 	@GetMapping("helpList")
 	public ModelAndView admin_getHelpList() throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -38,6 +41,16 @@ public class HelpController {
 		mv.addObject("help", "고객센터");
 		return mv;
 	}
+	
+	@PostMapping("helpPage")
+    public ModelAndView execMail(MailVO mailVO) {
+		ModelAndView mv = new ModelAndView();
+        helpService.mailSend(mailVO);
+        mv.addObject("path","/help/helpPage");
+        mv.addObject("msg", "빠른 시일 내에 이메일 주소로 답변 드릴게요!");
+        mv.setViewName("common/result");
+        return mv;
+    }
 	
 	@GetMapping("helpSelect")
 	public ModelAndView getOne(HelpVO helpVO) throws Exception{
