@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.newneek.j1.member.MemberVO;
 import com.newneek.j1.news.file.NewsFilesVO;
@@ -68,6 +69,11 @@ public class NewsService {
 		}
 		
 		return result;
+	}
+	
+	
+	public NewsOneVO admin_getNewsOne(NewsOneVO newsOneVO) throws Exception{
+		return newsMapper.admin_getNewsOne(newsOneVO);
 	}
 	
 	public boolean getNewsError(NewsVO newsVO, BindingResult bindingResult) throws Exception{

@@ -1,11 +1,13 @@
 package com.newneek.j1.news;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 
 import com.newneek.j1.category.CategoryVO;
+import com.newneek.j1.news.file.NewsFilesVO;
 
 import lombok.Data;
 
@@ -25,6 +27,6 @@ public class NewsVO {
 	private long hit;
 	
 	private CategoryVO cVO;
-	
+	private List<NewsFilesVO> files;
 
 }

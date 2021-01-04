@@ -11,6 +11,7 @@
 		<typeAlias type="com.newneek.j1.member.MemberVO" alias="MemberVO"/>
 		<typeAlias type="com.newneek.j1.news.NewsVO" alias="NewsVO"/>
 		<typeAlias type="com.newneek.j1.news.file.NewsFilesVO" alias="NewsFilesVO"/>
+		<typeAlias type="com.newneek.j1.news.NewsOneVO" alias="NewsOneVO"/>
 		<typeAlias type="com.newneek.j1.category.CategoryVO" alias="CategoryVO"/>
 		<typeAlias type="com.newneek.j1.help.HelpVO" alias="HelpVO"/>
 	</typeAliases>  

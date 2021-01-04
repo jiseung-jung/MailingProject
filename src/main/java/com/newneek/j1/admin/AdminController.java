@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.newneek.j1.member.MemberService;
 import com.newneek.j1.member.MemberVO;
+import com.newneek.j1.news.NewsOneVO;
 import com.newneek.j1.news.NewsService;
 import com.newneek.j1.news.NewsVO;
 import com.newneek.j1.util.Pager;
@@ -120,6 +121,8 @@ public class AdminController {
 		
 		return mv;
 	}
+	
+
 	
 	
 	

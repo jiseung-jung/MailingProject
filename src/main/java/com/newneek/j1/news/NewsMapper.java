@@ -22,6 +22,8 @@ public interface NewsMapper {
 	
 	public int admin_setNewsDelete(NewsVO newsVO) throws Exception;
 	
+	public NewsOneVO admin_getNewsOne(NewsOneVO newsOneVO) throws Exception;
+	
 	
 	// file==------------------------------------------------
 	

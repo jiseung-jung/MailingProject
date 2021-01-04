@@ -41,6 +41,16 @@
 	</resultMap>
 	
 	
+	<select id="admin_getNewsOne" parameterType="NewsOneVO" resultType="NewsOneVO">
+		select N.*, NF.fnum, NF.num num_1, NF.fileName, NF.oriName, C.category_name from
+		news N left join newsFiles NF
+		on N.num = NF.num
+        left join category C
+        on N.newsId = C.category_id
+		where N.num = #{num}
+	</select>
+	
+	
 	<insert id="admin_setNewsInsert" parameterType="NewsVO" useGeneratedKeys="true" keyProperty="num">
 		insert into news (num, newsId, title, writer, contents, regDate, hit)
         values (#{num}, #{newsId}, #{title}, #{writer}, #{contents}, sysdate(), 0)
