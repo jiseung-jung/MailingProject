@@ -14,12 +14,12 @@
 
 	#Sel-head{
 		border-bottom: 1px solid black;
+		text-align: center;	
 	}
 	
 	#Sel-title{
 		max-width: 1000px;
     	margin: 0 auto;
-    	text-align: center;		
     	padding: 70px 0;
     	font-weight: bold;
 	}
@@ -61,6 +61,9 @@
 		<p>${vo.title}</p>
 		<span id="Sel-title-s2">${vo.regDate}</span>
 	</div>
+	
+	<button class="btn btn-default">수정</button>
+	<button class="btn btn-default">삭제</button>
  </div>	
  
  <div id="Sel-body">
