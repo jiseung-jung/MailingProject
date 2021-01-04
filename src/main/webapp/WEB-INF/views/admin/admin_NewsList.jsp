@@ -50,10 +50,10 @@
 				</tr>
 				
 						
-				<c:forEach items="${list}" var="vo" varStatus="status">
+			<c:forEach items="${list}" var="vo" varStatus="status">
 				<tr>
 					<td>${vo.num}</td>
-					<td></td>
+					<td>${vo.cVO.category_emoji}</td>
 					<td><a href="admin_NewsSelect?num=${vo.num}">${vo.title}</a></td>
 					<td>${vo.writer}</td>
 					<td>${vo.regDate}</td>

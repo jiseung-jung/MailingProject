@@ -68,8 +68,6 @@
 				<p>지금 <span>${mCount}</span>명이 NEWNEEK을 사용 중 입니다.</p> 
 			</div>
 			
-
-			
 			<div class="admin-count" id="admin-news">
 				<p>지금 <span>${nCount}</span>개의 기사가 있습니다.</p> 
 			</div>

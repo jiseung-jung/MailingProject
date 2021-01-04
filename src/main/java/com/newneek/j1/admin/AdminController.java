@@ -5,11 +5,13 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.newneek.j1.member.MemberService;
@@ -23,9 +25,11 @@ import com.newneek.j1.util.Pager;
 public class AdminController {
 	
 	@Autowired
-	MemberService memberService;
+	private MemberService memberService;
 	@Autowired
-	NewsService newsService;
+	private NewsService newsService;
+	@Value("${news.filePath")
+	private String filePath;
 	
 	
 	
@@ -53,11 +57,9 @@ public class AdminController {
 		ModelAndView mv = new ModelAndView();
 		
 		List<MemberVO> ar = memberService.admin_getMemberList(pager);
-		long mCount = memberService.getMemberCount(pager);
 		
 		mv.addObject("list", ar);
 		mv.addObject("pager", pager);
-		mv.addObject("mCount", mCount);
 		mv.setViewName("admin/admin_MemberList");
 		
 		return mv;
@@ -73,11 +75,9 @@ public class AdminController {
 		ModelAndView mv = new ModelAndView();
 		
 		List<NewsVO> ar = newsService.admin_getNewsList(pager);
-		long nCount = newsService.getNewsCount(pager);
 		
 		mv.addObject("list", ar);
 		mv.addObject("pager", pager);
-		mv.addObject("nCount", nCount);
 		mv.setViewName("admin/admin_NewsList");
 		
 		return mv;
@@ -94,15 +94,19 @@ public class AdminController {
 	
 	
 	@PostMapping("admin_NewsWrite")
-	public ModelAndView admin_setNewsInsert(@Valid NewsVO newsVO, BindingResult bindingResult) throws Exception{
+	public ModelAndView admin_setNewsInsert(@Valid NewsVO newsVO, BindingResult bindingResult, MultipartFile [] files) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		
+		for(MultipartFile f : files) {
+			System.out.println(f.getOriginalFilename());
+		}
 		
 		if(newsService.getNewsError(newsVO, bindingResult)) {
 			mv.setViewName("admin/admin_NewsWrite");
 			return mv;
 		}
 		
-		int result = newsService.admin_setNewsInsert(newsVO);
+		int result = newsService.admin_setNewsInsert(newsVO, files);
 		
 		if(result>0) {
 			mv.addObject("msg", "기사 작성 완료!");

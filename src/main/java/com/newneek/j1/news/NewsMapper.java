@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.newneek.j1.news.file.NewsFilesVO;
 import com.newneek.j1.util.Pager;
 
 @Mapper
@@ -20,5 +21,12 @@ public interface NewsMapper {
 	public int admin_setNewsUpdate(NewsVO newsVO) throws Exception;
 	
 	public int admin_setNewsDelete(NewsVO newsVO) throws Exception;
+	
+	
+	// file==------------------------------------------------
+	
+	public int setInsertFile(NewsFilesVO newsFilesVO) throws Exception;
+	
+	public NewsFilesVO getFile(NewsFilesVO newsFilesVO) throws Exception;
 
 }

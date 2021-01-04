@@ -85,7 +85,7 @@
 <c:import url="../template/header.jsp"></c:import>
 <section class="admin_NewsWrite">
 
-<form:form modelAttribute="newsVO" id="NewsInsert">
+<form:form modelAttribute="newsVO" id="NewsInsert" enctype="multipart/form-data">
 	
 	<div>
 		<form:select path="newsId" id="NWnewsId">
@@ -115,7 +115,7 @@
 	
 	<div id="filebox">
 		<div>
-			<input type="file"> <span id="fileAdd">➕<span> <br>
+			<input type="file" name="files"> <span id="fileAdd">➕<span> <br>
 		</div>
 	</div>
 	
@@ -128,7 +128,7 @@
 
 	<div id="f">
 		<div>
-			<input type="file"> <span class="del">❌<span> <br>
+			<input type="file" name="files"> <span class="del">❌<span> <br>
 		</div>
 	</div>
 
