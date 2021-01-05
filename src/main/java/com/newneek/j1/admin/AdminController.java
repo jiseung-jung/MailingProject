@@ -19,6 +19,7 @@ import com.newneek.j1.member.MemberVO;
 import com.newneek.j1.news.NewsOneVO;
 import com.newneek.j1.news.NewsService;
 import com.newneek.j1.news.NewsVO;
+import com.newneek.j1.news.file.NewsFilesVO;
 import com.newneek.j1.util.Pager;
 
 @Controller
@@ -128,23 +129,29 @@ public class AdminController {
 		ModelAndView mv = new ModelAndView();
 		
 		newsOneVO = newsService.admin_getNewsOne(newsOneVO);
+		List<NewsFilesVO> fileList = newsService.getFile(newsVO); 
 		
 		mv.addObject("vo", newsOneVO);
+		mv.addObject("fileList", fileList);
 		mv.setViewName("admin/admin_NewsUpdate");
 		
 		return mv;
 	}
 	
 	@PostMapping("admin_NewsUpdate")
-	public ModelAndView admin_setNewsUpdate(@Valid NewsVO newsVO, BindingResult bindingResult) throws Exception{
+	public ModelAndView admin_setNewsUpdate(@Valid NewsVO newsVO, BindingResult bindingResult, MultipartFile [] files) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		
+		for(MultipartFile f : files) {
+			System.out.println(f.getOriginalFilename());
+		}
 		
 		if(newsService.getNewsError(newsVO, bindingResult)) {
 			mv.setViewName("admin/admin_NewsUpdate?num="+newsVO.getNum());
 			return mv;
 		}
 		
-		int result = newsService.admin_setNewsUpdate(newsVO);
+		int result = newsService.admin_setNewsUpdate(newsVO, files);
 		
 		if(result>0) {
 			mv.addObject("msg", "수정 완료");

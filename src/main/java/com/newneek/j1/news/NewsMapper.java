@@ -29,6 +29,6 @@ public interface NewsMapper {
 	
 	public int setInsertFile(NewsFilesVO newsFilesVO) throws Exception;
 	
-	public NewsFilesVO getFile(NewsFilesVO newsFilesVO) throws Exception;
+	public List<NewsFilesVO> getFile(NewsVO newsVO) throws Exception;
 
 }

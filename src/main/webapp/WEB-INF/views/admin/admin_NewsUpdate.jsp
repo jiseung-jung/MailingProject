@@ -66,13 +66,24 @@
 		margin-top: 30px;
 	}
 	
-	#filebox span{
+	.admin_NewsWrite span{
 		font-size: 0.9em;
 		cursor: pointer;
 	}
 	
 	#f{
 		display: none;
+	}
+	
+	.files{
+		margin-bottom: 5px;
+	}
+	
+	#fileList{
+		background-color: #ebebeb;
+		border: 1px solid black;
+		margin-bottom: 5px;
+		width: 32.5%;
 	}
 	
 
@@ -109,14 +120,22 @@
 	<input type="hidden" value="${member.name}">
 		
 	<div>
-		<textarea id="contents" name="contents">${vo.contents}</textarea>
+		<form:textarea path="contents" id="contents"/>
 		<form:errors path="contents" cssClass="error"></form:errors>
 	</div>
 	
 	<div id="filebox">
-		<div>
-			<input type="file" name="files"> <span id="fileAdd">➕</span> <br>
+		 <div>
+			<input type="file" name="files" class="files"> <span id="fileAdd">➕</span> <br>
 		</div>
+	</div>
+	
+	<div id="fileListbox">
+			<c:if test="${fileList[0].oriName ne null}">
+				<c:forEach items="${fileList}" var="files">
+					<input type="text" value="${files.oriName}" id="fileList"> <span class="del">❌</span> <br>
+				</c:forEach>
+			</c:if>
 	</div>
 	
 	<div id="NWbtn">
@@ -128,7 +147,7 @@
 
 	<div id="f">
 		<div>
-			<input type="file" name="files"> <span class="del">❌</span> <br>
+			<input type="file" name="files" class="files"> <span class="del">❌</span> <br>
 		</div>
 	</div>
 
@@ -145,14 +164,16 @@
 		 height: 450
 		});
 
+	$('#contents').summernote('code', '${vo.contents}');
+
 	$(document).ready(function(){
 		$("#NWnewsId").val("${vo.newsId}")	
-	})
+	});
 
 
 //-----------------------------------------------
 	
-	var count =0;
+	var count = $("#fileList").length;
 	
 	$("#fileAdd").click(function(){
 		if(count<2){

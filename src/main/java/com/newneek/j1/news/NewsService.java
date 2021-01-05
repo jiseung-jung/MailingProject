@@ -89,12 +89,38 @@ public class NewsService {
 		return result;
 	}
 	
-	public int admin_setNewsUpdate(NewsVO newsVO) throws Exception{
-		return newsMapper.admin_setNewsUpdate(newsVO);
+	public int admin_setNewsUpdate(NewsVO newsVO, MultipartFile [] files) throws Exception{
+		
+		int result = newsMapper.admin_setNewsUpdate(newsVO);
+		
+		File file = filePathGenerator.getUseResourceLoader(this.filePath);
+		
+		for(MultipartFile multipartFile : files) {
+			if(multipartFile.getSize()==0) {
+				continue;
+			}
+			
+			String fileName = fileManager.saveFileCopy(multipartFile, file);
+			System.out.println(fileName);
+			
+			NewsFilesVO newsFilesVO = new NewsFilesVO();
+			newsFilesVO.setFileName(fileName);
+			newsFilesVO.setOriName(multipartFile.getOriginalFilename());
+			newsFilesVO.setNum(newsVO.getNum());
+			
+			result = newsMapper.setInsertFile(newsFilesVO);
+			
+		}
+		
+		return result;
 	}
 	
 	public int admin_setNewsDelete(NewsVO newsVO) throws Exception{
 		return newsMapper.admin_setNewsDelete(newsVO);
+	}
+	
+	public List<NewsFilesVO> getFile(NewsVO newsVO) throws Exception{
+		return newsMapper.getFile(newsVO);
 	}
 
 }

@@ -73,9 +73,10 @@
     	values (#{num}, #{fileName}, #{oriName})
     </insert>
     	
-    <select id="getFile" parameterType="NewsFilesVO" resultType="NewsFilesVO">
-    	select * from newsFiles where fnum=#{fnum}
+    <select id="getFile" parameterType="NewsVO" resultType="NewsFilesVO">
+    	select * from newsFiles where num=#{num}
     </select>
+    
     	
     </mapper>
     
