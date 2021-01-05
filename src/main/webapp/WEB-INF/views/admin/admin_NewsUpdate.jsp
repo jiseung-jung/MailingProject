@@ -102,14 +102,14 @@
 	</div>
 	
 	<div>
-		<form:input path="title" id="NWtitle" placeholder="제목을 입력하세요."/>
+		<form:input path="title" id="NWtitle" value="${vo.title}"/>
 		<form:errors path="title" cssClass="error"></form:errors>
 	</div>
 	
 	<input type="hidden" value="${member.name}">
 		
 	<div>
-		<form:textarea path="contents" id="contents"/>
+		<textarea id="contents" name="contents">${vo.contents}</textarea>
 		<form:errors path="contents" cssClass="error"></form:errors>
 	</div>
 	
@@ -140,9 +140,14 @@
 <!-- **************************** Script **************************** -->
 
 <script type="text/javascript">
+
 	$('#contents').summernote({
 		 height: 450
 		});
+
+	$(document).ready(function(){
+		$("#NWnewsId").val("${vo.newsId}")	
+	})
 
 
 //-----------------------------------------------
@@ -169,7 +174,7 @@
 	
 	$(".nobtn").click(function() {
 	 	if(confirm("이 페이지에서 나가시겠습니까?") == true){    //확인
-	     	location.href="./admin_NewsList";
+	     	location.href="./admin_NewsSelect?num=${vo.num}";
 
 	 	}else{   //취소
 	     	return false;

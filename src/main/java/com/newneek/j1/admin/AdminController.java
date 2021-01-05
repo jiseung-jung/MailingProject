@@ -122,6 +122,43 @@ public class AdminController {
 		return mv;
 	}
 	
+	
+	@GetMapping("admin_NewsUpdate")
+	public ModelAndView admin_setNewsUpdate(NewsOneVO newsOneVO, NewsVO newsVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		newsOneVO = newsService.admin_getNewsOne(newsOneVO);
+		
+		mv.addObject("vo", newsOneVO);
+		mv.setViewName("admin/admin_NewsUpdate");
+		
+		return mv;
+	}
+	
+	@PostMapping("admin_NewsUpdate")
+	public ModelAndView admin_setNewsUpdate(@Valid NewsVO newsVO, BindingResult bindingResult) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		if(newsService.getNewsError(newsVO, bindingResult)) {
+			mv.setViewName("admin/admin_NewsUpdate?num="+newsVO.getNum());
+			return mv;
+		}
+		
+		int result = newsService.admin_setNewsUpdate(newsVO);
+		
+		if(result>0) {
+			mv.addObject("msg", "수정 완료");
+			mv.addObject("path", "admin/admin_NewsSelect?num="+newsVO.getNum());
+		}else {
+			mv.addObject("msg", "수정 실패");
+			mv.addObject("path", "admin/admin_NewsUpdate?num="+newsVO.getNum());
+		}
+		
+		mv.setViewName("common/result");
+		
+		return mv;
+	}
+	
 
 	
 	

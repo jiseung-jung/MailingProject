@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class NewsController {
 	
 	@Autowired
-	NewsService newsService;
+	private NewsService newsService;
 	
 	
 	

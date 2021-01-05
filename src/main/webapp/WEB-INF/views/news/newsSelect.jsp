@@ -36,6 +36,12 @@
 		font-size: 1.05em;
 	}
 	
+	#Sel-head button{
+		padding: 0 6px;
+		margin-top: -10px;
+		margin-bottom: 10px;
+	}
+	
 	#Sel-body{
 		padding: 48px 0 50px 0;
 	}
@@ -62,8 +68,10 @@
 		<span id="Sel-title-s2">${vo.regDate}</span>
 	</div>
 	
-	<button class="btn btn-default">수정</button>
-	<button class="btn btn-default">삭제</button>
+	<!--<c:if test="${member.email eq 'admin@newneek.com'}"> -->
+		<button class="btn btn-default" id="upbtn">수정</button>
+		<button class="btn btn-default" id="delbtn">삭제</button>
+	<!--</c:if>-->
  </div>	
  
  <div id="Sel-body">
@@ -77,5 +85,24 @@
 
 </section>
 <c:import url="../template/footer.jsp"></c:import>
+
+
+<!-- **************************** Script **************************** -->
+
+<script type="text/javascript">
+
+	$("#upbtn").click(function(){
+		location.href="../admin/admin_NewsUpdate?num=${vo.num}";
+	});
+
+	$("#delbtn").click(function(){
+		if(confirm("삭제하시겠습니까?")== true){
+			location.href="../admin/admin_NewsDelete?num=${vo.num}";			
+		}else{
+			return false;
+		}
+	});
+
+</script>
 </body>
 </html>
