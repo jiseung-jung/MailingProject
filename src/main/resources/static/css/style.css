@@ -490,14 +490,14 @@ footer {
 }
 
 /**** help page ****/
-.help-con h1{
+.board-title h1{
 	margin: 50px 0 70px 0;
 	font-size: 30px;
 	font-weight: 500;
 	line-height: 1.2;
 }
 
-.help-con h2 {
+.board-title h2 {
 	font-size: 17px;
 	font-weight: 700;
 	padding-bottom: 18px;
@@ -505,19 +505,15 @@ footer {
 
 #help-box{
 	border: 1px solid black;
-	border-bottom: none;
 	margin-bottom: 50px;
 }
 
-#help-box p{
-	font-size: 1.4em;
+#help-box h1{
+	font-size: 18px;
+	font-weight: 700;
+	letter-spacing: -0.01em;
 	margin: 0 0 0 20px;
 	cursor: pointer;
-}
-
-#help-box h6{
-	margin: 0 0 0 42px;
-	line-height: 1.7em;
 }
 
 .box-div{
@@ -526,5 +522,44 @@ footer {
 }
 
 .box-div-hide{
-	margin-top: 20px;
+	margin: 20px 0 0 42px;
+	width: 70%;
+	line-height: 25px;
+}
+
+.help-email {
+	width: 60%;
+	margin: 30px 0 30px 40px;
+}
+
+.help-email h3 {
+	font-size: 25px;
+	font-weight: bold;
+	letter-spacing: -0.01em;
+}
+
+.help-email p {
+	font-size: 14px;
+	line-height: 2;
+	padding: 20px 0;
+}
+
+.help-email input {
+	width: 500px;
+	padding: 11px 40px 12px 1.5rem;
+	margin-bottom: 10px;
+}
+
+.help-email textarea {
+	padding: 11px 40px 12px 1.5rem;
+	margin-bottom: 20px;
+}
+
+.help-email button {
+	width: 150px;
+	height: 50px;
+	background: #161616;
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
 }
