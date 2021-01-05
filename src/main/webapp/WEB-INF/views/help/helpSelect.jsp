@@ -29,8 +29,8 @@
 			</div>
 			
 			<div class="section-footer">
-				<button type="button" id="del-btn">글삭제</button>
-				<button type="button" id="alter-btn">글수정</button>
+				<button type="button" id="del-btn">삭제</button>
+				<button type="button" id="alter-btn">수정</button>
 			</div>
 		</div>
 	</div>
