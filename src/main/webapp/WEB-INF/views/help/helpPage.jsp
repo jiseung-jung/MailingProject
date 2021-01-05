@@ -8,54 +8,8 @@
 <title>Insert title here</title>
 <c:import url="../template/bootStrap.jsp"></c:import>
 <link href="../css/style.css" rel="stylesheet">
-
-<style type="text/css">
-	
-	.help-con h1{
-		margin: 50px 0 70px 0;
-		font-size: 30px;
-		font-weight: 500;
-		line-height: 1.2;
-	}
-	
-	.help-con h2 {
-		font-size: 17px;
-		font-weight: 700;
-		padding-bottom: 18px;
-	}
-	
-	#help-box{
-		border: 1px solid black;
-		border-bottom: none;
-		margin-bottom: 50px;
-	}
-	
-	#help-box p{
-		font-size: 1.4em;
-		margin: 0 0 0 20px;
-		cursor: pointer;
-	}
-	
-	#help-box h6{
-		margin: 0 0 0 42px;
-		line-height: 1.7em;
-	}
-	
-	.box-div{
-		padding: 30px 0;
-		border-bottom: 1px solid black;
-	}
-	
-	.box-div-hide{
-		margin-top: 20px;
-	}
-	
-
-</style>
 </head>
-
 <body>
-
 <c:import url="../template/header.jsp"></c:import>
 <section class="helpPage">
 
@@ -102,7 +56,27 @@
 <script type="text/javascript">
 
 $(document).ready(function(){
-    $(".box-div-hide").addClass('hide');
+  $(".box-div-hide").addClass('hide');
+
+ 
+  $('#summernote').summernote({
+	  height: 300,                 // 에디터 높이
+	  minHeight: null,             // 최소 높이
+	  maxHeight: null,             // 최대 높이
+	  focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
+	  lang: "ko-KR",				// 한글 설정
+     	  placeholder: "내용",				
+	  toolbar: [
+          ['style', ['bold', 'italic', 'underline', 'clear']],
+          ['font', ['strikethrough', 'superscript', 'subscript']],
+          ['fontsize', ['fontsize']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['height', ['height']]
+        ]
+
+  });
+    
 });    
 
 
