@@ -1,8 +1,11 @@
 package com.newneek.j1.mail;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+
+import com.newneek.j1.util.MailHandler;
 
 import lombok.AllArgsConstructor;
 
@@ -10,16 +13,32 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class MailService {
 
+	@Autowired
 	private JavaMailSender mailSender;
-	private static final String FROM_ADDRESS = "YOUR_EMAIL_ADDRESS";
+	private static final String FROM_ADDRESS = "mpj9516@gmail.com";
 
     public void mailSend(MailVO mailVO) {
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setTo(mailVO.getAddress());
-        message.setFrom(MailService.FROM_ADDRESS);
-        message.setSubject(mailVO.getTitle());
-        message.setText(mailVO.getContents());
+        try {
+            MailHandler mailHandler = new MailHandler(mailSender);
+            
+            // 받는 사람
+           mailHandler.setTo(mailVO.getAddress());
+            // 보내는 사람
+           mailHandler.setFrom(MailService.FROM_ADDRESS);
+            // 제목
+           mailHandler.setSubject(mailVO.getTitle());
+            // HTML Layout
+            String htmlContent = "<p>" + mailVO.getContents() +"<p> <img src='cid:sample-img'>";
+            mailHandler.setText(htmlContent, true);
+            // 첨부 파일
+           //mailHandler.setAttach("newTest.txt", "static/originTest.txt");
+            // 이미지 삽입
+          // mailHandler.setInline("sample-img", "static/sample1.jpg");
 
-        mailSender.send(message);
+            mailHandler.send();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
     }
 }
