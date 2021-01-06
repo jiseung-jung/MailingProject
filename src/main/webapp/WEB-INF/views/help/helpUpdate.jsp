@@ -24,7 +24,7 @@
 			<div class="board-title">
 				<h1>자주묻는질문</h1>
 			</div>
-			<form method="post" action="./helpUpdate">
+			<form method="post" action="./helpUpdate" class="helpUpdate">
 				<input type="hidden" name="num" value="${vo.num}">
 			
 				<input type="text" class="form-control" name="title" id="title" value="${vo.title}">
@@ -33,7 +33,7 @@
 				
 				<textarea id="summernote" name="contents">${vo.contents}</textarea>
 			
-				<button type="submit">작성</button>
+				<button type="submit" class="write-btn">작성</button>
 			</form>
 
 		</div>
