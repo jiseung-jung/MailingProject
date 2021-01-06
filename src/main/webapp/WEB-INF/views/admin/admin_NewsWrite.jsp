@@ -75,6 +75,10 @@
 		display: none;
 	}
 	
+	.files{
+		margin-bottom: 5px;
+	}
+	
 
 /*
 	
@@ -86,6 +90,8 @@
 <section class="admin_NewsWrite">
 
 <form:form modelAttribute="newsVO" id="NewsInsert" enctype="multipart/form-data">
+
+	<input type="hidden" value="${member.name}" name="writer">
 	
 	<div>
 		<form:select path="newsId" id="NWnewsId">
@@ -106,8 +112,6 @@
 		<form:errors path="title" cssClass="error"></form:errors>
 	</div>
 	
-	<input type="hidden" value="${member.name}">
-		
 	<div>
 		<form:textarea path="contents" id="contents"/>
 		<form:errors path="contents" cssClass="error"></form:errors>
@@ -115,7 +119,7 @@
 	
 	<div id="filebox">
 		<div>
-			<input type="file" name="files"> <span id="fileAdd">➕</span> <br>
+			<input type="file" name="files" class="files"> <span id="fileAdd">➕</span> <br>
 		</div>
 	</div>
 	
@@ -128,7 +132,7 @@
 
 	<div id="f">
 		<div>
-			<input type="file" name="files"> <span class="del">❌</span> <br>
+			<input type="file" name="files" class="files"> <span class="del">❌</span> <br>
 		</div>
 	</div>
 

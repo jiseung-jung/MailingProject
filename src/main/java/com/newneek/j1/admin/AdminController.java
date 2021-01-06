@@ -30,7 +30,7 @@ public class AdminController {
 	private MemberService memberService;
 	@Autowired
 	private NewsService newsService;
-	@Value("${news.filePath")
+	@Value("${news.filePath}")
 	private String filePath;
 	
 	
@@ -125,7 +125,7 @@ public class AdminController {
 	
 	
 	@GetMapping("admin_NewsUpdate")
-	public ModelAndView admin_setNewsUpdate(NewsOneVO newsOneVO, NewsVO newsVO) throws Exception{
+	public ModelAndView admin_setNewsUpdate(NewsVO newsVO, NewsOneVO newsOneVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
 		newsOneVO = newsService.admin_getNewsOne(newsOneVO);
@@ -155,7 +155,7 @@ public class AdminController {
 		
 		if(result>0) {
 			mv.addObject("msg", "수정 완료");
-			mv.addObject("path", "admin/admin_NewsSelect?num="+newsVO.getNum());
+			mv.addObject("path", "../news/newsSelect?num="+newsVO.getNum());
 		}else {
 			mv.addObject("msg", "수정 실패");
 			mv.addObject("path", "admin/admin_NewsUpdate?num="+newsVO.getNum());

@@ -16,7 +16,7 @@
 
 <style type="text/css">
 
-	.admin_NewsWrite{
+	.admin_NewsUpdate{
 		padding: 100px 0;	
 	}
 
@@ -66,7 +66,7 @@
 		margin-top: 30px;
 	}
 	
-	.admin_NewsWrite span{
+	.admin_NewsUpdate span{
 		font-size: 0.9em;
 		cursor: pointer;
 	}
@@ -87,16 +87,16 @@
 	}
 	
 
-/*
-	
 </style>
 
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
-<section class="admin_NewsWrite">
+<section class="admin_NewsUpdate">
 
 <form:form modelAttribute="newsVO" id="NewsInsert" enctype="multipart/form-data">
+
+		<input type="hidden" value="${vo.num}" name="num">
 	
 	<div>
 		<form:select path="newsId" id="NWnewsId">
@@ -117,8 +117,6 @@
 		<form:errors path="title" cssClass="error"></form:errors>
 	</div>
 	
-	<input type="hidden" value="${member.name}">
-		
 	<div>
 		<form:textarea path="contents" id="contents"/>
 		<form:errors path="contents" cssClass="error"></form:errors>
@@ -195,8 +193,8 @@
 	
 	$(".nobtn").click(function() {
 	 	if(confirm("이 페이지에서 나가시겠습니까?") == true){    //확인
-	     	location.href="./admin_NewsSelect?num=${vo.num}";
-
+	     	location.href="../news/newsSelect?num=${vo.num}";
+	     	
 	 	}else{   //취소
 	     	return false;
 	 	}
