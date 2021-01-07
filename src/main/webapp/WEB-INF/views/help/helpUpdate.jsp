@@ -21,9 +21,7 @@
 <div class="container admin-con">
 	<div class="row">
 		<div class="col-12 col-sm-12">
-			<div class="board-title">
-				<h1>자주묻는질문</h1>
-			</div>
+			<h1 class="admin-title">📌 자주묻는질문 수정</h1>
 			<form method="post" action="./helpUpdate" class="helpUpdate">
 				<input type="hidden" name="num" value="${vo.num}">
 			
@@ -44,7 +42,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	  $('#summernote').summernote({
-		  height: 300,                 // 에디터 높이
+		  height: 500,                 // 에디터 높이
 		  minHeight: null,             // 최소 높이
 		  maxHeight: null,             // 최대 높이
 		  focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부

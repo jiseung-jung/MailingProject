@@ -20,7 +20,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-12">
-			<h1 class="mail-title">📫 메일 쓰기</h1>
+			<h1 class="admin-title">📫 메일 쓰기</h1>
 			<form th:action="@{/mail/mail}" method="post">
 			    <!-- <input name="address" placeholder="이메일주소" value=""> <br>-->
 			    <input name="title" placeholder="제목을 입력하세요" id="mailTitle"> <br>

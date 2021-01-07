@@ -21,9 +21,7 @@
 <div class="container admin-con">
 	<div class="row">
 		<div class="col-12 col-sm-12">
-			<div class="board-title">
-				<h1>자주묻는질문</h1>
-			</div>
+			<h1 class="admin-title">📌 자주묻는질문 등록</h1>
 			<form method="post" action="./helpWrite">
 				<input type="text" class="form-control" name="title" id="title" placeholder="제목">
 				
@@ -31,7 +29,7 @@
 				
 				<textarea id="summernote" name="contents"></textarea>
 			
-				<button type="submit">작성</button>
+				<button type="submit" class="write-btn">작성</button>
 			</form>
 
 		</div>

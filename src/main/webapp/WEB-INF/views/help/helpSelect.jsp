@@ -17,15 +17,11 @@
 <div class="container admin-con">
 	<div class="row">
 		<div class="col-12">
-			<div class="board-title">
-				<h1>자주묻는질문</h1>
-			</div>
-			
-			<div>
-				<p>${vo.title}</p>
-				<p>${vo.writer}</p>
+			<h1 class="admin-title">📌 자주묻는질문</h1>
+			<h2 class="help-title">${vo.title}</h2>
+			<h2 class="help-date">${vo.regDate}</h2>
+			<div class="admin-item">
 				<p>${vo.contents}</p>
-				<p>${vo.regDate}</p>
 			</div>
 			
 			<div class="section-footer">
