@@ -127,7 +127,7 @@
 			
 			
 			<div class="setting-foot">
-				<button type="button" id="del-btn">계정 탈퇴하기</button>
+				<button type="button" id="del-btn">계정탈퇴</button>
 				<button type="button" id="logout-btn">로그아웃</button>
 			</div>
 		</div>

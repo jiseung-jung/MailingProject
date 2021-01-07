@@ -44,7 +44,8 @@
 		color: #fb7800;
 	}
 	
-	#admin-member{
+	#admin-member, 
+	#admin-news {
 		margin-bottom: 30px;
 	}
 	
@@ -73,7 +74,7 @@
 			</div>
 		
 			<div class="admin-count" id="admin-help">
-				<p>지금 <span>${nCount}</span>개의 자주묻는질문이 있습니다.</p> 
+				<p>자주묻는질문이 있습니다.</p> 
 			</div>
 		
 		</div>

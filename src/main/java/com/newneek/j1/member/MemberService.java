@@ -91,5 +91,10 @@ public class MemberService {
 		
 		return memberMapper.admin_getMemberList(pager);
 	}
-
+	
+	//-------------------------------------- Email
+	public List<MemberVO> getEmailMemberList() throws Exception{
+		return memberMapper.getEmailMemberList();
+	}
+ 
 }

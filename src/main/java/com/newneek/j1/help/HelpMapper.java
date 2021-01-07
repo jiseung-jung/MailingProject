@@ -17,4 +17,6 @@ public interface HelpMapper {
 	public int setDelete(HelpVO helpVO) throws Exception;
 	
 	public HelpVO getOne(HelpVO helpVO) throws Exception;
+	
+	public int getHelpCount(HelpVO helpVO) throws Exception;
 }

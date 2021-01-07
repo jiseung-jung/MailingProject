@@ -31,4 +31,8 @@ public interface MemberMapper {
 	
 	public List<MemberVO> admin_getMemberList(Pager pager) throws Exception;
 	
+	//-------------------------------------- Email
+	public List<MemberVO> getEmailMemberList() throws Exception;
+	
+	
 }

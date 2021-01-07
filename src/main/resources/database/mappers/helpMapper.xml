@@ -28,4 +28,8 @@
     	<delete id="setDelete" parameterType="HelpVO">
     		delete from help where num=#{num}
     	</delete>
+    	
+    	<select id="getHelpCount">
+    		select count(*) from help
+    	</select>
     </mapper>
