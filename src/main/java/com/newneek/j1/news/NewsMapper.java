@@ -24,11 +24,14 @@ public interface NewsMapper {
 	
 	public NewsOneVO admin_getNewsOne(NewsOneVO newsOneVO) throws Exception;
 	
+	public List<NewsVO> getNewsEmailList() throws Exception;
+	
 	
 	// file==------------------------------------------------
 	
 	public int setInsertFile(NewsFilesVO newsFilesVO) throws Exception;
 	
 	public List<NewsFilesVO> getFile(NewsVO newsVO) throws Exception;
+
 
 }

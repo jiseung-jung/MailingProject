@@ -20,7 +20,17 @@
 	<form th:action="@{/mail/mail}" method="post">
 	    <!-- <input name="address" placeholder="이메일주소" value=""> <br>-->
 	    <input name="title" placeholder="제목"> <br>
-	    <textarea id="summernote" name="contents" placeholder="메일 내용을 입력해주세요." cols="60" rows="20"></textarea>
+	    <textarea id="summernote" name="contents" placeholder="메일 내용을 입력해주세요." cols="60" rows="20">
+	    <div style="width:100%; padding:40px 0; background-color:#ebebeb;margin:0 auto;font-family: 'Spoqa Han Sans', sans-serif;">
+	    	<div style="width:70%; margin:0 auto;">
+	    		<!--  <img src="/image/mail_logo.png" alt="고슴" width="590px">-->
+		    	<c:forEach items="${news}" var="vo" varStatus="status">
+					${vo.contents} 
+					<p>${vo.regDate}</p>
+				</c:forEach>
+			</div>
+	    </div>
+	    </textarea>
 	   	 
 	    <button>발송</button>
 	</form>
@@ -35,6 +45,7 @@ $(document).ready(function() {
 		  focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
 		  lang: "ko-KR",				// 한글 설정				
 		  toolbar: [
+			  ['fontname', ['fontname']],
 	          ['style', ['bold', 'italic', 'underline', 'clear']],
 	          ['font', ['strikethrough', 'superscript', 'subscript']],
 	          ['fontsize', ['fontsize']],

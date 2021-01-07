@@ -124,4 +124,7 @@ public class NewsService {
 		return newsMapper.getFile(newsVO);
 	}
 
+	public List<NewsVO> getEmailList() throws Exception{
+		return newsMapper.getNewsEmailList();
+	}
 }

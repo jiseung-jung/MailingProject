@@ -8,9 +8,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.config.MvcNamespaceHandler;
 
 import com.newneek.j1.member.MemberService;
 import com.newneek.j1.member.MemberVO;
+import com.newneek.j1.news.NewsService;
+import com.newneek.j1.news.NewsVO;
 import com.newneek.j1.util.Pager;
 
 import lombok.AllArgsConstructor;
@@ -23,15 +26,18 @@ public class MailController {
 	
 	@Autowired
 	private MemberService memberService;
+	
+	@Autowired
+	private NewsService newsService;
 
     @GetMapping("mail")
-    public ModelAndView dispMail(Pager pager) throws Exception{
+    public ModelAndView dispMail() throws Exception{
     	ModelAndView mv = new ModelAndView();
-    	List<MemberVO> ar = memberService.getEmailMemberList();
-    	for(MemberVO memberVO : ar) {
-    		System.out.println(memberVO.getEmail() + ",");
+    	List<NewsVO> newsList = newsService.getEmailList(); 
+    	for(NewsVO newsVO : newsList) {
+    		System.out.println(newsVO.getContents());
     	}
-    	mv.addObject("memberList" , ar);
+    	mv.addObject("news" , newsList );
     	mv.setViewName("mail/mail");
 		return mv;
     }
@@ -40,7 +46,10 @@ public class MailController {
     public void execMail(MailVO mailVO) throws Exception {
     	
     	List<MemberVO> ar = memberService.getEmailMemberList();
+    	
+    	
     	for(MemberVO memberVO : ar) {
+    		
     		mailVO.setAddress(memberVO.getEmail());
     		mailService.mailSend(mailVO);
     	}

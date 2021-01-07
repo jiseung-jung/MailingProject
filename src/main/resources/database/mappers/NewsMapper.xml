@@ -77,7 +77,11 @@
     	select * from newsFiles where num=#{num}
     </select>
     
-    	
+    <!-- ********************* mail ************************ -->	
+    <select id="getNewsEmailList" parameterType="NewsVO" resultType="NewsVO">
+    	select * from news where date(regDate) between date(sysdate())-2 and date(sysdate())
+    </select>
+    
     </mapper>
     
     
