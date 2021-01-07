@@ -2,6 +2,8 @@ package com.newneek.j1.member;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,6 +13,7 @@ class MemberMapperTest {
 	
 	@Autowired
 	private MemberMapper memberMapper;
+	
 	
 	//@Test
 	void getMemberLoginTest() throws Exception {
@@ -22,7 +25,7 @@ class MemberMapperTest {
 		assertNotNull(memberVO);
 	}
 
-	@Test
+	//@Test
 	void setMemberJoinTest() throws Exception{
 		MemberVO memberVO = new MemberVO();
 		

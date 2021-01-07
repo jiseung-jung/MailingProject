@@ -1,5 +1,7 @@
 package com.newneek.j1.member;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -10,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.newneek.j1.util.Pager;
 
 
 @Controller
@@ -212,7 +216,6 @@ public class MemberController {
 		mv.setViewName("common/result");
 		return mv;
 	}
-	
 	
 
 }

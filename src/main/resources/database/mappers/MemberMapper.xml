@@ -47,6 +47,7 @@
     	</delete>
     	
     	
+    	
     	<!-- **************** Admin **************** -->
     	
     	<select id="admin_getMemberList" parameterType="Pager" resultType="MemberVO">
@@ -54,5 +55,10 @@
 			FROM (select * from member where not email='admin@newneek.com'
     		order by name asc) M, (SELECT @ROWNUM:=(#{curPage}-1)*#{perPage}) R
 			limit #{startRow}, #{perPage}	
+    	</select>
+    	
+    	<!-- Email -->
+    	<select id="getEmailMemberList" parameterType="MemberVO" resultType="MemberVO">
+    		select email, mailCheck from member where mailCheck=1
     	</select>
     </mapper>

@@ -29,7 +29,7 @@
 			</div>
 			
 			<div class="section-footer">
-				<button type="button" id="del-btn">삭제</button>
+				<button type="button" id="del-btn1">삭제</button>
 				<button type="button" id="alter-btn">수정</button>
 			</div>
 		</div>
@@ -38,7 +38,7 @@
 </section>
 
 <script type="text/javascript">
-$("#del-btn").click(function() {
+$("#del-btn1").click(function() {
 	if (confirm("정말 삭제하시겠습니까?") == true){    
 		location.href="./helpDelete?num=${vo.num}";
 
