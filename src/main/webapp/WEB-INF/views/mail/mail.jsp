@@ -43,7 +43,7 @@ $(document).ready(function() {
 	          ['height', ['height']],
 	          ['insert',['picture','link']]
 	        ]
-
+		 
 	  });
 	});
 </script>	
