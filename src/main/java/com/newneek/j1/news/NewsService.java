@@ -87,7 +87,6 @@ public class NewsService {
 			System.out.println(newsVO.getNewsId());
 			result = true;
 		}
-		result=false;
 		return result;
 	}
 	

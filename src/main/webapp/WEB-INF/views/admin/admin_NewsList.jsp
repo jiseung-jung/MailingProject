@@ -53,7 +53,7 @@
 			<c:forEach items="${list}" var="vo" varStatus="status">
 				<tr>
 					<td>${vo.num}</td>
-					<td></td>
+					<td>${vo.categoryVO.category_emoji} ${vo.categoryVO.category_name}</td>
 					<td><a href="../news/newsSelect?num=${vo.num}">${vo.title}</a></td>
 					<td>${vo.writer}</td>
 					<td>${vo.regDate}</td>

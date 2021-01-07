@@ -68,10 +68,10 @@
 		<span id="Sel-title-s2">${vo.regDate}</span>
 	</div>
 	
-	<!--<c:if test="${member.email eq 'admin@newneek.com'}"> -->
+	<c:if test="${member.email eq 'admin@newneek.com'}">
 		<button class="btn btn-default" id="upbtn">수정</button>
 		<button class="btn btn-default" id="delbtn">삭제</button>
-	<!--</c:if>-->
+	</c:if>
  </div>	
  
  <div id="Sel-body">

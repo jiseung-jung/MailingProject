@@ -16,6 +16,7 @@ public class NewsVO {
 	
 	
 	private long num;
+	@Min(1)
 	private long newsId;
 	@NotEmpty
 	private String title;
@@ -25,7 +26,7 @@ public class NewsVO {
 	private Date regDate;
 	private long hit;
 	
-	private CategoryVO cVO;
-	private List<NewsFilesVO> files;
+	private CategoryVO categoryVO;
+	private List<NewsFilesVO> fileList;
 
 }
