@@ -16,15 +16,19 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 <section>
+<div class="container admin-con">
+	<div class="row">
+		<div class="col-12">
 	<h1>메일 발송</h1>
 	<form th:action="@{/mail/mail}" method="post">
 	    <!-- <input name="address" placeholder="이메일주소" value=""> <br>-->
 	    <input name="title" placeholder="제목"> <br>
 	    <textarea id="summernote" name="contents" placeholder="메일 내용을 입력해주세요." cols="60" rows="20">
-	    <div style="width:100%; padding:40px 0; background-color:#ebebeb;margin:0 auto;font-family: 'Spoqa Han Sans', sans-serif;">
+	    <div style="width:100%; padding:40px 0; background-color:#ebebeb;margin:0 auto;">
 	    	<div style="width:70%; margin:0 auto;">
-	    		<!--  <img src="/image/mail_logo.png" alt="고슴" width="590px">-->
+	    		<!-- 오늘부터 이틀전 기사까지 내용불러오기 -->
 		    	<c:forEach items="${news}" var="vo" varStatus="status">
+		    		
 					${vo.contents} 
 					<p>${vo.regDate}</p>
 				</c:forEach>
@@ -34,6 +38,9 @@
 	   	 
 	    <button>발송</button>
 	</form>
+			</div>
+	</div>
+</div>
 </section>
 
 <script type="text/javascript">

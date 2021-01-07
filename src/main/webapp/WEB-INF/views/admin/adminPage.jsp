@@ -34,7 +34,7 @@
 	}
 	
 	.admin-count{
-		margin-top: 10px;
+		margin: 10px 0 30px 0;
 		border-top: solid 1px black;
 		border-bottom: solid 1px black; 
 		cursor: pointer;
@@ -42,11 +42,6 @@
 	
 	.admin-count span{
 		color: #fb7800;
-	}
-	
-	#admin-member, 
-	#admin-news {
-		margin-bottom: 30px;
 	}
 	
 	
@@ -76,6 +71,10 @@
 			<div class="admin-count" id="admin-help">
 				<p>자주묻는질문이 있습니다.</p> 
 			</div>
+			
+			<div class="admin-count" id="admin-mail">
+				<p>메일 작성</p> 
+			</div>
 		
 		</div>
 	</div>
@@ -99,6 +98,10 @@
 
 	$("#admin-help").click(function(){
 		location.href="${pageContext.request.contextPath}/help/helpList";
+	});
+
+	$("#admin-mail").click(function(){
+		location.href="${pageContext.request.contextPath}/mail";
 	});
 </script>
 

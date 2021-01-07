@@ -6,12 +6,16 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.newneek.j1.interceptor.HelpInterceptor;
+import com.newneek.j1.interceptor.MailInterceptor;
 
 @Configuration
 public class InterceptorConfig implements WebMvcConfigurer {
 	
 	@Autowired
 	private HelpInterceptor helpInterceptor;
+	
+	@Autowired
+	private MailInterceptor mailInterceptor;
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
@@ -19,6 +23,9 @@ public class InterceptorConfig implements WebMvcConfigurer {
 		registry.addInterceptor(helpInterceptor)
 		.addPathPatterns("/help/**")
 		.excludePathPatterns("/help/helpPage");
+		
+		registry.addInterceptor(mailInterceptor)
+		.addPathPatterns("/mail");
 		
 		WebMvcConfigurer.super.addInterceptors(registry);
 	}
