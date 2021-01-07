@@ -69,11 +69,11 @@
 			</div>
 		
 			<div class="admin-count" id="admin-help">
-				<p>자주묻는질문이 있습니다.</p> 
+				<p>📢 자주묻는질문</p> 
 			</div>
 			
 			<div class="admin-count" id="admin-mail">
-				<p>메일 작성</p> 
+				<p>📫 메일쓰기</p> 
 			</div>
 		
 		</div>

@@ -1,5 +1,6 @@
 package com.newneek.j1.mail;
 
+import java.lang.ProcessBuilder.Redirect;
 import java.util.List;
 
 import org.apache.ibatis.javassist.compiler.ast.Member;
@@ -43,8 +44,8 @@ public class MailController {
     }
 
     @PostMapping("mail")
-    public void execMail(MailVO mailVO) throws Exception {
-    	
+    public ModelAndView execMail(MailVO mailVO) throws Exception {
+    	ModelAndView mv = new ModelAndView();
     	List<MemberVO> ar = memberService.getEmailMemberList();
     	
     	
@@ -53,6 +54,7 @@ public class MailController {
     		mailVO.setAddress(memberVO.getEmail());
     		mailService.mailSend(mailVO);
     	}
-    	
+    	mv.setViewName("redirect:/admin/adminPage");
+    	return mv;
     }
 }
