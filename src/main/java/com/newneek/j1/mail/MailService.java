@@ -27,7 +27,8 @@ public class MailService {
             // 제목
            mailHandler.setSubject(mailVO.getTitle());
             // HTML Layout
-            String htmlContent = "<div style='width:100%;background-color:#ebebeb;text-align: center;'><img src='cid:sample-img' width='590px'></div> <p>" + mailVO.getContents() +"</p>";
+            String htmlContent = "<div style='width:100%;background-color:#ebebeb;'><img src='cid:sample-img' width='590px' style='display: block;margin: 0 auto;'><p>" + mailVO.getContents() 
+            +"</p><div><p style='font-size:12px;text-align:center;line-height:2;'>세상 돌아가는 소식, 알고는 싶지만 신문 볼 새 없이 바쁜 게 우리 탓은 아니잖아요!😂<br>월/수/금 아침마다 세상 돌아가는 소식을 메일로 받아보세요.📧</div></div>";
             mailHandler.setText(htmlContent, true);
             // 첨부 파일
            //mailHandler.setAttach("newTest.txt", "static/originTest.txt");
