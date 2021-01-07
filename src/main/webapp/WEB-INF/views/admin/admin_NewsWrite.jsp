@@ -79,8 +79,6 @@
 		margin-bottom: 5px;
 	}
 	
-
-/*
 	
 </style>
 
@@ -125,7 +123,7 @@
 	
 	<div id="NWbtn">
 		<button class="btn btn-default nwbtn okbtn">확인</button>
-		<button class="btn btn-default nwbtn nobtn">취소</button>
+		<input type="button" class="btn btn-default nwbtn nobtn" value="취소">
 	</div>
 
 </form:form>

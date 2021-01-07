@@ -16,7 +16,6 @@ public class NewsVO {
 	
 	
 	private long num;
-	@Min(1)
 	private long newsId;
 	@NotEmpty
 	private String title;

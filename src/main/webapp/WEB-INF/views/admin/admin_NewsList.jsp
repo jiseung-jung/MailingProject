@@ -11,7 +11,7 @@
 
 <style type="text/css">
 	table, td, th {
- 		border: 1px solid black;
+ 		border: 1px solid black !important;
  		text-align: center;
 	}
 	

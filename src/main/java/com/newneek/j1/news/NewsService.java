@@ -83,9 +83,11 @@ public class NewsService {
 		
 		//기본 Annotation 검증 결과
 		if(bindingResult.hasErrors()) {
+			
+			System.out.println(newsVO.getNewsId());
 			result = true;
 		}
-		
+		result=false;
 		return result;
 	}
 	

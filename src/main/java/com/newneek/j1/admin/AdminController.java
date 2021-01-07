@@ -103,12 +103,17 @@ public class AdminController {
 			System.out.println(f.getOriginalFilename());
 		}
 		
+		System.out.println("error: "+bindingResult.getObjectName());
+		
 		if(newsService.getNewsError(newsVO, bindingResult)) {
 			mv.setViewName("admin/admin_NewsWrite");
+			
+			System.out.println(bindingResult.getGlobalErrorCount());
 			return mv;
 		}
 		
 		int result = newsService.admin_setNewsInsert(newsVO, files);
+		System.out.println("result"+result);
 		
 		if(result>0) {
 			mv.addObject("msg", "기사 작성 완료!");
@@ -147,7 +152,8 @@ public class AdminController {
 		}
 		
 		if(newsService.getNewsError(newsVO, bindingResult)) {
-			mv.setViewName("admin/admin_NewsUpdate?num="+newsVO.getNum());
+			
+			mv.setViewName("redirect:./admin_NewsUpdate?num=\"+newsVO.getNum()");
 			return mv;
 		}
 		
