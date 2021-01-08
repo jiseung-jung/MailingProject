@@ -79,7 +79,7 @@
 		margin-bottom: 5px;
 	}
 	
-	#fileList{
+	.fileList{
 		background-color: #ebebeb;
 		border: 1px solid black;
 		margin-bottom: 5px;
@@ -131,7 +131,7 @@
 	<div id="fileListbox">
 			<c:if test="${fileList[0].oriName ne null}">
 				<c:forEach items="${fileList}" var="files">
-					<input type="text" value="${files.oriName}" id="fileList"> <span class="del">❌</span> <br>
+					<input type="text" value="${files.oriName}" class="fileList"> <span class="del">❌</span> <br>
 				</c:forEach>
 			</c:if>
 	</div>
@@ -171,7 +171,7 @@
 
 //-----------------------------------------------
 	
-	var count = $("#fileList").length;
+	var count = $(".fileList").length;
 	
 	$("#fileAdd").click(function(){
 		if(count<2){
