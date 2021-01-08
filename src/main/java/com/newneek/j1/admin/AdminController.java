@@ -2,6 +2,7 @@ package com.newneek.j1.admin;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -164,7 +165,7 @@ public class AdminController {
 			mv.addObject("path", "../news/newsSelect?num="+newsVO.getNum());
 		}else {
 			mv.addObject("msg", "수정 실패");
-			mv.addObject("path", "admin/admin_NewsUpdate?num="+newsVO.getNum());
+			mv.addObject("path", "./admin_NewsUpdate?num="+newsVO.getNum());
 		}
 		
 		mv.setViewName("common/result");
@@ -173,7 +174,25 @@ public class AdminController {
 	}
 	
 	
-	
+	@GetMapping("admin_NewsDelete")
+	public ModelAndView admin_setNewsDelete(NewsVO newsVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		int result = newsService.admin_setNewsDelete(newsVO);
+		
+		if(result>0) {
+			mv.addObject("msg", "기사 삭제 완료");
+			mv.addObject("path", "./admin_NewsList");
+		}else {
+			mv.addObject("msg", "삭제 실패");
+			mv.addObject("path", "../news/newsSelect?num="+newsVO.getNum());
+		}
+		
+		mv.setViewName("common/result");
+		
+		
+		return mv;
+	}
 
 	
 	
