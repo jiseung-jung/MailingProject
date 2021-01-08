@@ -41,14 +41,31 @@
 	</resultMap>
 	
 	
-	<select id="admin_getNewsOne" parameterType="NewsOneVO" resultType="NewsOneVO">
-		select N.*, NF.fnum, NF.num num_1, NF.fileName, NF.oriName, C.category_name from
+	<select id="admin_getNewsOne" parameterType="NewsOneVO" resultType="NewsOneVO" resultMap="admin_NewsSelect">
+		select N.*, NF.*, C.category_name from
 		news N left join newsFiles NF
 		on N.num = NF.num
         left join category C
         on N.newsId = C.category_id
 		where N.num = #{num}
 	</select>
+	
+	    <resultMap type="NewsOneVO" id="admin_NewsSelect">
+    		<result column="num" property="num"/>
+    		<result column="newsId" property="newsId"/>
+    		<result column="title" property="title"/>
+    		<result column="writer" property="writer"/>
+    		<result column="contents" property="contents"/>
+    		<result column="regDate" property="regDate"/>
+    		<result column="hit" property="hit"/>
+    		<result column="category_name" property="category_name"/>
+    		
+         <collection property="newsFilesVO" ofType="newsFilesVO" javaType="java.util.List">
+            <id column="fnum" property="fnum"/>
+            <result column="fileName" property="fileName"/>
+            <result column="oriName" property="oriName"/>
+         </collection>
+		</resultMap>
 	
 	
 	<insert id="admin_setNewsInsert" parameterType="NewsVO" useGeneratedKeys="true" keyProperty="num">

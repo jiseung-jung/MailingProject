@@ -1,6 +1,9 @@
 package com.newneek.j1.news;
 
 import java.sql.Date;
+import java.util.List;
+
+import com.newneek.j1.news.file.NewsFilesVO;
 
 import lombok.Data;
 
@@ -15,12 +18,9 @@ public class NewsOneVO {
 	private Date regDate;
 	private long hit;
 	
-	private long fnum;
-	private long num_1;
-	private String fileName;
-	private String oriName;
-	
 	private String category_name;
+	
+	private List<NewsFilesVO> newsFilesVO;
 
 
 }
