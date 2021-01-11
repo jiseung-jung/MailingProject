@@ -90,7 +90,15 @@
  </div>
  
 
-	
+  <div class="inbox-actions">
+    <button type="submit" id="inbox-heart">
+      <span class="like">+</span>
+      좋았슴
+    </button>
+  </div>
+
+
+
 	
 </div>
 
@@ -109,6 +117,21 @@
 	$("#delbtn").click(function(){
 		if(confirm("삭제하시겠습니까?")== true){
 			location.href="../admin/admin_NewsDelete?num=${vo.num}";			
+		}else{
+			return false;
+		}
+	});
+
+	$("#inbox-heart").click(function(){
+		if(confirm("좋아요 하시겠습니까?")== true){
+			$.ajax({ 
+				type: 'POST',
+				url: "./newsLike?num=${vo.num}",
+				data: {newsNum :"${num}", email:"${email}" },
+				success: function(data) {
+					console.log("success");
+				}
+				});
 		}else{
 			return false;
 		}
