@@ -193,6 +193,24 @@ public class AdminController {
 		
 		return mv;
 	}
+	
+	
+	@GetMapping("setDeleteFile")
+	public ModelAndView setDeleteFile(NewsFilesVO newsFilesVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		int result = newsService.setDeleteFile(newsFilesVO);
+		
+		if(result>0) {
+			mv.addObject("msg", "삭제 완료");
+		}else {
+			mv.addObject("msg", "삭제 실패");
+		}
+		
+		mv.setViewName("common/ajaxResult");
+		
+		return mv;
+	}
 
 	
 	

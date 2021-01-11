@@ -94,6 +94,10 @@
     	select * from newsFiles where num=#{num}
     </select>
     
+    <delete id="setDeleteFile" parameterType="NewsFilesVO">
+    	delete from newsFiles where fileName=#{fileName}
+    </delete>
+    
     <!-- ********************* mail ************************ -->	
     <select id="getNewsEmailList" parameterType="NewsVO" resultType="NewsVO">
     	select * from news where date(regDate) between date(sysdate())-1 and date(sysdate())+1

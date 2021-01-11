@@ -8,9 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.newneek.j1.member.MemberVO;
 import com.newneek.j1.news.file.NewsFilesVO;
 import com.newneek.j1.util.FileManager;
 import com.newneek.j1.util.FilePathGenerator;
@@ -122,6 +120,20 @@ public class NewsService {
 	
 	public List<NewsFilesVO> getFile(NewsVO newsVO) throws Exception{
 		return newsMapper.getFile(newsVO);
+	}
+	
+	public int setDeleteFile(NewsFilesVO newsFilesVO) throws Exception{
+		
+		String fileName = newsFilesVO.getFileName();
+		
+		File file = filePathGenerator.getUseResourceLoader(this.filePath+fileName);
+		
+		if(file.exists() == true){
+			System.out.println(file);
+			file.delete();
+		}
+		
+		return newsMapper.setDeleteFile(newsFilesVO);
 	}
 
 	public List<NewsVO> getEmailList() throws Exception{

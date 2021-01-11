@@ -123,15 +123,20 @@
 	</div>
 	
 	<div id="filebox">
+		<c:if test="${fileList[2].oriName eq null}">
 		 <div>
 			<input type="file" name="files" class="files"> <span id="fileAdd">➕</span> <br>
 		</div>
+		</c:if>
 	</div>
 	
 	<div id="fileListbox">
 			<c:if test="${fileList[0].oriName ne null}">
 				<c:forEach items="${fileList}" var="files">
-					<input type="text" value="${files.oriName}" class="fileList"> <span class="del">❌</span> <br>
+					<div>
+						<input type="text" value="${files.oriName}" title="${files.fileName}" class="fileList"> 
+						<span class="del fdel">❌</span> <br>
+					</div>
 				</c:forEach>
 			</c:if>
 	</div>
@@ -186,6 +191,28 @@
 	$("#filebox").on("click", ".del", function() {
 		$(this).parent().remove();
 		count--;
+	});
+
+
+	$(document).on("click",".fdel",function() {
+		var a = $(this);
+		var name = $(".fileList").attr('title');
+		console.log(name);
+		
+		$.ajax(
+				{
+					method:"GET",
+					url:"./setDeleteFile",
+					data:{fileName:name},
+					success:function(data){
+						alert(data);
+						a.parent().remove();
+						count--;
+						
+					}
+				}		
+			);
+		
 	});
 
 
