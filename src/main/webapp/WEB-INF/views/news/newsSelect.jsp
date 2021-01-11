@@ -46,7 +46,7 @@
 		padding: 48px 0 50px 0;
 	}
 	
-	#Sel-contents{
+	.Sel-contents{
 		max-width: 1000px;
     	margin: 0 auto;
     	padding: 0 100px;
@@ -75,10 +75,21 @@
  </div>	
  
  <div id="Sel-body">
- 	<div id="Sel-contents">
+ 	<div class="Sel-contents">
  		<p>${vo.contents}</p>
  	</div>
+ 	
+ 	<c:if test="${vo.newsFilesVO ne null}">
+ 	 <div class="Sel-contents">
+ 		<label>첨부파일:</label> <br>
+ 		<c:forEach items="${vo.newsFilesVO}" var="fileList">
+ 			<a href="newsFileDown?fnum=${fileList.fnum}">${fileList.oriName}</a><br>
+ 		</c:forEach>
+ 	 </div>
+ 	</c:if>
  </div>
+ 
+
 	
 	
 </div>

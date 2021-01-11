@@ -122,6 +122,10 @@ public class NewsService {
 		return newsMapper.getFile(newsVO);
 	}
 	
+	public NewsFilesVO getFileOne(NewsFilesVO newsFilesVO) throws Exception{
+		return newsMapper.getFileOne(newsFilesVO);
+	}
+	
 	public int setDeleteFile(NewsFilesVO newsFilesVO) throws Exception{
 		
 		String fileName = newsFilesVO.getFileName();

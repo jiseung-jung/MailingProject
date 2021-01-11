@@ -34,6 +34,8 @@ public interface NewsMapper {
 	public List<NewsFilesVO> getFile(NewsVO newsVO) throws Exception;
 	
 	public int setDeleteFile(NewsFilesVO newsFilesVO) throws Exception;
+	
+	public NewsFilesVO getFileOne(NewsFilesVO newsFilesVO) throws Exception;
 
 
 }

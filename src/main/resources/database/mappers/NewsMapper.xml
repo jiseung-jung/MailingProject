@@ -94,6 +94,11 @@
     	select * from newsFiles where num=#{num}
     </select>
     
+    <select id="getFileOne" parameterType="NewsFilesVO" resultType="NewsFilesVO">
+    	select * from newsFiles where fnum=#{fnum}
+    </select>
+    
+    
     <delete id="setDeleteFile" parameterType="NewsFilesVO">
     	delete from newsFiles where fileName=#{fileName}
     </delete>
