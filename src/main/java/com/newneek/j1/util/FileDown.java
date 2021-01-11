@@ -32,7 +32,7 @@ public class FileDown extends AbstractView {
 		String filePath = "classpath:/static/" + (String)model.get("filePath");
 		
 		// 2.저장된 파일명까지 설정
-		NewsFilesVO newsFilesVO = (NewsFilesVO)model.get("NewsFilesVO");
+		NewsFilesVO newsFilesVO = (NewsFilesVO)model.get("newsFilesVO");
 		filePath = filePath+"/"+newsFilesVO.getFileName();
 		
 		// 3.위의 정보를 이용해서 File 객체를 생성

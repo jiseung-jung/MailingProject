@@ -34,14 +34,14 @@ public class NewsController {
 	}
 	
 	
-	@GetMapping("newsfileDown")
+	@GetMapping("newsFileDown")
 	public ModelAndView getFileOne(NewsFilesVO newsFilesVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
 		newsFilesVO = newsService.getFileOne(newsFilesVO);
 		System.out.println(newsFilesVO.getFileName());
 		
-		mv.addObject("nfileVO", newsFilesVO);
+		mv.addObject("newsFilesVO", newsFilesVO);
 		mv.addObject("filePath", filePath);
 		mv.setViewName("fileDown");
 		
