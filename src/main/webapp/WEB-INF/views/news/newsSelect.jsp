@@ -126,10 +126,10 @@
 		if(confirm("좋아요 하시겠습니까?")== true){
 			$.ajax({ 
 				type: 'POST',
-				url: "./newsLike?num=${vo.num}",
+				url: "./newsLike",
 				data: {newsNum :"${num}", email:"${email}" },
 				success: function(data) {
-					console.log("success");
+					alert("좋아요 성공");
 				}
 				});
 		}else{

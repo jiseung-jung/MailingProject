@@ -37,7 +37,8 @@ public class NewsController {
 		
 		if(memberVO==null) {
 			mv.addObject("msg", "로그인하세요");
-			mv.setViewName("redirect:../");
+			mv.addObject("path", "../member/memberLogin");
+			mv.setViewName("common/result");
 		}else {
 			mv.addObject("num" , newsOneVO.getNum());
 			mv.addObject("email", memberVO.getEmail());
@@ -69,12 +70,19 @@ public class NewsController {
 	@PostMapping("newsLike")
 	public ModelAndView setInsert(LikeVO likeVO) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		int result = likeService.setInsert(likeVO);
-		if(result > 0) {
-			mv.addObject("msg", "좋아요 성공");
+		int count = likeService.getCount(likeVO);
+		System.out.println("카운트 " + count);
+		if(count==0) {
+			int result = likeService.setInsert(likeVO);
+			if(result > 0) {
+				mv.addObject("msg", "좋아요 성공");
+				
+			}else {
+				mv.addObject("msg", "좋아요 실패");
+			}
 			
 		}else {
-			mv.addObject("msg", "좋아요 실패");
+			mv.addObject("msg", "이미 좋아요 누른 기사입니다");
 		}
 		mv.addObject("path", "./");
 		mv.setViewName("common/result");

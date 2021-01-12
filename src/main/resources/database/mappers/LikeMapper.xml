@@ -9,5 +9,9 @@
 			insert into likes (num, email, newsNum)
 			values (#{num}, #{email}, #{newsNum})
 		</insert>
+		
+		<select id="getCount" resultType="int">
+			select count(*) from likes where email = #{email} and newsNum = #{newsNum};
+		</select>
 	
 	</mapper> 

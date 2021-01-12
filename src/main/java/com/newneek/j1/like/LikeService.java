@@ -14,4 +14,8 @@ public class LikeService {
 		return likeMapper.setInsert(likeVO);
 	}
 	
+	public int getCount(LikeVO likeVO) throws Exception{
+		return likeMapper.getCount(likeVO);
+	}
+	
 }
