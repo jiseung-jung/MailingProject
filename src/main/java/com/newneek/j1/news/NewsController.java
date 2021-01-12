@@ -73,16 +73,10 @@ public class NewsController {
 		int count = likeService.getCount(likeVO);
 		System.out.println("카운트 " + count);
 		if(count==0) {
-			int result = likeService.setInsert(likeVO);
-			if(result > 0) {
-				mv.addObject("msg", "좋아요 성공");
-				
-			}else {
-				mv.addObject("msg", "좋아요 실패");
-			}
-			
+			likeService.setInsert(likeVO);
 		}else {
-			mv.addObject("msg", "이미 좋아요 누른 기사입니다");
+			likeVO =likeService.getOne(likeVO);
+			likeService.setDelete(likeVO);
 		}
 		mv.addObject("path", "./");
 		mv.setViewName("common/result");

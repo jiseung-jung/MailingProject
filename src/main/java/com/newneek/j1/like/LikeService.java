@@ -18,4 +18,11 @@ public class LikeService {
 		return likeMapper.getCount(likeVO);
 	}
 	
+	public LikeVO getOne(LikeVO likeVO) throws Exception{
+		return likeMapper.getOne(likeVO);
+	}
+	
+	public int setDelete(LikeVO likeVO) throws Exception{
+		return likeMapper.setDelete(likeVO);
+	}
 }

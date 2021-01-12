@@ -9,4 +9,7 @@ public interface LikeMapper {
 	
 	public int getCount(LikeVO likeVO) throws Exception;
 
+	public LikeVO getOne(LikeVO likeVO) throws Exception;
+	
+	public int setDelete(LikeVO likeVO) throws Exception;
 }

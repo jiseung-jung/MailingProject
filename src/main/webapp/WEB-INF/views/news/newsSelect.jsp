@@ -128,6 +128,9 @@
 				type: 'POST',
 				url: "./newsLike",
 				data: {newsNum :"${num}", email:"${email}" },
+				error: function(error) {
+					alert("좋아요 실패");
+				},
 				success: function(data) {
 					alert("좋아요 성공");
 				}
