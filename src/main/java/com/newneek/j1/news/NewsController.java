@@ -1,12 +1,18 @@
 package com.newneek.j1.news;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.newneek.j1.like.LikeService;
+import com.newneek.j1.like.LikeVO;
+import com.newneek.j1.member.MemberVO;
 import com.newneek.j1.news.file.NewsFilesVO;
 
 @Controller
@@ -18,17 +24,28 @@ public class NewsController {
 	@Value("${news.filePath}")
 	private String filePath;
 	
+	@Autowired
+	private LikeService likeService;
 	
 	
 	
 	@GetMapping("newsSelect")
-	public ModelAndView admin_getNewsOne(NewsOneVO newsOneVO) throws Exception{
+	public ModelAndView admin_getNewsOne(NewsOneVO newsOneVO, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		
+		MemberVO memberVO = (MemberVO) session.getAttribute("member");
 		newsOneVO = newsService.admin_getNewsOne(newsOneVO);
 		
-		mv.addObject("vo", newsOneVO);
-		mv.setViewName("news/newsSelect");
+		if(memberVO==null) {
+			mv.addObject("msg", "로그인하세요");
+			mv.addObject("path", "../member/memberLogin");
+			mv.setViewName("common/result");
+		}else {
+			mv.addObject("num" , newsOneVO.getNum());
+			mv.addObject("email", memberVO.getEmail());
+			mv.addObject("vo", newsOneVO);
+			mv.setViewName("news/newsSelect");
+		}
+		
 		
 		return mv;
 	}
@@ -47,5 +64,33 @@ public class NewsController {
 		
 		return mv;
 	}
+	
+	@GetMapping("newsLike")
+	public ModelAndView getLike(LikeVO likeVO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		int count= likeService.getAllCount(likeVO);
+		System.out.println("카운트 " + count);
+		mv.addObject("count", count);
 
+		return mv;
+	}
+	
+
+	@PostMapping("newsLike")
+	public ModelAndView setInsert(LikeVO likeVO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		int count = likeService.getCount(likeVO);
+		System.out.println("카운트 " + count);
+		if(count==0) {
+			likeService.setInsert(likeVO);
+		}else {
+			likeVO =likeService.getOne(likeVO);
+			likeService.setDelete(likeVO);
+		}
+		mv.addObject("path", "./");
+		mv.setViewName("common/result");
+		return mv;
+	}
+	
 }

@@ -14,5 +14,6 @@
 		<typeAlias type="com.newneek.j1.news.NewsOneVO" alias="NewsOneVO"/>
 		<typeAlias type="com.newneek.j1.category.CategoryVO" alias="CategoryVO"/>
 		<typeAlias type="com.newneek.j1.help.HelpVO" alias="HelpVO"/>
+		<typeAlias type="com.newneek.j1.like.LikeVO" alias="LikeVO"/>
 	</typeAliases>  
 </configuration>

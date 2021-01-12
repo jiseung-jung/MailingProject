@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+	<mapper namespace="com.newneek.j1.like.LikeMapper">
+	
+		<insert id="setInsert" parameterType="LikeVO" useGeneratedKeys="true" keyProperty="num">
+			insert into likes (num, email, newsNum)
+			values (#{num}, #{email}, #{newsNum})
+		</insert>
+		
+		<select id="getCount" resultType="int">
+			select count(*) from likes where email = #{email} and newsNum = #{newsNum}
+		</select>
+		
+		<select id="getOne" parameterType="LikeVO" resultType="LikeVO">
+			select * from likes where email = #{email} and newsNum = #{newsNum}
+		</select>
+		
+	
+		<delete id="setDelete" parameterType="LikeVO">
+			delete from likes where num = #{num}
+		</delete>
+		
+		<select id="getAllCount" resultType="int" parameterType="LikeVO">
+			select count(*) from likes where newsNum = #{newsNum}
+		</select>
+		
+		<select id="getLikeList" resultType="LikeVO">
+    		select * from likes where email = #{email} and newsNum = #{newsNum} order by num desc
+    	</select>
+	</mapper> 

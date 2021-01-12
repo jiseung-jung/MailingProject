@@ -90,7 +90,14 @@
  </div>
  
 
-	
+  <div class="inbox-actions">
+    <button type="submit" id="inbox-heart">
+    	<span class="${like}">+ ❤❤❤❤ ${count}<span>
+    </button>
+  </div>
+
+
+
 	
 </div>
 
@@ -101,6 +108,18 @@
 <!-- **************************** Script **************************** -->
 
 <script type="text/javascript">
+	$.ajax({ 
+		type: 'GET',
+		url: "./newsLike",
+		data: { num : "${vo.num}", newsNum :"${count}" },
+		error: function(error) {
+			console.log("error");
+		},
+		success: function(data) {
+			console.log("success");
+		}
+		});
+
 
 	$("#upbtn").click(function(){
 		location.href="../admin/admin_NewsUpdate?num=${vo.num}";
@@ -112,6 +131,20 @@
 		}else{
 			return false;
 		}
+	});
+
+	$("#inbox-heart").click(function(){
+			$.ajax({ 
+				type: 'POST',
+				url: "./newsLike",
+				data: {newsNum :"${num}", email:"${email}" },
+				error: function(error) {
+					console.log("error");
+				},
+				success: function(data) {
+					console.log("success");
+				}
+				});
 	});
 
 </script>

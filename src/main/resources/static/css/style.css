@@ -610,3 +610,16 @@ footer {
 		font-size: 1.1em;
 		padding: 5px 3px;
 	}
+	
+	
+/***** News Select ******/	
+.like { 
+	color: #fb7800;
+    line-height: 50px;
+}
+
+.delike {
+	color: #999;
+}
+	
+	
