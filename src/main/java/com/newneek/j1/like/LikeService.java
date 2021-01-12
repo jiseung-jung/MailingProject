@@ -1,5 +1,7 @@
 package com.newneek.j1.like;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,5 +26,13 @@ public class LikeService {
 	
 	public int setDelete(LikeVO likeVO) throws Exception{
 		return likeMapper.setDelete(likeVO);
+	}
+	
+	public int getAllCount(LikeVO likeVO) throws Exception{
+		return likeMapper.getAllCount(likeVO);
+	}
+	
+	public List<LikeVO> getLikeList(String email) throws Exception{
+		return likeMapper.getLikeList(email);
 	}
 }

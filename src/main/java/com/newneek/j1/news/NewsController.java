@@ -65,6 +65,16 @@ public class NewsController {
 		return mv;
 	}
 	
+	@GetMapping("newsLike")
+	public ModelAndView getLike(LikeVO likeVO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		int count= likeService.getAllCount(likeVO);
+		System.out.println("카운트 " + count);
+		mv.addObject("count", count);
+
+		return mv;
+	}
 	
 
 	@PostMapping("newsLike")

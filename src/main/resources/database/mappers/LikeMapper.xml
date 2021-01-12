@@ -22,4 +22,12 @@
 		<delete id="setDelete" parameterType="LikeVO">
 			delete from likes where num = #{num}
 		</delete>
+		
+		<select id="getAllCount" resultType="int" parameterType="LikeVO">
+			select count(*) from likes where newsNum = #{newsNum}
+		</select>
+		
+		<select id="getLikeList" resultType="LikeVO">
+    		select * from likes where email = #{email} and newsNum = #{newsNum} order by num desc
+    	</select>
 	</mapper> 

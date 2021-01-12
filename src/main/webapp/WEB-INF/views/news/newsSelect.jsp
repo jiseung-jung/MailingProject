@@ -79,7 +79,7 @@
  		<p>${vo.contents}</p>
  	</div>
  	
- 	<c:if test="${vo.newsFilesVO eq null}">
+ 	<c:if test="${vo.newsFilesVO ne null}">
  	 <div class="Sel-contents">
  		<label>첨부파일:</label> <br>
  		<c:forEach items="${vo.newsFilesVO}" var="fileList">
@@ -92,8 +92,7 @@
 
   <div class="inbox-actions">
     <button type="submit" id="inbox-heart">
-      <span class="like">+</span>
-      좋았슴
+    	<span class="${like}">+ ❤❤❤❤ ${count}<span>
     </button>
   </div>
 
@@ -109,6 +108,18 @@
 <!-- **************************** Script **************************** -->
 
 <script type="text/javascript">
+	$.ajax({ 
+		type: 'GET',
+		url: "./newsLike",
+		data: { num : "${vo.num}", newsNum :"${count}" },
+		error: function(error) {
+			console.log("error");
+		},
+		success: function(data) {
+			console.log("success");
+		}
+		});
+
 
 	$("#upbtn").click(function(){
 		location.href="../admin/admin_NewsUpdate?num=${vo.num}";
@@ -123,21 +134,17 @@
 	});
 
 	$("#inbox-heart").click(function(){
-		if(confirm("좋아요 하시겠습니까?")== true){
 			$.ajax({ 
 				type: 'POST',
 				url: "./newsLike",
 				data: {newsNum :"${num}", email:"${email}" },
 				error: function(error) {
-					alert("좋아요 실패");
+					console.log("error");
 				},
 				success: function(data) {
-					alert("좋아요 성공");
+					console.log("success");
 				}
 				});
-		}else{
-			return false;
-		}
 	});
 
 </script>

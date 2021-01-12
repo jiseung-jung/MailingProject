@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.newneek.j1.like.LikeService;
+import com.newneek.j1.like.LikeVO;
 import com.newneek.j1.util.Pager;
 
 
@@ -22,6 +24,8 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService memberService;
+	@Autowired
+	private LikeService likeService;
 	
 
 	@GetMapping("memberLogin")
@@ -217,5 +221,15 @@ public class MemberController {
 		return mv;
 	}
 	
+	
+	@GetMapping("likeList")
+	public ModelAndView getLikeList(HttpSession session) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		String email = memberVO.getEmail();
+		List<LikeVO> ar = likeService.getLikeList(email);
+		mv.addObject("list", ar);
+		return mv;
+	}
 
 }
