@@ -79,7 +79,7 @@
  		<p>${vo.contents}</p>
  	</div>
  	
- 	<c:if test="${vo.newsFilesVO eq null}">
+ 	<c:if test="${vo.newsFilesVO ne null}">
  	 <div class="Sel-contents">
  		<label>첨부파일:</label> <br>
  		<c:forEach items="${vo.newsFilesVO}" var="fileList">
