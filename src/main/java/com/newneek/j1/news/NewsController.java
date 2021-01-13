@@ -1,5 +1,7 @@
 package com.newneek.j1.news;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,11 +36,21 @@ public class NewsController {
 		ModelAndView mv = new ModelAndView();
 		MemberVO memberVO = (MemberVO) session.getAttribute("member");
 		newsOneVO = newsService.admin_getNewsOne(newsOneVO);
+
 		
 		if(memberVO!= null) {
+			List<LikeVO> ar = likeService.getLikeList(memberVO.getEmail());
+			for(LikeVO likeVO : ar) {
+				if(newsOneVO.getNum()==likeVO.getNewsNum()) {
+					mv.addObject("class", "like");
+					System.out.println(likeVO.getEmail());
+				}
+			}
+			
 			mv.addObject("num" , newsOneVO.getNum());
 			mv.addObject("email", memberVO.getEmail());
 		}
+		
 		mv.addObject("vo", newsOneVO);
 		mv.setViewName("news/newsSelect");
 		return mv;
@@ -62,11 +74,7 @@ public class NewsController {
 	@GetMapping("newsLike")
 	public ModelAndView getLike(LikeVO likeVO) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		
-		int count= likeService.getAllCount(likeVO);
-		System.out.println("카운트 " + count);
-		mv.addObject("count", count);
-
+	
 		return mv;
 	}
 	
@@ -75,7 +83,7 @@ public class NewsController {
 	public ModelAndView setInsert(LikeVO likeVO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		int count = likeService.getCount(likeVO);
-		System.out.println("카운트 " + count);
+		System.out.println("좋아요 " + count);
 		if(count==0) {
 			likeService.setInsert(likeVO);
 		}else {

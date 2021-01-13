@@ -92,7 +92,7 @@
 <c:if test="${member ne null }">
   <div class="inbox-actions">
     <button type="submit" id="inbox-heart">
-    	<span class="${like}">❤❤❤❤</span>
+    	<span class="${class}">❤❤❤❤</span>
     </button>
   </div>
 </c:if>
@@ -108,18 +108,6 @@
 <!-- **************************** Script **************************** -->
 
 <script type="text/javascript">
-	$.ajax({ 
-		type: 'GET',
-		url: "./newsLike",
-		data: { num : "${vo.num}", newsNum :"${count}" },
-		error: function(error) {
-			console.log("error");
-		},
-		success: function(data) {
-			console.log("success");
-		}
-		});
-
 
 	$("#upbtn").click(function(){
 		location.href="../admin/admin_NewsUpdate?num=${vo.num}";
