@@ -33,7 +33,7 @@
 			<c:forEach items="${list}" var="vo" varStatus="status">
 				<tr>
 					<td>${vo.num}</td>
-					<td><a href="../news/newsSelect?num=${vo.newsVO.num}">${vo.newsVO.title}</a></td>
+					<td><a href="../news/newsSelect?num=${vo.newsNum}">${vo.newsVO.title}</a></td>
 					<td>${vo.newsVO.writer}</td>
 					<td>${vo.newsVO.regDate}</td>
 					<td>${vo.newsVO.hit}</td>

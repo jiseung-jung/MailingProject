@@ -1,7 +1,5 @@
 package com.newneek.j1.like;
 
-import java.util.List;
-
 import com.newneek.j1.news.NewsVO;
 
 import lombok.Data;

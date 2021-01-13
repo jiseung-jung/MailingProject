@@ -51,7 +51,6 @@
     		<result column="contents" property="contents"/>
     		<result column="regDate" property="regDate"/>
     		<result column="hit" property="hit"/>
-    
 		</resultMap>
 		
 	
