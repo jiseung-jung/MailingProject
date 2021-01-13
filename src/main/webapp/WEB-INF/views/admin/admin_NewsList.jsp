@@ -45,6 +45,7 @@
 		height: 26px;
 		background-color: #ebebeb;
 		border: 1px solid #737373;
+		font-size: 0.9em;
 	}
 	
 </style>
@@ -138,7 +139,7 @@ $("#List-kind").click(function(){
     
     if(List_kind == "newsId"){
   	 hml += "<select class='search' name='search'>";
-  	 hml += "<option>---</option>";
+  	 hml += "<option>--전체--</option>";
 	     hml += "<option value='1'>국내외정치</option>";
 	     hml += "<option value='2'>경제</option>";
 	     hml += "<option value='3'>노동·인권</option>";
@@ -146,7 +147,7 @@ $("#List-kind").click(function(){
 	     hml += "<option value='5'>문화</option>";
 	     hml += "<option value='6'>환경·에너지</option>";
 	     hml += "<option value='7'>코로나19</option>";
-    }else if(List_kind == "title" || (List_kind == "contents"){
+    }else if(List_kind == "title" || List_kind == "contents"){
   	  hml += "<input type='text' class='search' name='search'>";
     }
 
