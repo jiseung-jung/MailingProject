@@ -65,7 +65,7 @@
 			<form action="./admin_NewsList" id="searchFrm">
 					<select name="kind" id="kind">
 						<option>--전체--</option>
-						<option value="newsId">카테고리</option>
+						<option value="category_name">카테고리</option>
 						<option value="title">제목</option>
 					</select>
 				

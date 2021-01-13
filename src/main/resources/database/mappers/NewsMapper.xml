@@ -7,8 +7,8 @@
     
     	<sql id="getSearch">
     		<choose>
-    			<when test="kind=='newsId'">
-    				newsId
+    			<when test="kind=='category_name'">
+    				category_name
     			</when>
     			
     			<when test="kind=='title'">
