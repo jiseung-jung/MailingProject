@@ -27,7 +27,33 @@
 			select count(*) from likes where newsNum = #{newsNum}
 		</select>
 		
-		<select id="getLikeList" resultType="LikeVO">
-    		select * from likes where email = #{email} and newsNum = #{newsNum} order by num desc
+		<select id="getLikeList" resultType="LikeVO" resultMap="LikeList">
+    		select A.*, N.* from (select l.* from likes l left join member m using (email)) A
+			inner join news N 
+			on N.num = A.newsNum where A.email = #{email}
+			order by A.num desc
     	</select>
+    	
+    	<resultMap type="LikeVO" id="LikeList">
+    		<result column="num" property="num"/>
+    		<result column="email" property="email"/>
+    		<result column="newsNum" property="newsNum"/>
+    		
+         <association property="newsVO" javaType="NewsVO" resultMap="news">
+         </association>
+		</resultMap>
+		
+		<resultMap type="NewsVO" id="news">
+    		<result column="num" property="num"/>
+    		<result column="newsId" property="newsId"/>
+    		<result column="title" property="title"/>
+    		<result column="writer" property="writer"/>
+    		<result column="contents" property="contents"/>
+    		<result column="regDate" property="regDate"/>
+    		<result column="hit" property="hit"/>
+    
+		</resultMap>
+		
+	
+    	
 	</mapper> 
