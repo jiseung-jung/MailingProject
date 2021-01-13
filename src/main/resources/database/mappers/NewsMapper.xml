@@ -7,8 +7,8 @@
     
     	<sql id="getSearch">
     		<choose>
-    			<when test="kind=='category_name'">
-    				category_name
+    			<when test="kind=='newsId'">
+    				newsId
     			</when>
     			
     			<when test="kind=='title'">
@@ -121,7 +121,7 @@
     
     <!-- ********************* mail ************************ -->	
     <select id="getNewsEmailList" parameterType="NewsVO" resultType="NewsVO">
-    	select * from news where date(regDate) between date(sysdate())-1 and date(sysdate())+1
+    	select * from news where date(regDate) between date(now())-2 and date(now())
     </select>
     
     </mapper>

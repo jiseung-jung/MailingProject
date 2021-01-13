@@ -63,14 +63,14 @@
 			<button class="btn btn-default" id="nWritebtn">글쓰기</button>
 			
 			<form action="./admin_NewsList" id="searchFrm">
-					<select name="kind" id="kind">
+					<select name="kind" id="List-kind">
 						<option>--전체--</option>
-						<option value="category_name">카테고리</option>
+						<option value="newsId">카테고리</option>
 						<option value="title">제목</option>
 					</select>
 				
-				<div id="search-div">
-					<input type="text" name="search" id="search">
+				<div class="search-div">
+				
 				</div>
 					<button class="btn btn-default" type="submit">
 						<img alt="" src="../image/search111.png" width="20px" height="20px">
@@ -127,6 +127,29 @@
 
 $("#nWritebtn").click(function(){
 	location.href="./admin_NewsWrite";		
+});
+
+
+$("#List-kind").click(function(){
+    var List_kind = $("#List-kind option:selected").val();
+    var hml = "";
+    
+    if(List_kind == "newsId"){
+  	 hml += "<select class='search' name='search'>";
+  	 hml += "<option>---</option>";
+	     hml += "<option value='1'>국내외정치</option>";
+	     hml += "<option value='2'>경제</option>";
+	     hml += "<option value='3'>노동·인권</option>";
+	     hml += "<option value='4'>테크</option>";
+	     hml += "<option value='5'>문화</option>";
+	     hml += "<option value='6'>환경·에너지</option>";
+	     hml += "<option value='7'>코로나19</option>";
+    }else if(List_kind == "title"){
+  	  hml += "<input type='text' class='search' name='search'>";
+    }
+
+$(".search-div").html(hml);
+
 });
 
 </script>
