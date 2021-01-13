@@ -36,16 +36,17 @@
 	}
 	
 	#searchFrm button{
-		margin: 0px;
 		padding: 0px;
+		margin-left: 2px;
 	}
 	
-	#search{
-		margin: 0 1px;
+	.search{
+		margin-left: 1.5px;
 		height: 26px;
 		background-color: #ebebeb;
 		border: 1px solid #737373;
 	}
+	
 </style>
 </head>
 <body>
@@ -67,6 +68,7 @@
 						<option>--전체--</option>
 						<option value="newsId">카테고리</option>
 						<option value="title">제목</option>
+						<option value="contents">내용</option>
 					</select>
 				
 				<div class="search-div">
@@ -144,7 +146,7 @@ $("#List-kind").click(function(){
 	     hml += "<option value='5'>문화</option>";
 	     hml += "<option value='6'>환경·에너지</option>";
 	     hml += "<option value='7'>코로나19</option>";
-    }else if(List_kind == "title"){
+    }else if(List_kind == "title" || (List_kind == "contents"){
   	  hml += "<input type='text' class='search' name='search'>";
     }
 
