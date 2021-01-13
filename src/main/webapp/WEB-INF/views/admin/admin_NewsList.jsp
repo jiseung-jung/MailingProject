@@ -24,6 +24,28 @@
 		border: 1px solid black;
 		font-size: 0.9em;
 	}
+	
+	#searchFrm{
+		display: flex;
+		float: right;
+		font-size: 0.9em;
+	}
+	
+	#searchFrm select{
+		background-color: #ebebeb;
+	}
+	
+	#searchFrm button{
+		margin: 0px;
+		padding: 0px;
+	}
+	
+	#search{
+		margin: 0 1px;
+		height: 26px;
+		background-color: #ebebeb;
+		border: 1px solid #737373;
+	}
 </style>
 </head>
 <body>
@@ -39,6 +61,21 @@
 			</div>
 			
 			<button class="btn btn-default" id="nWritebtn">글쓰기</button>
+			
+			<form action="./admin_NewsList" id="searchFrm">
+					<select name="kind" id="kind">
+						<option>--전체--</option>
+						<option value="newsId">카테고리</option>
+						<option value="title">제목</option>
+					</select>
+				
+				<div id="search-div">
+					<input type="text" name="search" id="search">
+				</div>
+					<button class="btn btn-default" type="submit">
+						<img alt="" src="../image/search111.png" width="20px" height="20px">
+					</button>
+			</form>
 			<table class="table listTable">
 				<tr>
 					<td>no.</td>
