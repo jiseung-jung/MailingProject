@@ -4,22 +4,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
     <mapper namespace="com.newneek.j1.news.NewsMapper">
-    
-    	<sql id="getSearch">
-    		<choose>
-    			<when test="kind=='newsId'">
-    				newsId
-    			</when>
-    			
-    			<when test="kind=='title'">
-    				title
-    			</when>
-    			
-				<otherwise>
-					contents
-				</otherwise>
-    		</choose>
-    	</sql>
+
     	
     	<select id="getNewsCount" parameterType="Pager" resultType="Long">
     		select count(num) from news
@@ -32,7 +17,22 @@
     		from news N
     		left join category C
     		on N.newsId = C.category_id
-    		order by N.num desc
+    		
+    		where
+    			<choose>
+    				<when test="kind =='newsId'">
+    					newsId
+    				</when>
+    				
+    				<when test="kind =='title'">
+    					title
+    				</when>
+    				
+    				<otherwise>
+    					contents
+    				</otherwise>
+    			</choose>
+    		like '%'||#{search}||'%' order by N.num desc
 			limit #{startRow}, #{perPage}	
     	</select>
     	
