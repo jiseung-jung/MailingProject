@@ -44,6 +44,8 @@ public class NewsController {
 				if(newsOneVO.getNum()==likeVO.getNewsNum()) {
 					mv.addObject("class", "like");
 					System.out.println(likeVO.getEmail());
+				}else {
+					mv.addObject("class", "dislike");
 				}
 			}
 			
