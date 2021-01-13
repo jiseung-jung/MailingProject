@@ -35,18 +35,12 @@ public class NewsController {
 		MemberVO memberVO = (MemberVO) session.getAttribute("member");
 		newsOneVO = newsService.admin_getNewsOne(newsOneVO);
 		
-		if(memberVO==null) {
-			mv.addObject("msg", "로그인하세요");
-			mv.addObject("path", "../member/memberLogin");
-			mv.setViewName("common/result");
-		}else {
+		if(memberVO!= null) {
 			mv.addObject("num" , newsOneVO.getNum());
 			mv.addObject("email", memberVO.getEmail());
-			mv.addObject("vo", newsOneVO);
-			mv.setViewName("news/newsSelect");
 		}
-		
-		
+		mv.addObject("vo", newsOneVO);
+		mv.setViewName("news/newsSelect");
 		return mv;
 	}
 	

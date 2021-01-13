@@ -89,13 +89,13 @@
  	</c:if>
  </div>
  
-
+<c:if test="${member ne null }">
   <div class="inbox-actions">
     <button type="submit" id="inbox-heart">
-    	<span class="${like}">+ ❤❤❤❤ ${count}<span>
+    	<span class="${like}">❤❤❤❤</span>
     </button>
   </div>
-
+</c:if>
 
 
 	
