@@ -32,7 +32,7 @@
     					contents
     				</otherwise>
     			</choose>
-    		like '%'||#{search}||'%' order by N.num desc
+    		like concat('%', #{search}, '%') order by N.num desc
 			limit #{startRow}, #{perPage}	
     	</select>
     	
