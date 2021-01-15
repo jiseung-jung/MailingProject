@@ -17,7 +17,6 @@
     		from news N
     		left join category C
     		on N.newsId = C.category_id
-    		
     		where
     			<choose>
     				<when test="kind =='newsId'">
