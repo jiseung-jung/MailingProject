@@ -40,18 +40,19 @@ public class NewsController {
 		
 		if(memberVO!= null) {
 			List<LikeVO> ar = likeService.getLikeList(memberVO.getEmail());
+
 			for(LikeVO likeVO : ar) {
 				if(newsOneVO.getNum()==likeVO.getNewsNum()) {
 					mv.addObject("class", "like");
-					System.out.println(likeVO.getEmail());
-				}else {
-					mv.addObject("class", "dislike");
+					System.out.println("newnum" + newsOneVO.getNum());
+					System.out.println(likeVO.getNewsNum());
 				}
 			}
-			
+				
 			mv.addObject("num" , newsOneVO.getNum());
 			mv.addObject("email", memberVO.getEmail());
 		}
+		
 		
 		mv.addObject("vo", newsOneVO);
 		mv.setViewName("news/newsSelect");
