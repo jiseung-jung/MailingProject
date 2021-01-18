@@ -47,6 +47,13 @@
 	<a href="${pageContext.request.contextPath}/news/newsList?kind=newsId&search=7"><span>코로나19</span></a>
 </div>
 
+<div>
+	<c:forEach items="${list}" var="vo">
+		<div>
+			<p>${vo.title}</p>
+		</div>
+	</c:forEach>
+</div>
 
 
 
