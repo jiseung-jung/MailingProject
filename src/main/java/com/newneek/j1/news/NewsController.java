@@ -16,6 +16,7 @@ import com.newneek.j1.like.LikeService;
 import com.newneek.j1.like.LikeVO;
 import com.newneek.j1.member.MemberVO;
 import com.newneek.j1.news.file.NewsFilesVO;
+import com.newneek.j1.util.Pager;
 
 @Controller
 @RequestMapping("/news/**")
@@ -29,6 +30,20 @@ public class NewsController {
 	@Autowired
 	private LikeService likeService;
 	
+	
+   @GetMapping("newsList")
+   public ModelAndView admin_getNewsList(Pager pager) throws Exception{
+      ModelAndView mv = new ModelAndView();
+      
+      List<NewsVO> ar = newsService.admin_getNewsList(pager);
+      
+      mv.addObject("list", ar);
+      mv.addObject("pager", pager);
+      mv.setViewName("news/newsList");
+      
+      return mv;
+   }
+	   
 	
 	
 	@GetMapping("newsSelect")
