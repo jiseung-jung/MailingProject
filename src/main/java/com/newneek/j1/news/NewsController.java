@@ -31,6 +31,20 @@ public class NewsController {
 	private LikeService likeService;
 	
 	
+   @GetMapping("newsList")
+   public ModelAndView admin_getNewsList(Pager pager) throws Exception{
+      ModelAndView mv = new ModelAndView();
+      
+      List<NewsVO> ar = newsService.admin_getNewsList(pager);
+      
+      mv.addObject("list", ar);
+      mv.addObject("pager", pager);
+      mv.setViewName("news/newsList");
+      
+      return mv;
+   }
+	   
+	
 	
 	
 	@GetMapping("newsList")
@@ -57,16 +71,19 @@ public class NewsController {
 		
 		if(memberVO!= null) {
 			List<LikeVO> ar = likeService.getLikeList(memberVO.getEmail());
+
 			for(LikeVO likeVO : ar) {
 				if(newsOneVO.getNum()==likeVO.getNewsNum()) {
-					mv.addObject("class", "like");
-					System.out.println(likeVO.getEmail());
+					mv.addObject("class", "active");
+					System.out.println("newnum" + newsOneVO.getNum());
+					System.out.println(likeVO.getNewsNum());
 				}
 			}
-			
+				
 			mv.addObject("num" , newsOneVO.getNum());
 			mv.addObject("email", memberVO.getEmail());
 		}
+		
 		
 		mv.addObject("vo", newsOneVO);
 		mv.setViewName("news/newsSelect");

@@ -92,7 +92,7 @@
 <c:if test="${member ne null }">
   <div class="inbox-actions">
     <button type="submit" id="inbox-heart">
-    	<span class="${class}">❤❤❤❤</span>
+    	<span class="like ${class}" id="heart">❤❤❤❤</span>
     </button>
   </div>
 </c:if>
@@ -121,6 +121,8 @@
 		}
 	});
 
+	var check = "${class}";
+
 	$("#inbox-heart").click(function(){
 			$.ajax({ 
 				type: 'POST',
@@ -131,6 +133,16 @@
 				},
 				success: function(data) {
 					console.log("success");
+					if(check=="active") {
+						$("#heart").removeClass("active");
+					}
+
+					if(check=="") {
+						$("#heart").addClass("active");
+						
+					}					
+					alert(check);
+					location.reload(true);
 				}
 				});
 	});
