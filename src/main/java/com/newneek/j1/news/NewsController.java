@@ -43,7 +43,7 @@ public class NewsController {
 
 			for(LikeVO likeVO : ar) {
 				if(newsOneVO.getNum()==likeVO.getNewsNum()) {
-					mv.addObject("class", "like");
+					mv.addObject("class", "active");
 					System.out.println("newnum" + newsOneVO.getNum());
 					System.out.println(likeVO.getNewsNum());
 				}

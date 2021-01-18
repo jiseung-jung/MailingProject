@@ -614,12 +614,12 @@ footer {
 	
 /***** News Select ******/	
 .like { 
-	color: #fb7800;
+	
     line-height: 50px;
 }
 
-.delike {
-	color: #999;
+.like.active{
+	color: #fb7800;
 }
 	
 	
