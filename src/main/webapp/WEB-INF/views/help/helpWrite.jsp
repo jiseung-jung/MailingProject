@@ -20,7 +20,7 @@
 
 <div class="container admin-con">
 	<div class="row">
-		<div class="col-12 col-sm-12">
+		<div class="col-12 col-sm-12 helpWrite">
 			<h1 class="admin-title">📌 자주묻는질문 등록</h1>
 			<form method="post" action="./helpWrite">
 				<input type="text" class="form-control" name="title" id="title" placeholder="제목">
