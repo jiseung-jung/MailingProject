@@ -216,7 +216,8 @@ header {
 	background-color: #ebebeb;
 	border-radius: 0;
 	cursor: pointer;
-	padding: 13px;
+	padding: 20px;
+	position: relative;
 }
 
 .card:hover {
@@ -665,6 +666,10 @@ footer {
 	letter-spacing: -0.01em;
 }
 
-
+.card span {
+	position: absolute;
+	font-size: 0.8em;
+	bottom: 20px;
+}
 
 	

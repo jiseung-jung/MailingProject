@@ -59,7 +59,7 @@
 			<p class="post-emoji">${vo.categoryVO.category_emoji} </p>
 			<p class="post-title">${vo.title}</p>
 			
-			<p>${vo.regDate} ${vo.categoryVO.category_name }</p>
+			<span>${vo.regDate} &nbsp;  &nbsp;${vo.categoryVO.category_name }</span>
 			
 		</div>
 	</c:forEach>	
