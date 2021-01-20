@@ -557,7 +557,8 @@ footer {
 }
 
 /*help*/
-.helpUpdate input {
+.helpUpdate input,
+.helpWrite input {
 	margin-bottom: 10px;
 }
 
@@ -592,6 +593,7 @@ footer {
 	margin: 0 auto;
 }
 
+
 /* mail */
 .admin-title {
 	font-weight: 700;
@@ -612,13 +614,32 @@ footer {
 	
 	
 /***** News Select ******/	
+.inbox-actions {
+	display: flex;
+	justify-content: center;
+	padding-bottom : 20px;
+}
+
+#inbox-heart{
+	display: flex;
+	align-items: center;
+	border: none;
+	background: none;	
+}
+
 .like { 
-	
     line-height: 50px;
 }
 
 .like.active{
 	color: #fb7800;
 }
-	
+
+#like-item {
+	padding-left: 10px;
+	font-size: 0.8em;
+	color: #999;
+}
+
+
 	

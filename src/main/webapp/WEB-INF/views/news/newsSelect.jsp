@@ -43,13 +43,14 @@
 	}
 	
 	#Sel-body{
-		padding: 48px 0 50px 0;
+		padding: 48px 0 30px 0;
 	}
 	
 	.Sel-contents{
 		max-width: 1000px;
     	margin: 0 auto;
     	padding: 0 100px;
+    	
 	}
 	
 	
@@ -92,7 +93,8 @@
 <c:if test="${member ne null }">
   <div class="inbox-actions">
     <button type="submit" id="inbox-heart">
-    	<span class="like ${class}" id="heart">❤❤❤❤</span>
+    	<span class="like ${class}" id="heart">❤</span>
+    	<span id ="like-item">좋았슴</span>
     </button>
   </div>
 </c:if>
@@ -141,7 +143,7 @@
 						$("#heart").addClass("active");
 						
 					}					
-					alert(check);
+					//alert(check);
 					location.reload(true);
 				}
 				});
