@@ -46,6 +46,7 @@
 		border: 1px solid black;
 		height: 310px;
 		cursor: pointer;
+		padding: 13px;
 	}
 	
 	.news-listbox-div:hover{
