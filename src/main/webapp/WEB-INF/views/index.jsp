@@ -58,7 +58,7 @@
 		<div class="card col-md-4" OnClick="location.href ='./news/newsSelect?num=${vo.num}'">
 			<p class="post-emoji">${vo.categoryVO.category_emoji} </p>
 			<p class="post-title">${vo.title}</p>
-			
+			<img alt="" src="/upload/news/${vo.fileList[0].fileName}" width="200px" height="200px">
 			<span>${vo.regDate} &nbsp;  &nbsp;${vo.categoryVO.category_name }</span>
 			
 		</div>

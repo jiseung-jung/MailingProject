@@ -27,6 +27,12 @@ public class HomeController {
 		
 		long count = memberService.getMemberCount(pager);
 		List<NewsVO> ar = newsService.main_getNewsList(newsVO);
+		for(NewsVO nVO : ar) {
+			System.out.println("nVO.num " + nVO.getNum());
+			System.out.println("nVO.file " + nVO.getFileList());
+			System.out.println("nVO.cte" + nVO.getCategoryVO());
+			System.out.println("=========================");
+		}
 		
 		mv.addObject("count", count);
 		mv.addObject("list", ar);

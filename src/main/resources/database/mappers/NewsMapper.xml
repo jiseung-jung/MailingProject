@@ -17,7 +17,13 @@
     	<!-- **************** index **************** -->
     	
     	<select id="main_getNewsList" parameterType="NewsVO" resultMap="main_NewsList">
-    		select N.*, C.category_emoji, C.category_name from news N left join category C on N.newsId = C.category_id order by regDate desc limit 9
+    		select N.*, max(NF.fileName) fileName, NF.num, C.category_emoji, C.category_name 
+    		from news N left join newsFiles NF
+    		using(num)
+    		left join category C 
+    		on N.newsId = C.category_id 
+            group by N.num
+            order by regDate desc limit 9
     		
     	</select>
     	
@@ -32,6 +38,11 @@
     		
     		<association property="categoryVO" javaType="CategoryVO" resultMap="category">
     		</association>
+    		<collection property="fileList" ofType="newsFilesVO" javaType="java.util.List">
+            	<id column="fnum" property="fnum"/>
+            	<result column="num" property="num" />
+            	<result column="fileName" property="fileName"/>
+       		</collection>
 		</resultMap>
     	
     	<select id="c_getNewsList" parameterType="C_Pager" resultMap="admin_NewsList">

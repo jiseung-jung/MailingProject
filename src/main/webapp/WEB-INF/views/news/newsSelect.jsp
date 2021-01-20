@@ -84,8 +84,9 @@
  	 <div class="Sel-contents">
  		<label>첨부파일:</label> <br>
  		<c:forEach items="${vo.newsFilesVO}" var="fileList">
- 			<a href="newsFileDown?fnum=${fileList.fnum}">${fileList.oriName}</a><br>
+ 			<a href="newsFileDown?fnum=${fileList.fnum}"><img alt="" src="/upload/news/${fileList.fileName}" width="200px" height="200px">${fileList.oriName}</a><br>
  		</c:forEach>
+ 		
  	 </div>
  	</c:if>
  </div>
