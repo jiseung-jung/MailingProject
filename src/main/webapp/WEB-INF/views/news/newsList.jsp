@@ -43,6 +43,10 @@
 		cursor: pointer;
 	}
 	
+	.news-listbox-div:hover{
+		background-color: white;
+	}
+	
 </style>
 </head>
 <body>

@@ -213,6 +213,14 @@ header {
 	width: 33.3333%;
 	height: 300px !important;
 	border: 1px #000 solid;
+	background-color: #ebebeb;
+	border-radius: 0;
+	cursor: pointer;
+	padding: 13px;
+}
+
+.card:hover {
+	background-color: white;
 }
 
 /* footer */
