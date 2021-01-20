@@ -16,6 +16,7 @@ import com.newneek.j1.like.LikeService;
 import com.newneek.j1.like.LikeVO;
 import com.newneek.j1.member.MemberVO;
 import com.newneek.j1.news.file.NewsFilesVO;
+import com.newneek.j1.util.C_Pager;
 import com.newneek.j1.util.Pager;
 
 @Controller
@@ -32,14 +33,15 @@ public class NewsController {
 	
 	
 	
+	
 	@GetMapping("newsList")
-	public ModelAndView admin_getNewsList(Pager pager) throws Exception{
+	public ModelAndView admin_getNewsList(C_Pager c_Pager) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
-		List<NewsVO> ar = newsService.admin_getNewsList(pager);
+		List<NewsVO> ar = newsService.c_getNewsList(c_Pager);
 		
 		mv.addObject("list", ar);
-		mv.addObject("pager", pager);
+		mv.addObject("pager", c_Pager);
 		mv.setViewName("news/newsList");
 		
 		return mv;

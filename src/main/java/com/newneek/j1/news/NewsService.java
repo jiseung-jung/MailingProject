@@ -10,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.newneek.j1.news.file.NewsFilesVO;
+import com.newneek.j1.util.C_Pager;
 import com.newneek.j1.util.FileManager;
 import com.newneek.j1.util.FilePathGenerator;
 import com.newneek.j1.util.Pager;
@@ -31,7 +32,6 @@ public class NewsService {
 	public long getNewsCount(Pager pager) throws Exception{
 		return newsMapper.getNewsCount(pager);
 	}
-	
 	
 	
 	//-------------------------------------- Admin
@@ -118,6 +118,9 @@ public class NewsService {
 		return newsMapper.admin_setNewsDelete(newsVO);
 	}
 	
+	
+	//-------------------------------------- file
+	
 	public List<NewsFilesVO> getFile(NewsVO newsVO) throws Exception{
 		return newsMapper.getFile(newsVO);
 	}
@@ -139,8 +142,25 @@ public class NewsService {
 		
 		return newsMapper.setDeleteFile(newsFilesVO);
 	}
+	
+	
+	//-------------------------------------- mail
 
 	public List<NewsVO> getEmailList() throws Exception{
 		return newsMapper.getNewsEmailList();
+	}
+	
+	
+	//-------------------------------------- index
+	
+	public List<NewsVO> main_getNewsList(NewsVO newsVO) throws Exception{
+		return newsMapper.main_getNewsList(newsVO);
+	}
+	
+	public List<NewsVO> c_getNewsList(C_Pager c_Pager) throws Exception{
+		c_Pager.makeRow();
+		long totalCount = newsMapper.c_getNewsCount(c_Pager);
+		c_Pager.makePage(totalCount);
+		return newsMapper.c_getNewsList(c_Pager);
 	}
 }

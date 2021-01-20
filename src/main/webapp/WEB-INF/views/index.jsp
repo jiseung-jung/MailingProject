@@ -7,6 +7,12 @@
 <title>Spring Boot Web Project</title>
 <c:import url="./template/bootStrap.jsp"></c:import>
 <link href="./css/style.css" rel="stylesheet">
+
+<style type="text/css">
+	.card{
+		height: 300px;
+	}
+</style>
 </head>
 <body>
 <c:import url="./template/header.jsp"></c:import>
@@ -54,15 +60,9 @@
 <div class="container news-container">
 	<div class="row">
 		<div class="col-12 posts">
-
-		<div class="card col-md-3"></div>
-		<div class="card col-md-3"></div>
-		<div class="card col-md-3"></div>
-		<div class="card col-md-3"></div>
-		<div class="card col-md-3"></div>
-		<div class="card col-md-3"></div>
-		<div class="card col-md-3"></div>
-		
+	<c:forEach items="${list}" var="vo">
+		<div class="card col-md-4">${vo.title}</div>
+	</c:forEach>	
 		</div>
 	</div>
 </div>		

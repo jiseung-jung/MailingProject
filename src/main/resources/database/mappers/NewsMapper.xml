@@ -10,6 +10,39 @@
     		select count(num) from news
     	</select>
     	
+    	<select id="c_getNewsCount" parameterType="C_Pager" resultType="Long">
+    		select count(num) from news
+    	</select>
+    	
+    	<!-- **************** index **************** -->
+    	
+    	<select id="main_getNewsList" parameterType="NewsVO" resultType="NewsVO">
+    		select * from news order by regDate desc limit 9
+    	</select>
+    	
+    	<select id="c_getNewsList" parameterType="C_Pager" resultMap="admin_NewsList">
+            select N.*, C.category_emoji, C.category_name 
+    		from news N
+    		left join category C
+    		on N.newsId = C.category_id
+    		where
+    			<choose>
+    				<when test="kind =='newsId'">
+    					newsId
+    				</when>
+    				
+    				<when test="kind =='title'">
+    					title
+    				</when>
+    				
+    				<otherwise>
+    					contents
+    				</otherwise>
+    			</choose>
+    		like concat('%', #{search}, '%') order by N.num desc
+			limit #{startRow}, #{perPage}	
+    	</select>
+    	
     	<!-- **************** Admin **************** -->
     	
     	<select id="admin_getNewsList" parameterType="Pager" resultMap="admin_NewsList">
@@ -113,7 +146,6 @@
     <select id="getFileOne" parameterType="NewsFilesVO" resultType="NewsFilesVO">
     	select * from newsFiles where fnum=#{fnum}
     </select>
-    
     
     <delete id="setDeleteFile" parameterType="NewsFilesVO">
     	delete from newsFiles where fileName=#{fileName}
