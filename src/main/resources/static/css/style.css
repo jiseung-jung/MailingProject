@@ -205,12 +205,13 @@ header {
 .posts {
 	display: flex;
 	flex-wrap: wrap;
-	height: 345px;
+	padding: 20px 0;
 }
 
 .card {
 	display: block;
 	width: 33.3333%;
+	height: 300px !important;
 	border: 1px #000 solid;
 }
 

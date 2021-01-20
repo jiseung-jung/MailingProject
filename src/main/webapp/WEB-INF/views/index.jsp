@@ -7,12 +7,6 @@
 <title>Spring Boot Web Project</title>
 <c:import url="./template/bootStrap.jsp"></c:import>
 <link href="./css/style.css" rel="stylesheet">
-
-<style type="text/css">
-	.card{
-		height: 300px;
-	}
-</style>
 </head>
 <body>
 <c:import url="./template/header.jsp"></c:import>
