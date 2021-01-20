@@ -19,6 +19,7 @@ public class NewsOneVO {
 	private long hit;
 	
 	private String category_name;
+	private long category_id;
 	
 	private List<NewsFilesVO> newsFilesVO;
 

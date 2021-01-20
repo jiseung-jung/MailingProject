@@ -29,6 +29,20 @@
 		color: #fb7800;
 	}
 	
+	#news-listbox{
+		display: flex;
+		flex-wrap: wrap;
+		max-width: 1070px;
+    	margin: 0 auto;
+    	box-sizing: border-box;
+	}
+	
+	.news-listbox-div{
+		border: 1px solid black;
+		height: 310px;
+		cursor: pointer;
+	}
+	
 </style>
 </head>
 <body>
@@ -47,9 +61,9 @@
 	<a href="${pageContext.request.contextPath}/news/newsList?kind=newsId&search=7"><span>코로나19</span></a>
 </div>
 
-<div>
+<div id="news-listbox" class="col-12">
 	<c:forEach items="${list}" var="vo">
-		<div>
+		<div class="news-listbox-div col-md-4" OnClick="location.href ='./newsSelect?num=${vo.num}'">
 			<p>${vo.title}</p>
 		</div>
 	</c:forEach>

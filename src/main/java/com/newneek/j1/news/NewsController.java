@@ -31,21 +31,6 @@ public class NewsController {
 	private LikeService likeService;
 	
 	
-   @GetMapping("newsList")
-   public ModelAndView admin_getNewsList(Pager pager) throws Exception{
-      ModelAndView mv = new ModelAndView();
-      
-      List<NewsVO> ar = newsService.admin_getNewsList(pager);
-      
-      mv.addObject("list", ar);
-      mv.addObject("pager", pager);
-      mv.setViewName("news/newsList");
-      
-      return mv;
-   }
-	   
-	
-	
 	
 	@GetMapping("newsList")
 	public ModelAndView admin_getNewsList(Pager pager) throws Exception{
