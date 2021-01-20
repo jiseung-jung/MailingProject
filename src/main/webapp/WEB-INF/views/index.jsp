@@ -56,7 +56,11 @@
 		<div class="col-12 posts">
 	<c:forEach items="${list}" var="vo">
 		<div class="card col-md-4" OnClick="location.href ='./news/newsSelect?num=${vo.num}'">
-			${vo.title}
+			<p class="post-emoji">${vo.categoryVO.category_emoji} </p>
+			<p class="post-title">${vo.title}</p>
+			
+			<p>${vo.regDate} ${vo.categoryVO.category_name }</p>
+			
 		</div>
 	</c:forEach>	
 		</div>
