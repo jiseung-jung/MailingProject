@@ -29,12 +29,17 @@
 		color: #fb7800;
 	}
 	
+	#newsList-body{
+		max-width: 1070px;
+    	margin: 0 auto;
+    	padding-bottom: 30px;
+	}
+	
 	#news-listbox{
 		display: flex;
 		flex-wrap: wrap;
-		max-width: 1070px;
-    	margin: 0 auto;
     	box-sizing: border-box;
+    	padding: 0 0 10px 0;
 	}
 	
 	.news-listbox-div{
@@ -65,16 +70,30 @@
 	<a href="${pageContext.request.contextPath}/news/newsList?kind=newsId&search=7"><span>코로나19</span></a>
 </div>
 
-<div id="news-listbox" class="col-12">
+<div id="newsList-body">
+  <div id="news-listbox" class="col-12">
 	<c:forEach items="${list}" var="vo">
 		<div class="news-listbox-div col-md-4" OnClick="location.href ='./newsSelect?num=${vo.num}'">
 			<p>${vo.title}</p>
 		</div>
 	</c:forEach>
+  </div>
+
+
+  <div class="pager">
+  	<c:if test="${pager.before}">
+  		<a href="./newsList?curPage=${pager.startNum-1}">[이전]</a>
+  	</c:if>
+  
+  	<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+  		<a href="./newsList?curPage=${i}">${i}</a>
+  	</c:forEach>
+  	
+  	<c:if test="${pager.after}">
+  		<a href="./newsList?curPage=${pager.lastNum+1}">[다음]</a>
+  	</c:if>
+  </div>
 </div>
-
-
-
 
 </section>
 <c:import url="../template/footer.jsp"></c:import>
