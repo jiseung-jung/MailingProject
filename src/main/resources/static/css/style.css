@@ -636,6 +636,10 @@ footer {
 	color: #fb7800;
 }
 
+#inbox-heart:focus {
+	outline: none;
+}
+
 #like-item {
 	padding-left: 10px;
 	font-size: 0.8em;
