@@ -1,0 +1,73 @@
+CREATE TABLE `category` (
+  `category_id` int NOT NULL,
+  `category_emoji` varchar(45) DEFAULT NULL,
+  `category_name` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`category_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+CREATE TABLE `help` (
+  `num` bigint NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `writer` varchar(255) NOT NULL DEFAULT '관리자',
+  `contents` longtext NOT NULL,
+  `regDate` date DEFAULT NULL,
+  PRIMARY KEY (`num`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+CREATE TABLE `likes` (
+  `num` int NOT NULL AUTO_INCREMENT,
+  `email` varchar(100) NOT NULL,
+  `newsNum` int NOT NULL,
+  PRIMARY KEY (`num`),
+  KEY `like_news_fk_idx` (`newsNum`),
+  KEY `like_email_fk_idx` (`email`),
+  CONSTRAINT `like_email_fk` FOREIGN KEY (`email`) REFERENCES `member` (`email`) ON DELETE CASCADE,
+  CONSTRAINT `like_news_fk` FOREIGN KEY (`newsNum`) REFERENCES `news` (`num`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+
+
+
+CREATE TABLE `member` (
+  `email` varchar(100) NOT NULL,
+  `pw` varchar(100) DEFAULT NULL,
+  `name` varchar(100) NOT NULL,
+  `mailCheck` tinyint NOT NULL,
+  `gender` varchar(45) DEFAULT NULL,
+  `birthYear` int DEFAULT NULL,
+  `zipCode` varchar(20) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `detailAddress` varchar(255) DEFAULT NULL,
+  `extraAddress` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+CREATE TABLE `news` (
+  `num` int NOT NULL AUTO_INCREMENT,
+  `newsId` int DEFAULT NULL,
+  `title` longtext,
+  `writer` varchar(45) DEFAULT NULL,
+  `contents` longtext,
+  `regDate` date DEFAULT NULL,
+  `hit` int DEFAULT NULL,
+  PRIMARY KEY (`num`),
+  KEY `news_id_idx` (`newsId`),
+  CONSTRAINT `newsId` FOREIGN KEY (`newsId`) REFERENCES `category` (`category_id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+CREATE TABLE `newsFiles` (
+  `fnum` int NOT NULL AUTO_INCREMENT,
+  `num` int DEFAULT NULL,
+  `fileName` varchar(255) DEFAULT NULL,
+  `oriName` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`fnum`),
+  KEY `num_idx` (`num`),
+  CONSTRAINT `num` FOREIGN KEY (`num`) REFERENCES `news` (`num`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
