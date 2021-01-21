@@ -56,11 +56,18 @@
 		<div class="col-12 posts">
 	<c:forEach items="${list}" var="vo">
 		<div class="card col-md-4" OnClick="location.href ='./news/newsSelect?num=${vo.num}'">
-			<p class="post-emoji">${vo.categoryVO.category_emoji} </p>
-			<p class="post-title">${vo.title}</p>
-			<img alt="" src="/upload/news/${vo.fileList[0].fileName}" width="200px" height="200px">
-			<span>${vo.regDate} &nbsp;  &nbsp;${vo.categoryVO.category_name }</span>
 			
+			<c:if test="${vo.fileList[0].fileName ne null}">
+				<img alt="" src="/upload/news/${vo.fileList[0].fileName}" width="100%" height="200px"/>
+				
+				<p class="post-title1">${vo.title}</p>
+				<span>${vo.regDate} &nbsp;  &nbsp;${vo.categoryVO.category_name }</span>
+			</c:if>
+			<c:if test="${vo.fileList[0].fileName eq null}">
+				<p class="post-emoji">${vo.categoryVO.category_emoji} </p>
+				<p class="post-title">${vo.title}</p>
+				<span>${vo.regDate} &nbsp;  &nbsp;${vo.categoryVO.category_name }</span>
+			</c:if>
 		</div>
 	</c:forEach>	
 		</div>
