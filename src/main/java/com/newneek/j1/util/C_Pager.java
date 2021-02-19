@@ -20,7 +20,7 @@ public class C_Pager {
 	private boolean isAfter;
 	
 	public C_Pager() {
-		this.perPage=8;
+		this.perPage=12;
 	}
 	
 	public void setCurPage(long curPage) {
