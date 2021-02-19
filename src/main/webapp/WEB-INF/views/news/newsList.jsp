@@ -89,6 +89,9 @@
 				<span>${vo.regDate} &nbsp;  &nbsp;${vo.categoryVO.category_name}</span>
 			</c:if>
 		</div>
+		
+		
+		
 	</c:forEach>
   </div>
 

@@ -45,10 +45,11 @@
        		</collection>
 		</resultMap>
     	
-    	<select id="c_getNewsList" parameterType="C_Pager" resultMap="admin_NewsList">
-            select N.*, C.category_emoji, C.category_name 
-    		from news N
-    		left join category C
+    	<select id="c_getNewsList" parameterType="NewsVO" resultMap="main_NewsList">
+            select N.*, max(NF.fileName) fileName, NF.num, C.category_emoji, C.category_name 
+    		from news N left join newsFiles NF
+    		using(num)
+    		left join category C 
     		on N.newsId = C.category_id
     		where
     			<choose>
@@ -64,8 +65,8 @@
     					contents
     				</otherwise>
     			</choose>
-    		like concat('%', #{search}, '%') order by N.num desc
-			limit #{startRow}, #{perPage}	
+    		like concat('%', #{search}, '%') 
+    		group by N.num order by N.num desc	
     	</select>
     	
     	<!-- **************** Admin **************** -->
