@@ -23,7 +23,7 @@
     		left join category C 
     		on N.newsId = C.category_id 
             group by N.num
-            order by regDate desc limit 9
+            order by regDate desc limit 8
     		
     	</select>
     	

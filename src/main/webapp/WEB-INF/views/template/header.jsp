@@ -23,9 +23,8 @@
 	      	 <c:choose>
                   <c:when test="${not empty member}">
 				     <div class="dropdown-menu dropdown-menu-right">
-					    <a class="dropdown-item" href="e">마이페이지</a>
-					    <a class="dropdown-item" href="${pageContext.request.contextPath}/member/likeList">좋아요🧡</a>
 					    <a class="dropdown-item" href="${pageContext.request.contextPath}/member/memberProfile">프로필 설정</a>
+					    <a class="dropdown-item" href="${pageContext.request.contextPath}/member/likeList">좋아요🧡</a>
 					    <a class="dropdown-item" href="${pageContext.request.contextPath}/help/helpPage">고객센터</a>
 					    <a class="dropdown-item" href="${pageContext.request.contextPath}/member/memberLogout">로그아웃</a>
 					 </div>

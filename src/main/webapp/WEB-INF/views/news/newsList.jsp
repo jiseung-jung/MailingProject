@@ -14,14 +14,16 @@
 	
 	#NL-c-div{
 		border-bottom: 1px solid black;
-		padding: 30px 0;
+		background: white;
+		padding: 20px 0;
 		margin-bottom: 30px;
 		text-align: center;
 	}
 	
 	#NL-c-div span{
-		font-size: 1.1em;
-		padding: 0 18px;
+		font-size: 0.9em;
+		letter-spacing: -0.03em;
+		padding: 0 15px;
 	}
 	
 	#NL-c-div a:hover{
@@ -62,19 +64,19 @@
 
 <div id="NL-c-div">
 	<a href="${pageContext.request.contextPath}/news/newsList"><span>전체</span></a>
-	<a href="${pageContext.request.contextPath}/news/newsList?kind=newsId&search=1"><span>국내외정치</span></a>
-	<a href="${pageContext.request.contextPath}/news/newsList?kind=newsId&search=2"><span>경제</span></a>
-	<a href="${pageContext.request.contextPath}/news/newsList?kind=newsId&search=3"><span>노동·인권</span></a>
-	<a href="${pageContext.request.contextPath}/news/newsList?kind=newsId&search=4"><span>테크</span></a>
-	<a href="${pageContext.request.contextPath}/news/newsList?kind=newsId&search=5"><span>문화</span></a>
-	<a href="${pageContext.request.contextPath}/news/newsList?kind=newsId&search=6"><span>환경·에너지</span></a>
-	<a href="${pageContext.request.contextPath}/news/newsList?kind=newsId&search=7"><span>코로나19</span></a>
+	<a href="${pageContext.request.contextPath}/news/newsList?kind=newsId&search=1"><span>⚖️ 국내외정치</span></a>
+	<a href="${pageContext.request.contextPath}/news/newsList?kind=newsId&search=2"><span>💰 경제</span></a>
+	<a href="${pageContext.request.contextPath}/news/newsList?kind=newsId&search=3"><span>💪 노동·인권</span></a>
+	<a href="${pageContext.request.contextPath}/news/newsList?kind=newsId&search=4"><span>🤖 테크</span></a>
+	<a href="${pageContext.request.contextPath}/news/newsList?kind=newsId&search=5"><span>🧸 문화</span></a>
+	<a href="${pageContext.request.contextPath}/news/newsList?kind=newsId&search=6"><span>🌳 환경·에너지</span></a>
+	<a href="${pageContext.request.contextPath}/news/newsList?kind=newsId&search=7"><span>😷 코로나19</span></a>
 </div>
 
 <div id="newsList-body">
   <div id="news-listbox" class="col-12">
 	<c:forEach items="${list}" var="vo">
-		<div class="news-listbox-div col-md-4" OnClick="location.href ='./newsSelect?num=${vo.num}'">
+		<div class="news-listbox-div col-md-3" OnClick="location.href ='./newsSelect?num=${vo.num}'">
 			<c:if test="${vo.fileList[0].fileName ne null}">
 				<img alt="" src="/upload/news/${vo.fileList[0].fileName}" width="100%" height="200px"/>
 				

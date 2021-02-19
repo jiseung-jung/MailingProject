@@ -55,7 +55,7 @@
 	<div class="row">
 		<div class="col-12 posts">
 	<c:forEach items="${list}" var="vo">
-		<div class="card col-md-4" OnClick="location.href ='./news/newsSelect?num=${vo.num}'">
+		<div class="card col-md-3" OnClick="location.href ='./news/newsSelect?num=${vo.num}'">
 			
 			<c:if test="${vo.fileList[0].fileName ne null}">
 				<img alt="" src="/upload/news/${vo.fileList[0].fileName}" width="100%" height="200px"/>
