@@ -21,6 +21,7 @@ public class MemberVO {
 	private String pw;
 	
 	private String pw2;
+	private String pwChk;
 	
 	@NotEmpty
 	@Length(min=2)

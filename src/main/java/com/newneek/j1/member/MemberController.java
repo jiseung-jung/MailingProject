@@ -148,7 +148,7 @@ public class MemberController {
 	public ModelAndView getMemberProfile(@Valid MemberVO memberVO, BindingResult bindingResult, HttpSession session) throws Exception{
 	   ModelAndView mv = new ModelAndView();
 	   memberVO = (MemberVO) session.getAttribute("member");
-	   System.out.println(memberVO.getAddress());
+	   
 	   mv.addObject("member", memberVO);
 	   mv.setViewName("member/memberProfile");
 	      
@@ -180,14 +180,15 @@ public class MemberController {
 	public ModelAndView setMemberPw(@Valid MemberVO memberVO, BindingResult bindingResult, HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
-		
-		
-		 if(memberService.getMemberError(memberVO, bindingResult)) {
-		  mv.setViewName("/member/memberProfile"); return mv; 
+		 if(memberService.getMemberPwError(memberVO, bindingResult)) {
+			 mv.setViewName("member/memberProfile"); 
+			 System.out.println("memberPw Error");
+			 return mv; 
 		  }
 		
 		 
 		int result = memberService.setMemberPw(memberVO);
+		System.out.println("memberprofile");
 			
 		if(result>0) {
 			mv.addObject("msg", "NEWNEEK 패스워드 수정 완료! 다시 로그인 해주세요");

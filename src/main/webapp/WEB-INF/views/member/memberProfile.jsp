@@ -114,13 +114,13 @@
 
 				<h2>비밀번호 변경</h2>
 
-				<form:form modelAttribute="memberVO" class="password-form">
+				<form:form modelAttribute="memberVO" action="${pageContext.request.contextPath}/member/memberProfile" class="password-form">
 					<form:hidden path="email" value="${member.email}" />
-					<form:password path="pw" placeholder="비밀번호 (8자 이상)"/>
+					<form:password path="pw" placeholder="비밀번호 (8자 이상)" />
 			        <form:errors path="pw" cssClass="error"></form:errors>
 					
-					<form:password path="pw2" placeholder="비밀번호 확인 (8자 이상)"/>
-			        <form:errors path="pw2" cssClass="error"></form:errors>
+					<form:password path="pwChk" placeholder="비밀번호 확인 (8자 이상)"/>
+			        <form:errors path="pwChk" cssClass="error"></form:errors>
 					<button type="submit" class="pw-btn">변경</button>
 				</form:form>
 			</div>
@@ -156,6 +156,10 @@ function setToggle() {
 	$("#birthYear").val("${member.birthYear}").prop("selected", true);
 	$("#gender").val("${member.gender}").prop("selected", true);
 	$("#mailCheck").val("${member.mailCheck}").prop("selected", true);
+	$("#sample6_postcode").val("${member.zipCode}");
+	$("#sample6_address").val("${member.address}");
+	$("#sample6_detailAddress").val("${member.detailAddress}");
+	$("#sample6_extraAddress").val("${member.extraAddress}");
 }
 
 

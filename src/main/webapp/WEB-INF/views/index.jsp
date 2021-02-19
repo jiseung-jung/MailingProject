@@ -66,7 +66,7 @@
 			<c:if test="${vo.fileList[0].fileName eq null}">
 				<p class="post-emoji">${vo.categoryVO.category_emoji} </p>
 				<p class="post-title">${vo.title}</p>
-				<span>${vo.regDate} &nbsp;  &nbsp;${vo.categoryVO.category_name }</span>
+				<span>${vo.regDate} &nbsp;  &nbsp;${vo.categoryVO.category_name}</span>
 			</c:if>
 		</div>
 	</c:forEach>	
