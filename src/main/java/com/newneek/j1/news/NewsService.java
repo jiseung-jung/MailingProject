@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.newneek.j1.news.file.NewsFilesVO;
 import com.newneek.j1.util.C_Pager;
+import com.newneek.j1.util.C_Pager2;
 import com.newneek.j1.util.FileManager;
 import com.newneek.j1.util.FilePathGenerator;
 import com.newneek.j1.util.Pager;
@@ -157,10 +158,8 @@ public class NewsService {
 		return newsMapper.main_getNewsList(newsVO);
 	}
 	
-	public List<NewsVO> c_getNewsList(C_Pager c_Pager) throws Exception{
-		c_Pager.makeRow();
+	public List<NewsVO> c_getNewsList(C_Pager2 c_Pager) throws Exception{
 		long totalCount = newsMapper.c_getNewsCount(c_Pager);
-		c_Pager.makePage(totalCount);
 		return newsMapper.c_getNewsList(c_Pager);
 	}
 }

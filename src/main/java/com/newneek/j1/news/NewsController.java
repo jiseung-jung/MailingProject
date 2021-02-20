@@ -17,6 +17,7 @@ import com.newneek.j1.like.LikeVO;
 import com.newneek.j1.member.MemberVO;
 import com.newneek.j1.news.file.NewsFilesVO;
 import com.newneek.j1.util.C_Pager;
+import com.newneek.j1.util.C_Pager2;
 import com.newneek.j1.util.Pager;
 
 @Controller
@@ -35,19 +36,24 @@ public class NewsController {
 	
 	
 	@GetMapping("newsList")
-	public ModelAndView admin_getNewsList(C_Pager c_Pager) throws Exception{
+	public ModelAndView c_getNewsList(C_Pager2 c_Pager) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		
 		List<NewsVO> ar = newsService.c_getNewsList(c_Pager);
-		
 		mv.addObject("list", ar);
-		mv.addObject("pager", c_Pager);
-		mv.setViewName("news/newsList");
+		mv.setViewName("news/newsCard");
 		
 		return mv;
 	}
 	
-	
+	@GetMapping("newsCard")
+	public ModelAndView newsCard(NewsOneVO newsOneVO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		newsOneVO = newsService.admin_getNewsOne(newsOneVO);
+		mv.addObject("vo", newsOneVO);
+		mv.setViewName("news/newsCard");
+		
+		return mv;
+	}
 	
 	@GetMapping("newsSelect")
 	public ModelAndView admin_getNewsOne(NewsOneVO newsOneVO, HttpSession session) throws Exception{
@@ -114,6 +120,14 @@ public class NewsController {
 		mv.addObject("path", "./");
 		mv.setViewName("common/result");
 		return mv;
+	}
+	
+	@GetMapping("newsPage")
+	public ModelAndView newsPage() throws Exception{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("news/newsPage");
+		return mv;
+		
 	}
 	
 }

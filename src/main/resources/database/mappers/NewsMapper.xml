@@ -10,7 +10,7 @@
     		select count(num) from news
     	</select>
     	
-    	<select id="c_getNewsCount" parameterType="C_Pager" resultType="Long">
+    	<select id="c_getNewsCount" parameterType="C_Pager2" resultType="Long">
     		select count(num) from news
     	</select>
     	
@@ -45,7 +45,7 @@
        		</collection>
 		</resultMap>
     	
-    	<select id="c_getNewsList" parameterType="NewsVO" resultMap="main_NewsList">
+    	<select id="c_getNewsList" parameterType="C_Pager2" resultMap="main_NewsList">
             select N.*, max(NF.fileName) fileName, NF.num, C.category_emoji, C.category_name 
     		from news N left join newsFiles NF
     		using(num)
@@ -66,7 +66,8 @@
     				</otherwise>
     			</choose>
     		like concat('%', #{search}, '%') 
-    		group by N.num order by N.num desc	
+    		group by N.num order by N.num desc
+    		limit #{startRow}, #{perPage}	
     	</select>
     	
     	<!-- **************** Admin **************** -->

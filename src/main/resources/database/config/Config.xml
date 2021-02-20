@@ -8,6 +8,7 @@
 		<typeAlias type="java.lang.Long" alias="Long"/>
 		<typeAlias type="com.newneek.j1.util.Pager" alias="Pager"/>
 		<typeAlias type="com.newneek.j1.util.C_Pager" alias="C_Pager"/>
+		<typeAlias type="com.newneek.j1.util.C_Pager2" alias="C_Pager2"/>
 		
 		<typeAlias type="com.newneek.j1.member.MemberVO" alias="MemberVO"/>
 		<typeAlias type="com.newneek.j1.news.NewsVO" alias="NewsVO"/>

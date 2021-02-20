@@ -681,3 +681,46 @@ footer {
 	color: #999;
 }
 
+/***** NewsPage *****/
+#NL-c-div{
+	border-bottom: 1px solid black;
+	background: white;
+	padding: 20px 0;
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+#NL-c-div span{
+	font-size: 0.9em;
+	letter-spacing: -0.03em;
+	padding: 0 15px;
+}
+
+#NL-c-div a:hover{
+	text-decoration: none;
+	color: #fb7800;
+}
+
+#newsList-body{
+	max-width: 1070px;
+   	margin: 0 auto;
+   	padding-bottom: 30px;
+}
+
+#news-listbox{
+	display: flex;
+	flex-wrap: wrap;
+   	box-sizing: border-box;
+   	padding: 0 0 10px 0;
+}
+
+.news-listbox-div{
+	border: 1px solid black;
+	height: 310px;
+	cursor: pointer;
+	padding: 13px;
+}
+
+.news-listbox-div:hover{
+	background-color: white;
+}

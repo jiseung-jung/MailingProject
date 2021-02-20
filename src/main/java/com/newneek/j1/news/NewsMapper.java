@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.newneek.j1.news.file.NewsFilesVO;
 import com.newneek.j1.util.C_Pager;
+import com.newneek.j1.util.C_Pager2;
 import com.newneek.j1.util.Pager;
 
 @Mapper
@@ -32,9 +33,9 @@ public interface NewsMapper {
 	
 	public List<NewsVO> main_getNewsList(NewsVO newsVO) throws Exception;
 	
-	public List<NewsVO> c_getNewsList(C_Pager c_Pager) throws Exception;
+	public List<NewsVO> c_getNewsList(C_Pager2 c_Pager) throws Exception;
 	
-	public long c_getNewsCount(C_Pager c_Pager) throws Exception;
+	public long c_getNewsCount(C_Pager2 c_Pager) throws Exception;
 	
 	
 	//-------------------------------------- file
