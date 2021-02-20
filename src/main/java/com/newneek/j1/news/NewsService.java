@@ -160,6 +160,9 @@ public class NewsService {
 	
 	public List<NewsVO> c_getNewsList(C_Pager2 c_Pager) throws Exception{
 		long totalCount = newsMapper.c_getNewsCount(c_Pager);
+		System.out.println("totalCount : " + totalCount);
 		return newsMapper.c_getNewsList(c_Pager);
 	}
+	
+
 }
