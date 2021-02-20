@@ -32,7 +32,7 @@
 	</div>
 
 	<div id="newsList-body">
-		<div id="news-listbox" class="col-12">
+		<div id="news-listbox" class="col-12 posts">
 	
 		</div>
 	 </div>

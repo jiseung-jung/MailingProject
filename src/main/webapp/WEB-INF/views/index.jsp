@@ -39,7 +39,7 @@
 
 <div class="news-nav">
 	<ul class="news-item">
-		<li><a href="${pageContext.request.contextPath}/news/newsPage" class="news-link">전체</a></li>
+		<li><a href="${pageContext.request.contextPath}/news/newsPage?kind=newsId&search=" class="news-link">전체</a></li>
 		<li><a href="${pageContext.request.contextPath}/news/newsPage?kind=newsId&search=1" class="news-link">⚖️ 국내외정치</a></li>
 		<li><a href="${pageContext.request.contextPath}/news/newsPage?kind=newsId&search=2" class="news-link">💰 경제</a></li>
 		<li><a href="${pageContext.request.contextPath}/news/newsPage?kind=newsId&search=3" class="news-link">💪 노동·인권</a></li>
