@@ -28,9 +28,14 @@
 		</select>
 		
 		<select id="getLikeList" resultType="LikeVO" resultMap="LikeList">
-    		select A.*, N.* from (select l.* from likes l left join member m using (email)) A
-			inner join news N 
-			on N.num = A.newsNum where A.email = #{email}
+    		select A.*, N.*, max(NF.fileName) fileName, NF.num, C.category_emoji, C.category_name from 
+    		(select l.* from likes l left join member m using (email)) A
+			inner join news N on N.num = A.newsNum 
+			left join newsFiles NF on N.num = NF.num 
+    		left join category C 
+    		on N.newsId = C.category_id
+            where A.email = #{email}
+            group by A.num
 			order by A.num desc
     	</select>
     	
@@ -38,9 +43,15 @@
     		<result column="num" property="num"/>
     		<result column="email" property="email"/>
     		<result column="newsNum" property="newsNum"/>
-    		
-         <association property="newsVO" javaType="NewsVO" resultMap="news">
-         </association>
+    		<association property="categoryVO" javaType="CategoryVO" resultMap="category">
+    		</association>
+         	<association property="newsVO" javaType="NewsVO" resultMap="news">
+         	</association>
+         	<collection property="fileList" ofType="newsFilesVO" javaType="java.util.List">
+            	<id column="fnum" property="fnum"/>
+            	<result column="num" property="num" />
+            	<result column="fileName" property="fileName"/>
+       		</collection>
 		</resultMap>
 		
 		<resultMap type="NewsVO" id="news">
@@ -53,6 +64,10 @@
     		<result column="hit" property="hit"/>
 		</resultMap>
 		
-	
+		<resultMap type="CategoryVO" id="category">
+			<id column="category_id" property="category_id"/>
+    		<result column="category_emoji" property="category_emoji"/>
+    		<result column="category_name" property="category_name"/>
+		</resultMap>
     	
 	</mapper> 

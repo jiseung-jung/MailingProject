@@ -681,6 +681,13 @@ footer {
 	color: #999;
 }
 
+.like-title h1{
+	margin: 40px 0 30px 0;
+	font-size: 1.4em;
+	font-weight: 600;
+	letter-spacing: -0.01em;
+}
+
 /***** NewsPage *****/
 #NL-c-div{
 	border-bottom: 1px solid black;
@@ -741,5 +748,4 @@ footer {
 
 #add-btn:hover {
 	background: #fb7800;
-	
 }

@@ -17,31 +17,30 @@
 	<div class="row">
 		<div class="col-12">
 		
-			<div class="board-title">
-				<h1>좋아요 ❤</h1>
+			<div class="like-title">
+				<h1>🧡 좋았슴</h1>
 			</div>
 
-			<table class="table listTable">
-				<tr>
-					<td>no.</td>
-					<td>제목</td>
-					<td>작성자</td>
-					<td>작성일</td>
-				</tr>
-				
-						
-			<c:forEach items="${list}" var="vo" varStatus="status">
-				<tr>
-					<td>${vo.num}</td>
-					<td><a href="../news/newsSelect?num=${vo.newsNum}">${vo.newsVO.title}</a></td>
-					<td>${vo.newsVO.writer}</td>
-					<td>${vo.newsVO.regDate}</td>
-					<td>${vo.newsVO.hit}</td>
-				</tr>
-			</c:forEach>
-			</table>
+			<div id="newsList-body">
+				<div id="news-listbox" class="col-12 posts">
+					<c:forEach items="${list}" var="vo">
+						<div class="card col-md-3" OnClick="location.href ='../news/newsSelect?num=${vo.newsNum}'">
+							<c:if test="${vo.fileList[0].fileName ne null}">
+								<img alt="" src="/upload/news/${vo.fileList[0].fileName}" width="100%" height="200px"/>
+								
+								<p class="post-title1">${vo.newsVO.title}</p>
+								<span>${vo.newsVO.regDate} &nbsp;  &nbsp;${vo.categoryVO.category_name}</span>
+							</c:if>
+							<c:if test="${vo.fileList[0].fileName eq null}">
+								<p class="post-emoji">${vo.categoryVO.category_emoji} </p>
+								<p class="post-title">${vo.newsVO.title}</p>
+								<span>${vo.newsVO.regDate} &nbsp;  &nbsp;${vo.categoryVO.category_name}</span>
+							</c:if>
+						</div>
+					</c:forEach>
+				</div>
+			</div>
 			
-
 		</div>
 	</div>
 </div>

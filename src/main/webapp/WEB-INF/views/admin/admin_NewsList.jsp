@@ -86,7 +86,6 @@
 					<td>제목</td>
 					<td>작성자</td>
 					<td>작성일</td>
-					<td>조회수</td>
 				</tr>
 				
 						
@@ -97,7 +96,6 @@
 					<td><a href="../news/newsSelect?num=${vo.num}">${vo.title}</a></td>
 					<td>${vo.writer}</td>
 					<td>${vo.regDate}</td>
-					<td>${vo.hit}</td>
 				</tr>
 			</c:forEach>
 			</table>
