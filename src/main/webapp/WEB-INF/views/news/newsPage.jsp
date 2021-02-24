@@ -10,11 +10,6 @@
 <c:import url="../template/bootStrap.jsp"></c:import>
 <link href="../css/style.css" rel="stylesheet">
 
-<style type="text/css">
-	
-
-	
-</style>
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
@@ -49,15 +44,24 @@
 	var c_num = url.substring(url.indexOf("search=")+7);
 	var startRow = 0;
 	var addRow = 8;
+	
 
 	console.log(url);
 	console.log(c_num);
+	
 	getList();
-
-
+	
 	$("#add-btn").click(function() {
+		var count = $('.card').length;
 		startRow += 8; 
+		console.log("startRow" + startRow);
+		console.log("count" + count);
+		
 		getList();
+		if(count < startRow) {
+				$("#add-btn").addClass("hide");
+			}
+		
 		
 	});
 
