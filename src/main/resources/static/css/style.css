@@ -7,6 +7,12 @@ body {
 	font-family: 'Spoqa Han Sans', sans-serif; 
 }
 
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
 /* reset css */
 a {
 	color: inherit;
@@ -28,6 +34,7 @@ textarea:focus,
 textarea:active {
 	outline: none;
 	box-shadow: none;
+	border: none;
 }
 
 ul,
@@ -72,26 +79,39 @@ header {
 }
 
 .header-contents {
-	width: 80%;
+	width: 65%;
 	height: 45px;
 	margin: 0 auto;
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
-	align-content: center;
+
 }
 
 .header-nav {
 	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-.header-nav li {
+.header-left {
+	display: flex;
+	align-items: center;
+}
+
+.header-right {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.dropdown-icon {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 48px;
-	height: 48px;
+	width: 45px;
+	height: 45px;
 	border: 1px #000 solid;
+	font-size: 25px;
 }
 
 .dropdown-item {
@@ -109,7 +129,7 @@ header {
 }
 
 .logo {
-	width: 180px;
+	width: 200px;
 }
 
 /* mail service */
@@ -200,6 +220,11 @@ header {
 	font-weight: 700;
 	padding: 17.5px 0px;
 	margin: 0px 14px
+}
+
+.news-link:hover {
+	text-decoration: none;
+	color: #fb7800;
 }
 /* main news */
 .posts {
@@ -744,8 +769,44 @@ footer {
 	padding: 10px 20px;
 	font-size: 0.8em;
 	background: #fff;
+	border: 1px #000 solid;
 }
 
 #add-btn:hover {
 	background: #fb7800;
+}
+
+
+#news-Search {
+	display: flex;
+	justify-content: center;
+	padding: 20px 0;
+}
+
+#help-search {
+	display: block;
+	border: 1px #000 solid;
+	border-right-style: none;
+	width: 300px;
+	height: 45px;
+	padding: 10px 40px 11px 20px;
+	font-size: 0.8em;
+}
+
+.search-item {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.search-btn {
+	border: none;
+	background: #fff;
+	position: absolute;
+	right: 5px;
+}
+
+.fa-search {
+	font-size: 20px;
 }

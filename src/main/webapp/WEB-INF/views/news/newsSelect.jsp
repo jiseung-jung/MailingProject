@@ -64,7 +64,7 @@
 <div class="Select-Container">
  <div id="Sel-head">	
 	<div id="Sel-title">
-		<a href="./newsList?kind=newsId&search=${vo.category_id}"><span id="Sel-title-s1">${vo.category_name}</span></a><br>
+		<a href="./newsPage?kind=newsId&search=${vo.category_id}"><span id="Sel-title-s1">${vo.category_name}</span></a><br>
 		<p>${vo.title}</p>
 		<span id="Sel-title-s2">${vo.regDate}</span>
 	</div>
