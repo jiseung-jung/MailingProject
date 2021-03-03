@@ -51,10 +51,10 @@
     		using(num)
     		left join category C 
     		on N.newsId = C.category_id
-    		where
-    			<choose>
-    				<when test="kind =='newsId'">
-    					newsId
+    		where 
+    		<choose>
+    				<when test="kind =='category_name'">
+    					category_name
     				</when>
     				
     				<when test="kind =='title'">
@@ -64,7 +64,7 @@
     				<otherwise>
     					contents
     				</otherwise>
-    			</choose>
+    		</choose>
     		like concat('%', #{search}, '%') 
     		group by N.num order by N.num desc
     		limit #{startRow}, #{perPage}	

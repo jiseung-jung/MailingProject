@@ -39,14 +39,14 @@
 
 <div class="news-nav">
 	<ul class="news-item">
-		<li><a href="${pageContext.request.contextPath}/news/newsPage?kind=newsId&search=" class="news-link">전체</a></li>
-		<li><a href="${pageContext.request.contextPath}/news/newsPage?kind=newsId&search=1" class="news-link">⚖️ 국내외정치</a></li>
-		<li><a href="${pageContext.request.contextPath}/news/newsPage?kind=newsId&search=2" class="news-link">💰 경제</a></li>
-		<li><a href="${pageContext.request.contextPath}/news/newsPage?kind=newsId&search=3" class="news-link">💪 노동·인권</a></li>
-		<li><a href="${pageContext.request.contextPath}/news/newsPage?kind=newsId&search=4" class="news-link">🤖 테크</a></li>
-		<li><a href="${pageContext.request.contextPath}/news/newsPage?kind=newsId&search=5" class="news-link">🧸 문화</a></li>
-		<li><a href="${pageContext.request.contextPath}/news/newsPage?kind=newsId&search=6" class="news-link">🌳 환경·에너지</a></li>
-		<li><a href="${pageContext.request.contextPath}/news/newsPage?kind=newsId&search=7" class="news-link">😷 코로나19</a></li>
+		<li><a href="${pageContext.request.contextPath}/news/newsPage?kind=category_name&search=" class="news-link">전체</a></li>
+		<li><a href="${pageContext.request.contextPath}/news/newsPage?kind=category_name&search=국내외정치" class="news-link">⚖️ 국내외정치</a></li>
+		<li><a href="${pageContext.request.contextPath}/news/newsPage?kind=category_name&search=경제" class="news-link">💰 경제</a></li>
+		<li><a href="${pageContext.request.contextPath}/news/newsPage?kind=category_name&search=노동·인권" class="news-link">💪 노동·인권</a></li>
+		<li><a href="${pageContext.request.contextPath}/news/newsPage?kind=category_name&search=테크" class="news-link">🤖 테크</a></li>
+		<li><a href="${pageContext.request.contextPath}/news/newsPage?kind=category_name&search=문화" class="news-link">🧸 문화</a></li>
+		<li><a href="${pageContext.request.contextPath}/news/newsPage?kind=category_name&search=환경·에너지" class="news-link">🌳 환경·에너지</a></li>
+		<li><a href="${pageContext.request.contextPath}/news/newsPage?kind=category_name&search=코로나19" class="news-link">😷 코로나19</a></li>
 	</ul>
 </div>
 

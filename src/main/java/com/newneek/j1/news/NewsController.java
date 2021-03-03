@@ -39,7 +39,6 @@ public class NewsController {
 	public ModelAndView c_getNewsList(C_Pager2 c_Pager) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		List<NewsVO> ar = newsService.c_getNewsList(c_Pager);
-		
 		mv.addObject("list", ar);
 		
 		mv.setViewName("news/newsCard");

@@ -16,17 +16,18 @@
 <section>
 
 	<div id="NL-c-div">
-		<a href="${pageContext.request.contextPath}/news/newsPage?kind=newsId&search="><span>전체</span></a>
-		<a href="${pageContext.request.contextPath}/news/newsPage?kind=newsId&search=1"><span>⚖️ 국내외정치</span></a>
-		<a href="${pageContext.request.contextPath}/news/newsPage?kind=newsId&search=2"><span>💰 경제</span></a>
-		<a href="${pageContext.request.contextPath}/news/newsPage?kind=newsId&search=3"><span>💪 노동·인권</span></a>
-		<a href="${pageContext.request.contextPath}/news/newsPage?kind=newsId&search=4"><span>🤖 테크</span></a>
-		<a href="${pageContext.request.contextPath}/news/newsPage?kind=newsId&search=5"><span>🧸 문화</span></a>
-		<a href="${pageContext.request.contextPath}/news/newsPage?kind=newsId&search=6"><span>🌳 환경·에너지</span></a>
-		<a href="${pageContext.request.contextPath}/news/newsPage?kind=newsId&search=7"><span>😷 코로나19</span></a>
+		<a href="${pageContext.request.contextPath}/news/newsPage?kind=category_name&search="><span>전체</span></a>
+		<a href="${pageContext.request.contextPath}/news/newsPage?kind=category_name&search=국내외정치"><span>⚖️ 국내외정치</span></a>
+		<a href="${pageContext.request.contextPath}/news/newsPage?kind=category_name&search=경제"><span>💰 경제</span></a>
+		<a href="${pageContext.request.contextPath}/news/newsPage?kind=category_name&search=노동·인권"><span>💪 노동·인권</span></a>
+		<a href="${pageContext.request.contextPath}/news/newsPage?kind=category_name&search=테크"><span>🤖 테크</span></a>
+		<a href="${pageContext.request.contextPath}/news/newsPage?kind=category_name&search=문화"><span>🧸 문화</span></a>
+		<a href="${pageContext.request.contextPath}/news/newsPage?kind=category_name&search=환경·에너지"><span>🌳 환경·에너지</span></a>
+		<a href="${pageContext.request.contextPath}/news/newsPage?kind=category_name&search=코로나19"><span>😷 코로나19</span></a>
 	</div>
 
 	<div id="newsList-body">
+		<h1 class="newList-title"></h1>
 		<div id="news-listbox" class="col-12 posts">
 	
 		</div>
@@ -41,13 +42,13 @@
 <script type="text/javascript">
 	
 	var url = decodeURIComponent(window.location.href);
-	var c_num = url.substring(url.indexOf("search=")+7);
+	var c_title = url.substring(url.indexOf("search=")+7);
 	var startRow = 0;
 	var addRow = 8;
-	
+	$(".newList-title").append(c_title);
 
 	console.log(url);
-	console.log(c_num);
+	console.log(c_title);
 	
 	getList();
 	
@@ -70,7 +71,7 @@
 		$.ajax({
 			url:"./newsList",
 			type: "GET",
-			data:{kind :"newsId", search:c_num, startRow: startRow, perPage: addRow},
+			data:{kind :"category_name", search: c_title, startRow: startRow, perPage: addRow},
 			success:function(data){
 				$("#news-listbox").append(data);
 			}
