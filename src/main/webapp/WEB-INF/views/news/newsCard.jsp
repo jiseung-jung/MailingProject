@@ -4,9 +4,7 @@
 
 
 <c:forEach items="${list}" var="vo">
-	
-
-	<div class="card col-md-3" OnClick="location.href ='./newsSelect?num=${vo.num}'">
+	<div class="card col-md-3 post-card" OnClick="location.href ='./newsSelect?num=${vo.num}'">
 		<c:if test="${vo.fileList[0].fileName ne null}">
 			<img alt="" src="/upload/news/${vo.fileList[0].fileName}" width="100%" height="200px"/>
 			
@@ -19,4 +17,5 @@
 			<span>${vo.regDate} &nbsp;  &nbsp;${vo.categoryVO.category_name}</span>
 		</c:if>
 	</div>
+	<h1>${msg}</h1>
 </c:forEach>

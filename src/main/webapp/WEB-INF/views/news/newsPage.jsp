@@ -29,7 +29,7 @@
 	<div id="newsList-body">
 		<h1 class="newList-title"></h1>
 		<div id="news-listbox" class="col-12 posts">
-	
+		
 		</div>
 	 </div>
 	
@@ -42,14 +42,23 @@
 <script type="text/javascript">
 	
 	var url = decodeURIComponent(window.location.href);
+	var kind= url.indexOf("kind=");
+	
+	if(kind!=-1){
+		var c_kind = url.substring(url.indexOf("kind=")+5, url.indexOf("&"));
+	} else {
+		var c_kind = '';
+	}
+	
 	var c_title = url.substring(url.indexOf("search=")+7);
 	var startRow = 0;
 	var addRow = 8;
+	
 	$(".newList-title").append(c_title);
 
 	console.log(url);
 	console.log(c_title);
-	
+	console.log(c_kind);
 	getList();
 	
 	$("#add-btn").click(function() {
@@ -71,11 +80,18 @@
 		$.ajax({
 			url:"./newsList",
 			type: "GET",
-			data:{kind :"category_name", search: c_title, startRow: startRow, perPage: addRow},
+			data:{kind :c_kind, search: c_title, startRow: startRow, perPage: addRow},
 			success:function(data){
 				$("#news-listbox").append(data);
+				console.log($('.card').length);
+				if($('.card').length==0 ){
+					$(".newList-title").remove();
+					$(".category_pager").remove();
+					$("#news-listbox").html("<div><h1 class=\"newList-title\">" + c_title + " <strong>관련된 이슈를 아직 다루지 않았어요!</strong></h1></div>");
+					$("#news-listbox").addClass("newsList-ht");
+					}
 			}
-		});		
+		});
 	}
 	
 </script>

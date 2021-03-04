@@ -57,12 +57,8 @@
     					category_name
     				</when>
     				
-    				<when test="kind =='title'">
-    					title
-    				</when>
-    				
     				<otherwise>
-    					contents
+    					title
     				</otherwise>
     		</choose>
     		like concat('%', #{search}, '%') 

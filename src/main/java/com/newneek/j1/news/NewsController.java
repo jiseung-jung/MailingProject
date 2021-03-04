@@ -51,6 +51,9 @@ public class NewsController {
 		ModelAndView mv = new ModelAndView();
 		newsOneVO = newsService.admin_getNewsOne(newsOneVO);
 		mv.addObject("vo", newsOneVO);
+		if(newsOneVO==null) {
+			mv.addObject("관련된 이슈를 아직 다루지 않았어요!", "msg");
+		}
 		mv.setViewName("news/newsCard");
 		
 		return mv;

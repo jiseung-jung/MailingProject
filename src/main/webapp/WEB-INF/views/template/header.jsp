@@ -14,7 +14,7 @@
 	<div class="header-right">
 		<ul class="header-nav">
 			<li>
-				<form class="search-item">
+				<form class="search-item" action="${pageContext.request.contextPath}/news/newsPage" method="get">
 					<input class="search-input" type="search" id="help-search" placeholder="고슴아 이게 궁금해. (인물, 이슈)" name="search">
 					<button class="search-btn"><i class="fas fa-search"></i></button>
 				</form>
@@ -41,7 +41,7 @@
 				</c:choose>
 	    	</li>
 	    	<c:if test="${member.email eq 'admin@newneek.com'}">
-	    		<li><a href="${pageContext.request.contextPath}/admin/adminPage" style="font-size: 1.3em; text-decoration: none;">🔧</a></li>
+	    		<li><a href="${pageContext.request.contextPath}/admin/adminPage" class="nav-link" style="font-size: 1.3em; text-decoration: none;">🔧</a></li>
 	    	</c:if>
 	    </ul>
 	</div>

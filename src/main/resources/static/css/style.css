@@ -104,7 +104,7 @@ header {
 	align-items: center;
 }
 
-.dropdown-icon {
+.nav-link {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -815,3 +815,11 @@ footer {
 	font-size: 1.5em;
 	margin-bottom: 20px;
 }
+
+.newsList-ht {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 300px;
+}
+
